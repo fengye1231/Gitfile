@@ -20,7 +20,8 @@ create table TravelAgency(
 */
 
 create table Guest(
-	guestId int identity(1,1) primary key,
+	/*guestId int identity(1,1) primary key,*/
+	guestId int not null primary key,
 	guestName varchar(20) not null,
 	guestNddress varchar(50), 
 	guestIdCard nvarchar(18) not null,
@@ -74,7 +75,7 @@ create table Flight(
 drop table OrderPapper;
 */
 create table OrderPapper(
-	orderId int identity(1,1) primary key,
+	orderId int not null primary key,
 	guestId int not null,
 	travelId int not null,
 	producetime datetime not null,
@@ -90,7 +91,7 @@ create table OrderPapper(
 	表五：机票表 ticket
 */
 create table Ticket(
-	ticketId int identity(1,1) primary key,
+	ticketId int not null primary key,
 	flightId int not null,
 	StartTime datetime not null,
 	ticketType varchar(20) not null,
