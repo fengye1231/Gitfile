@@ -1,15 +1,23 @@
+/*create database FlightTicketBookingSystem;
+*/
+
+use FlightTicketBookingSystem;
+
+
 /*
 	表一：旅行社表 TravelAgency
+*/
 
 create table TravelAgency(
 	travelId int primary key,
 	travelName varchar(20) not null,
 	travelAddress varchar(50) not null,
 )
-*/
+
 
 /*
 	表二：顾客表 Guest
+*/
 
 create table Guest(
 	guestId int identity(1,1) primary key,
@@ -20,33 +28,35 @@ create table Guest(
 	guestType varchar(10) not null,
 	guestTelephone varchar(11) not null,
 )
-*/
+
 
 
 /*
 	表四：城市表 city
+*/
 
 create table City(
 	cityId int not null primary key,
 	cityName varchar(20) not null,
 )
-*/
 
 
+/*
 drop table Flight;
-
+*/
 
 
 
 /*
 	表三：航班表 Flight
+*/
 
 create table Flight(
 	flightId int not null primary key,
 	flightStartCity int not null,
 	flightEndCity int not null,
 	startTime datetime not null,
-	flightTime datetime not null,
+	flightTime float not null,
 	superprice money not null,
 	generalPrice money not null,
 	economicPrice money not null,
@@ -54,7 +64,7 @@ create table Flight(
 	foreign key (flightStartCity) references City(cityId),
 	foreign key (flightEndCity) references City(cityId),
 )
-*/
+
 
 
 /*
@@ -62,6 +72,7 @@ create table Flight(
 
 
 drop table OrderPapper;
+*/
 create table OrderPapper(
 	orderId int identity(1,1) primary key,
 	guestId int not null,
@@ -72,12 +83,12 @@ create table OrderPapper(
 	foreign key (guestId) references Guest(guestId),
 	foreign key (travelId) references TravelAgency(travelId),
 )
-*/
+
 
 
 /*
 	表五：机票表 ticket
-
+*/
 create table Ticket(
 	ticketId int identity(1,1) primary key,
 	flightId int not null,
@@ -88,16 +99,15 @@ create table Ticket(
 	foreign key (flightId) references Flight(flightId),
 	foreign key (orderId) references OrderPapper(orderId),
 )
-*/
+
 
 
 
 /*
 	表七：错误信息表 error
-
+*/
 create table error(
 	errorId int not null primary key,
 	errorName varchar(10) not null,
 	errorContent varchar(50),
 )
-*/
