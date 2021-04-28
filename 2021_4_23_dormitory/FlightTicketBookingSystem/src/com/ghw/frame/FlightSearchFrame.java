@@ -22,10 +22,13 @@ public class FlightSearchFrame extends JFrame{
 	String[] SeatTypes = { "头等舱", "普通舱", "经济舱" };
 	private ArrayList<Flight> flights = null;
 	private BookingFrame bookingFrame;
+//	private BookingFrame bookingFrame=new BookingFrame();
+	
 	//private Date date ;
 
-	public FlightSearchFrame(BookingFrame BookingFrame) {
+	public FlightSearchFrame(BookingFrame bookingFrame) {
 		try {
+			this.bookingFrame = bookingFrame;
 			jbInit();
 		} catch (Exception exception) {
 			exception.printStackTrace();
@@ -60,8 +63,8 @@ public class FlightSearchFrame extends JFrame{
 		else {
 			for (int i = 0; i < flights.size(); i++) {
 				Flight f = flights.get(i);
-				//System.out.println(f.getId());
-				//System.out.println(f.getStart().getName());
+//				System.out.println(f.getId());
+//				System.out.println(f.getStart().getName());
 				String str = "" + f.getId() + "航班," + f.getStart().getName()
 						+ "——" + f.getEnd().getName() + ",出发时间:"
 						+ f.getStartTime();
@@ -87,14 +90,24 @@ public class FlightSearchFrame extends JFrame{
 		int i = cmbFlightResults.getSelectedIndex();
 		int j = cmbSeatTypes.getSelectedIndex();
 		Flight f = flights.get(i);
-		bookingFrame.txtendPlace.setText(f.getEnd().getName());
-		bookingFrame.txtFlightNo.setText("" + f.getId());
+		
+//		System.out.println(f.getId());
+//		System.out.println(f.getEnd().getName());
+		
+		
+//		bookingFrame.txtendPlace.setText(f.getEnd().getName());
+//		bookingFrame.txtendPlace.setText("武汉");	
+		bookingFrame.txtFlightNo.setText("" + f.getId());	
+//		bookingFrame.txtFlightNo.setText("广州");
+
 		if (j == 0)
 			bookingFrame.txtPrice.setText("" + f.getSuperPrice());
 		if (j == 1)
 			bookingFrame.txtPrice.setText("" + f.getGeneralPrice());
 		if (j == 2)
 			bookingFrame.txtPrice.setText("" + f.getEconomicPrice());
+		
+		bookingFrame.txtsSeat.setText(""+f.getSuperSeats());
 
 	}
 }
@@ -106,6 +119,7 @@ class FlightSearchFrame_btnSelectFlight_actionAdapter implements ActionListener 
 		this.adaptee = adaptee;
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		adaptee.btnSelectFlight_actionPerformed(e);
 		adaptee.dispose();

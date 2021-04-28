@@ -129,7 +129,7 @@ public class Flight_service {
 	public int getSuperSeats() {
 		return seats;
 	}
-	public void setSuperSeats(int superSeats) {
+	public void setSuperSeats(int seats) {
 		this.seats = seats;
 	}
 	

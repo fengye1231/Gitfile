@@ -28,7 +28,7 @@ public class FlightShedule extends JFrame{
 	private BookingFrame bookingFrame;
 	//private Date date ;
 
-	public FlightShedule(BookingFrame BookingFrame) {
+	public FlightShedule(BookingFrame bookingFrame) {
 		try {
 			this.bookingFrame = bookingFrame;
 			jbInit();

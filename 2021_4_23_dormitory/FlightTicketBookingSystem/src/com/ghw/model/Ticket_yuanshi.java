@@ -1,15 +1,10 @@
 package com.ghw.model;
 
-import com.ghw.model.*;
-public class Ticket {
+import com.ghw.*;
+public class Ticket_yuanshi {
 	private int id;
-	public int count;
-	
-	public static int count_total;
-	
-	
-	
-	private Flight flight;
+	private double count;
+	private Flight_yuanshi flight;
 	private Order order;
 	public int getId() {
 		return id;
@@ -20,13 +15,13 @@ public class Ticket {
 	public double getCount() {
 		return count;
 	}
-	public void setCount(int count) {
+	public void setCount(double count) {
 		this.count = count;
 	}
-	public Flight getFlight() {
+	public Flight_yuanshi getFlight() {
 		return flight;
 	}
-	public void setFlight(Flight flight) {
+	public void setFlight(Flight_yuanshi flight) {
 		this.flight = flight;
 	}
 	public Order getOrder() {

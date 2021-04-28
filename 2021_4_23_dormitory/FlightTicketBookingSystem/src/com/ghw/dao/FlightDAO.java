@@ -39,8 +39,8 @@ public class FlightDAO {
 				f.setGeneralPrice(rs.getInt("generalPrice"));
 				f.setEconomicPrice(rs.getInt("economicPrice"));
 				f.setSuperSeats(rs.getInt("superSeats"));
-				f.setGeneralSeats(rs.getInt("generalSeats"));
-				f.setEconomicSeats(rs.getInt("economicSeats"));
+//				f.setGeneralSeats(rs.getInt("generalSeats"));
+//				f.setEconomicSeats(rs.getInt("economicSeats"));
 				
 			}
 		} catch (SQLException e) {
@@ -67,13 +67,13 @@ public class FlightDAO {
 				City end = dao.selectById(cityId);
 				f.setEnd(end);
 				f.setStartTime(rs.getTimestamp("startTime").toLocalDateTime());
-				f.setEndTime(rs.getTimestamp("flightTime").toLocalDateTime());
+				f.setEndTime(rs.getTimestamp("endTime").toLocalDateTime());
 				f.setSuperPrice(rs.getInt("superPrice"));
 				f.setGeneralPrice(rs.getInt("generalPrice"));
 				f.setEconomicPrice(rs.getInt("economicPrice"));
-				f.setSuperSeats(rs.getInt("superSeats"));
-				f.setGeneralSeats(rs.getInt("generalSeats"));
-				f.setEconomicSeats(rs.getInt("economicSeats"));
+				f.setSuperSeats(rs.getInt("seats"));
+//				f.setGeneralSeats(rs.getInt("generalSeats"));
+//				f.setEconomicSeats(rs.getInt("economicSeats"));
 				flights.add(f);
 			}
 		} catch (SQLException e) {

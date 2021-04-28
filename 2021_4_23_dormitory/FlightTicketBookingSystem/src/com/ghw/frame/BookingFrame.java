@@ -70,6 +70,15 @@ public class BookingFrame extends JFrame{
     JLabel lblseatClass = new JLabel();
     JComboBox<String> cmbseatClass = new JComboBox<String>();
     String[] seat = {"普通舱","经济舱","头等舱"};
+    
+    
+    //订票数量
+    JLabel lblticketNum = new JLabel();
+    JTextField txtticketNum = new JTextField();
+    
+   
+    
+    
     //写**********
     //通过航班查询得到：
     //***********
@@ -229,6 +238,14 @@ public class BookingFrame extends JFrame{
         cmbseatClass.setBounds(new Rectangle(109, 275, 70, 20));
         for(int i=0;i<=2;i++)
             cmbseatClass.addItem(seat[i]);
+        
+        
+        
+        //订票数量
+        
+        
+        
+        
         //华丽丽的分割线
         lblNote.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblNote.setText("以下内容是通过航班查询的得到的内容：");
@@ -403,49 +420,57 @@ public class BookingFrame extends JFrame{
     	}
     	
     	if(name.equals("") || telephone.equals("") || adress.equals("") || IdCard.equals("")||startPlace.equals("")||endPlace.equals("")) {
-    		JOptionPane.showMessageDialog(null, "旅客信息没有填完整");
+//    		JOptionPane.showMessageDialog(null, "旅客信息没有填完整");
+    		System.out.println("旅客信息没有填完整");
+    		
     	}
     	
     	else if(flightNo == 0) {
     		JOptionPane.showMessageDialog(null, "没有您需要的航班");
+    		
+    		
     	}
     	
     	else {
-    		Guest g = new Guest();
-    		g.setName(name);
-    		g.setIDCard(IdCard);
-    		g.setStartDate(date);
-    		g.setTelephone(telephone);
-    		g.setAdress(adress);
-    		GuestDAO gDao = new GuestDAO();
-    		gDao.add(g);
-    		g = gDao.selectByIdCard(IdCard);
-    		System.out.println(g.getId());
-    		
-    		Order oo = new Order();
-    		oo.setNumber(1);
-    		oo.setTotalPays(money);
-    		oo.setGuest(guest);
-    		PlaneCompany planecompany = new PlaneCompany();
-    		planecompany.setId(1);
-    		planecompany.setName("北京机场");
-    		planecompany.setAdress("北京");
-    		oo.setPlanecompany(planecompany);
-    		int a = 0;
-    		if(money == 1000) a = 1;
-    		if(money == 800) a = 2;
-    		if(money == 500) a = 3;
-    		oo.setSeattype(a);
-    		OrderDAO oDao = new OrderDAO();
-    		oDao.add(oo);
-    		oo = oDao.selectByGuestId(g.getId());
+//    		Guest g = new Guest();
+//    		g.setName(name);
+//    		g.setIDCard(IdCard);
+//    		g.setStartDate(date);
+//    		g.setTelephone(telephone);
+//    		g.setAdress(adress);
+//    		GuestDAO gDao = new GuestDAO();
+//    		gDao.add(g);
+//    		g = gDao.selectByIdCard(IdCard);
+//    		System.out.println(g.getId());
+//    		
+//    		Order oo = new Order();
+//    		oo.setNumber(1);
+//    		oo.setTotalPays(money);
+//    		oo.setGuest(guest);
+//    		PlaneCompany planecompany = new PlaneCompany();
+//    		planecompany.setId(1);
+//    		planecompany.setName("北京机场");
+//    		planecompany.setAdress("北京");
+//    		oo.setPlanecompany(planecompany);
+//    		int a = 0;
+//    		if(money == 1000) a = 1;
+//    		if(money == 800) a = 2;
+//    		if(money == 500) a = 3;
+//    		oo.setSeattype(a);
+//    		OrderDAO oDao = new OrderDAO();
+//    		oDao.add(oo);
+//    		oo = oDao.selectByGuestId(g.getId());
     		
     		
     		Ticket t = new Ticket();
     		Flight f = new FlightDAO().selectById(flightNo);
     		t.setFlight(f);
-    		t.setOrder(oo);
+//    		t.setOrder(oo);
+    		
+    		
     		t.setCount(1);
+    		
+    		
     		boolean bb = new TicketDAO().add(t);
     		if(bb) 
     			JOptionPane.showMessageDialog(null, "机票预订成功");
