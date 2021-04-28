@@ -5,20 +5,21 @@ import java.util.Date;
 import com.ghw.model.*;
 
 public class Flight_service {
-	private int id;//������
-	private City start;//��ʼ�ص�
-	private City end;//�����յ�
-	private Date startTime;//���ʱ��
-	private float flightTime;//����ʱ��
-	private int superPrice;//ͷ�Ȳ�Ʊ��
-	private int generalPrice;//��ͨƱ��
-	private int economicPrice;//���ò�Ʊ��
-	private int superSeats;//ͷ�Ȳ���λ��
-	private int generalSeats;//��ͨ����λ��
-	private int economicSeats;//���ò���λ��
+	private int id;//锟斤拷锟斤拷锟斤拷
+	private City start;//锟斤拷始锟截碉拷
+	private City end;//锟斤拷锟斤拷锟秸碉拷
+	private Date startTime;//锟斤拷锟绞憋拷锟�
+	private float flightTime;//锟斤拷锟斤拷时锟斤拷
+	private int superPrice;//头锟饺诧拷票锟斤拷
+	private int generalPrice;//锟斤拷通票锟斤拷
+	private int economicPrice;//锟斤拷锟矫诧拷票锟斤拷
+	private int seats;
+//	private int superSeats;//头锟饺诧拷锟斤拷位锟斤拷
+//	private int generalSeats;//锟斤拷通锟斤拷锟斤拷位锟斤拷
+//	private int economicSeats;//锟斤拷锟矫诧拷锟斤拷位锟斤拷
 	
-	private int D_to;//Ŀ�ĵ�λ������ϵ��
-	private int D_from;//��ʼλ������ϵ��
+	private int D_to;//目锟侥碉拷位锟斤拷锟斤拷锟斤拷系锟斤拷
+	private int D_from;//锟斤拷始位锟斤拷锟斤拷锟斤拷系锟斤拷
 	
 	private double lat1;
 	private double lon1;
@@ -31,7 +32,7 @@ public class Flight_service {
 	
 	
 	Ticket_service ticket=new Ticket_service();
-	private double x_load_factor=ticket.count/ Ticket_service.count_total;//��λ��
+	private double x_load_factor=ticket.count/ Ticket_service.count_total;//锟斤拷位锟斤拷
 	
 	
 	
@@ -126,23 +127,35 @@ public class Flight_service {
 		this.economicPrice = economicPrice;
 	}
 	public int getSuperSeats() {
-		return superSeats;
+		return seats;
 	}
 	public void setSuperSeats(int superSeats) {
-		this.superSeats = superSeats;
+		this.seats = seats;
 	}
-	public int getGeneralSeats() {
-		return generalSeats;
-	}
-	public void setGeneralSeats(int generalSeats) {
-		this.generalSeats = generalSeats;
-	}
-	public int getEconomicSeats() {
-		return economicSeats;
-	}
-	public void setEconomicSeats(int economicSeats) {
-		this.economicSeats = economicSeats;
-	}
+	
+	
+	
+	
+	
+	
+//	public int getSuperSeats() {
+//		return superSeats;
+//	}
+//	public void setSuperSeats(int superSeats) {
+//		this.superSeats = superSeats;
+//	}
+//	public int getGeneralSeats() {
+//		return generalSeats;
+//	}
+//	public void setGeneralSeats(int generalSeats) {
+//		this.generalSeats = generalSeats;
+//	}
+//	public int getEconomicSeats() {
+//		return economicSeats;
+//	}
+//	public void setEconomicSeats(int economicSeats) {
+//		this.economicSeats = economicSeats;
+//	}
 	
 	
 }

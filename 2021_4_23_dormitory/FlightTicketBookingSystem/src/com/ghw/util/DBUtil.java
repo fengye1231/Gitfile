@@ -8,8 +8,8 @@ import java.sql.*;
 public class DBUtil {
 	private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";//SqlServer数据库驱动
 	private static final String URL = "jdbc:sqlserver://localhost:1433;DatabaseName=FlightTicketBookingSystem";//访问地址
-	private static final String USERNAME = "root";//用户名
-	private static final String PASSWORD = "";//密码
+	private static final String USERNAME = "sa";//用户名
+	private static final String PASSWORD = "Lx123321";//密码
 	private static DBUtil instance = null;//当前对象的实例
 	public DBUtil(){
 		try {
