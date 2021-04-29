@@ -146,7 +146,11 @@ public class BookingFrame extends JFrame{
 		// TODO Auto-generated method stub
         getContentPane().setLayout(null);
         //设置大小
-        this.setSize(564, 580);
+//        this.setSize(564, 580);
+        
+        
+        this.setSize(594, 610);
+        
         //设置位置居中
         Toolkit toolkit = getToolkit().getDefaultToolkit();
         Dimension screen = toolkit.getScreenSize();
@@ -159,7 +163,7 @@ public class BookingFrame extends JFrame{
         lblTitle.setForeground(Color.red);
         lblTitle.setText("机票预订");
         lblTitle.setBounds(new Rectangle(197, 0, 107, 44));
-        //用户信息
+        //用户信息       
         lblName.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblName.setText("姓   名：");
         lblName.setBounds(new Rectangle(16, 75, 75, 20));
@@ -243,69 +247,73 @@ public class BookingFrame extends JFrame{
         
         //订票数量
         
+        lblticketNum.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
+        lblticketNum.setText("订票数量：");
+        lblticketNum.setBounds(new Rectangle(10, 300, 85, 20));     
+        txtticketNum.setBounds(new Rectangle(109, 300, 85, 20));
         
         
         
         //华丽丽的分割线
         lblNote.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblNote.setText("以下内容是通过航班查询的得到的内容：");
-        lblNote.setBounds(new Rectangle(10, 317, 270, 18));
+        lblNote.setBounds(new Rectangle(10, 362, 270, 18));
         lblStart.setText("*****************************************************");
-        lblStart.setBounds(new Rectangle(10, 295, 270, 15));
+        lblStart.setBounds(new Rectangle(10, 355, 270, 15));
         lblStart2.setText("*****************************************************");
-        lblStart2.setBounds(new Rectangle(10, 342, 270, 15));
+        lblStart2.setBounds(new Rectangle(10, 377, 270, 15));
         //航班号
         lblFlightNo.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblFlightNo.setText("航班号：");
-        lblFlightNo.setBounds(new Rectangle(23, 367, 65, 20));
-        txtFlightNo.setBounds(new Rectangle(110, 367, 170, 20));
+        lblFlightNo.setBounds(new Rectangle(23, 397, 65, 20));
+        txtFlightNo.setBounds(new Rectangle(110, 397, 170, 20));
         //价格
         lblPrice.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblPrice.setText("票  价：");
-        lblPrice.setBounds(new Rectangle(23, 392, 65, 20));
-        txtPrice.setBounds(new Rectangle(110,392, 170, 20));
+        lblPrice.setBounds(new Rectangle(23, 412, 65, 20));
+        txtPrice.setBounds(new Rectangle(110,412, 170, 20));
         //剩余座位
         lblsSeat.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblsSeat.setText("剩余座位：");
-        lblsSeat.setBounds(new Rectangle(23, 417, 75, 20));
-        txtsSeat.setBounds(new Rectangle(110, 417, 170, 20));
+        lblsSeat.setBounds(new Rectangle(23, 447, 75, 20));
+        txtsSeat.setBounds(new Rectangle(110, 447, 170, 20));
         //航空公司
         lblplaneCompany.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblplaneCompany.setText("航空公司：");
-        lblplaneCompany.setBounds(new Rectangle(23, 442, 75, 20));
-        txtplaneCompany.setBounds(new Rectangle(110, 442, 170, 20));
+        lblplaneCompany.setBounds(new Rectangle(23, 472, 75, 20));
+        txtplaneCompany.setBounds(new Rectangle(110, 472, 170, 20));
         //按钮
-        btnSearchFlights.setBounds(new Rectangle(13, 503, 100, 23));
+        btnSearchFlights.setBounds(new Rectangle(13, 533, 100, 23));
         btnSearchFlights.setText("航班查询");
         btnSearchFlights.addActionListener(new BookingFrame_btnSearchFlights_actionAdapter(this));
-        btnOrderTicket.setBounds(new Rectangle(133, 503, 83, 23));
+        btnOrderTicket.setBounds(new Rectangle(133, 533, 83, 23));
         btnOrderTicket.setText("订票");
         btnOrderTicket.addActionListener(new BookingFrame_btnOrderTicket_actionAdapter(this));
-        btnReset.setBounds(new Rectangle(232, 503, 83, 23));
+        btnReset.setBounds(new Rectangle(232, 533, 83, 23));
         btnReset.setText("重置");
         btnReset.addActionListener(new BookingFrame_btnReset_actionAdapter(this));
         lblSearchID.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 15));
         lblSearchID.setText("请输入旅客的身份证号：");
-        lblSearchID.setBounds(new Rectangle(316, 75, 190, 20));
+        lblSearchID.setBounds(new Rectangle(316, 105, 190, 20));
         lblTravelerInformation.setFont(new java.awt.Font("华文行楷", Font.BOLD, 17));
         lblTravelerInformation.setText("旅客信息：");
-        lblTravelerInformation.setBounds(new Rectangle(4, 38, 94, 23));
+        lblTravelerInformation.setBounds(new Rectangle(4, 338, 94, 23));
         lblOrderTicketSearch.setFont(new java.awt.Font("华文行楷", Font.BOLD, 17));
         lblOrderTicketSearch.setText("订票查询：");
-        lblOrderTicketSearch.setBounds(new Rectangle(316, 39, 102, 23));
-        txtIDSearch.setBounds(new Rectangle(348, 106, 156, 20));
-        btnIDSearch.setBounds(new Rectangle(368, 149, 83, 23));
+        lblOrderTicketSearch.setBounds(new Rectangle(316, 69, 102, 23));
+        txtIDSearch.setBounds(new Rectangle(348, 136, 156, 20));
+        btnIDSearch.setBounds(new Rectangle(368, 179, 83, 23));
         btnIDSearch.setText("查询");
         btnIDSearch.addActionListener(new BookingFrame_btnIDSearch_actionAdapter(this));
         lblSearchResult.setFont(new java.awt.Font("华文行楷", Font.PLAIN, 17));
         lblSearchResult.setForeground(Color.green);
         lblSearchResult.setText("查询结果");
-        lblSearchResult.setBounds(new Rectangle(376, 205, 83, 26));
-        areaResults.setBounds(new Rectangle(319, 254, 204, 179));
-        btnBill.setBounds(new Rectangle(334, 503, 100, 23));
+        lblSearchResult.setBounds(new Rectangle(376, 235, 83, 26));
+        areaResults.setBounds(new Rectangle(319, 284, 204, 179));
+        btnBill.setBounds(new Rectangle(334, 533, 100, 23));
         btnBill.setText("查看订单");
         btnBill.addActionListener(new BookingFrame_btnBill_actionAdapter(this));
-        btnsave.setBounds(new Rectangle (446,503, 100, 23));
+        btnsave.setBounds(new Rectangle (446,533, 100, 23));
        // btnsave.setText("保存");
         //btnsave.addActionListener(new BookingFrame_btnsave_actionAdapter(this));
         this.getContentPane().add(areaResults);
@@ -359,6 +367,10 @@ public class BookingFrame extends JFrame{
         this.getContentPane().add(txtstartPlace);
         this.getContentPane().add(txtTelephone);
         this.getContentPane().add(cmbSDay);
+        
+        this.getContentPane().add(lblticketNum);
+        this.getContentPane().add(txtticketNum);
+        
        // this.getContentPane().add(btnsave);
         this.txtFlightNo.setEnabled(false);
         this.txtPrice.setEnabled(false);
