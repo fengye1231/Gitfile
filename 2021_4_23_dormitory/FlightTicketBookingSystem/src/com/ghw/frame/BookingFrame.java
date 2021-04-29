@@ -418,6 +418,8 @@ public class BookingFrame extends JFrame{
     	String startPlace = txtstartPlace.getText();
     	String endPlace = txtendPlace.getText();
     	int SeatClass = cmbseatClass.getSelectedIndex();
+    	
+    	
     	int flightNo;
     	try {
     		flightNo = Integer.parseInt(txtFlightNo.getText());
@@ -430,6 +432,9 @@ public class BookingFrame extends JFrame{
     	} catch (Exception ee) {
     		money = 0;
     	}
+    	
+    	
+    	int tickedNum=Integer.parseInt(txtticketNum.getText());
     	
     	if(name.equals("") || telephone.equals("") || adress.equals("") || IdCard.equals("")||startPlace.equals("")||endPlace.equals("")) {
 //    		JOptionPane.showMessageDialog(null, "旅客信息没有填完整");
@@ -480,14 +485,15 @@ public class BookingFrame extends JFrame{
 //    		t.setOrder(oo);
     		
     		
-    		t.setCount(1);
-    		
     		
     		boolean bb = new TicketDAO().add(t);
-    		if(bb) 
-    			JOptionPane.showMessageDialog(null, "机票预订成功");
-    		else 
-    			JOptionPane.showMessageDialog(null, "机票预订失败,请重试！");
+    		if(bb)
+    			{JOptionPane.showMessageDialog(null, "机票预订成功");
+    			t.setCount(f.getSuperSeats()-tickedNum);
+    			}
+    			 
+    		else
+    			{JOptionPane.showMessageDialog(null, "机票预订失败,请重试！");}
     	}
 		
     	String temp="";
