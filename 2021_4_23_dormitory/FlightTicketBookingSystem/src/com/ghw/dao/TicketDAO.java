@@ -105,6 +105,42 @@ public class TicketDAO {
 		return t;
 	}
 
+	
+	public int getTicketNum(int flightId) {
+
+		int ticketCount=0;
+	
+		String sql = "select * from Ticket where flightId="+flightId;
+		try {
+			ResultSet rs = TemplateDAO.select(sql);
+			if(rs.next()) {
+				ticketCount=rs.getInt("discount");			
+			}
+			
+	}catch (SQLException e) {
+		e.printStackTrace();	
+	}
+	return  ticketCount;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public ArrayList<Ticket> selectAll() {
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 		Ticket t = null;

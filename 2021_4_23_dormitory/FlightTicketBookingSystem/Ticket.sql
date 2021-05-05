@@ -6,18 +6,18 @@ use FlightTicketBookingSystem;
 
 /*
 	表一：旅行社表 TravelAgency
-*/
+
 
 create table TravelAgency(
 	travelId int primary key,
 	travelName varchar(20) not null,
 	travelAddress varchar(50) not null,
 )
-
+*/
 
 /*
 	表二：顾客表 Guest
-*/
+
 
 create table Guest(
 	/*guestId int identity(1,1) primary key,*/
@@ -29,18 +29,18 @@ create table Guest(
 	guestType varchar(10) not null,
 	guestTelephone varchar(11) not null,
 )
-
+*/
 
 
 /*
 	表四：城市表 city
-*/
+
 
 create table City(
 	cityId int not null primary key,
 	cityName varchar(20) not null,
 )
-
+*/
 
 /*
 drop table Flight;
@@ -50,14 +50,14 @@ drop table Flight;
 
 /*
 	表三：航班表 Flight
-*/
+
 
 create table Flight(
 	flightId int not null primary key,
 	flightStartCity int not null,
 	flightEndCity int not null,
 	startTime datetime not null,
-	flightTime float not null,
+	endTime datetime not null,
 	superprice money not null,
 	generalPrice money not null,
 	economicPrice money not null,
@@ -112,3 +112,34 @@ create table error(
 	errorName varchar(10) not null,
 	errorContent varchar(50),
 )
+
+
+
+drop table FlightScheduler;
+*/
+
+
+
+create table FlightScheduler(
+
+schedulerId int not null primary key,
+departureTime datetime not null,
+fromCity varchar(20) not null,
+toCity varchar(20) not null,
+capacity int not null,
+
+
+
+foreign key(schedulerId) references Flight(flightId),
+
+
+/*
+foreign key (fromCity) references City(cityName),
+foreign key (toCity) references City(cityName),
+foreign key (capacity) references Flight(seats),
+*/
+
+)
+
+
+

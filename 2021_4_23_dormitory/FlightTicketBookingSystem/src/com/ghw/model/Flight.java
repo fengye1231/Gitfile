@@ -20,7 +20,7 @@ public class Flight {
 	private int superPrice;//头锟饺诧拷票锟斤拷
 	private int generalPrice;//锟斤拷通票锟斤拷
 	private int economicPrice;//锟斤拷锟矫诧拷票锟斤拷
-	private int seats;
+	private int seats=1;
 //	private int superSeats;//头锟饺诧拷锟斤拷位锟斤拷
 //	private int generalSeats;//锟斤拷通锟斤拷锟斤拷位锟斤拷
 //	private int economicSeats;//锟斤拷锟矫诧拷锟斤拷位锟斤拷
@@ -35,14 +35,33 @@ public class Flight {
 //	private double lat2;
 //	private double lon2;
 
+//	private Ticket ticket;
 	
+	private int ticketNum1=1;
+	
+	public void setTicketAcount(int ticketNum) {
 
+		this.ticketNum1=ticketNum;
+			
+	}
 	
 	
+	public int getTicketAcount() {
+		return ticketNum1;
+	}
 	
-	Ticket ticket=new Ticket();
-	private double x_load_factor=ticket.count/ Ticket.count_total;//锟斤拷位锟斤拷
+	public int getSuperSeats() {
+		return seats;
+	}
+	public void setSuperSeats(int seats) {
+		this.seats = seats;
+	}
 	
+//	Ticket ticket=new Ticket();
+	//private double x_load_factor=ticket.count/ Ticket.count_total;//锟斤拷位锟斤拷
+//	private double x_load_factor=ticketNum1/ seats;
+	
+	private double x_load_factor=ticketNum1/seats;
 	
 	
 	public int getId() {
@@ -162,12 +181,7 @@ public class Flight {
 	public void setEconomicPrice(int economicPrice) {
 		this.economicPrice = economicPrice;
 	}
-	public int getSuperSeats() {
-		return seats;
-	}
-	public void setSuperSeats(int seats) {
-		this.seats = seats;
-	}
+
 	
 	
 	

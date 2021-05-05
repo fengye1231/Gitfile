@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import com.ghw.dao.FlightDAO;
+import com.ghw.dao.TicketDAO;
 import com.ghw.model.*;
 public class FlightSearchFrame extends JFrame{
 	/**
@@ -19,9 +20,15 @@ public class FlightSearchFrame extends JFrame{
 	JComboBox<String> cmbSeatTypes = new JComboBox<String>();
 	JButton btnSelectFlight = new JButton();
 	private FlightDAO dao = new FlightDAO();
+	
+//	private TicketDAO ticketdao = new TicketDAO();
+	
+	
+	
 	String[] SeatTypes = { "头等舱", "普通舱", "经济舱" };
 	private ArrayList<Flight> flights = null;
 	private BookingFrame bookingFrame;
+//	private int ticketNum;
 //	private BookingFrame bookingFrame=new BookingFrame();
 	
 	//private Date date ;
@@ -55,6 +62,7 @@ public class FlightSearchFrame extends JFrame{
 		///flights = dao.selectDate(date);
 		//System.out.println(flights.size());
 		flights = dao.selectAll();
+
 		//flights = dao.selectDateByStartTimeDuring();
 
 
@@ -63,11 +71,15 @@ public class FlightSearchFrame extends JFrame{
 		else {
 			for (int i = 0; i < flights.size(); i++) {
 				Flight f = flights.get(i);
+//				ticketNum=ticketdao.getTicketNum(f.getId());
+				
+				
+				
 //				System.out.println(f.getId());
 //				System.out.println(f.getStart().getName());
 				String str = "" + f.getId() + "航班," + f.getStart().getName()
 						+ "——" + f.getEnd().getName() + ",出发时间:"
-						+ f.getStartTime();
+						+ f.getStartTime()+",剩余座位:"+(f.getSuperSeats()-f.getTicketAcount());
 				cmbFlightResults.addItem(str);
 			}
 		}
@@ -107,7 +119,7 @@ public class FlightSearchFrame extends JFrame{
 		if (j == 2)
 			bookingFrame.txtPrice.setText("" + f.getEconomicPrice());
 		
-		bookingFrame.txtsSeat.setText(""+f.getSuperSeats());
+		bookingFrame.txtsSeat.setText(""+(f.getSuperSeats()-f.getTicketAcount()));
 
 	}
 }

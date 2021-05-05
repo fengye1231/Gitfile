@@ -136,6 +136,10 @@ public class FlightDAO {
 			ResultSet rs = TemplateDAO.select(sql);
 			while(rs.next()){
 				f = new Flight();
+				
+				
+				
+				
 				f.setId(rs.getInt("flightId"));
 				int cityId = rs.getInt("flightStartCity");
 				CityDAO dao = new CityDAO();
@@ -144,6 +148,12 @@ public class FlightDAO {
 				cityId = rs.getInt("flightEndCity");
 				City end = dao.selectById(cityId);
 				f.setEnd(end);
+				
+				TicketDAO ticketdao = new TicketDAO();
+				int ticketNum=ticketdao.getTicketNum(rs.getInt("flightId"));				
+				f.setTicketAcount(ticketNum);	
+				
+				
 				f.setStartTime(rs.getTimestamp("startTime").toLocalDateTime());
 				f.setEndTime(rs.getTimestamp("endTime").toLocalDateTime());
 				f.setSuperPrice(rs.getInt("superPrice"));

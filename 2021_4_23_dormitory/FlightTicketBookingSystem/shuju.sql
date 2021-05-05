@@ -3,7 +3,7 @@
 alter table Flight add flightTime float not null;
 */
 
-/*
+
 use FlightTicketBookingSystem;
 
 
@@ -16,12 +16,11 @@ INSERT INTO  City VALUES (6,'张家口');
 INSERT INTO  City VALUES (7,'石家庄');
 
 INSERT INTO  City VALUES (8,'四川');
-*/
 
 
-/*
-*/
-use FlightTicketBookingSystem;
+
+
+
 INSERT INTO  Flight VALUES (1,1,2,'2013-1-1 01:00:00.000',1.0,65.0,60.0,50.0,72);
 INSERT INTO  Flight VALUES (2,1,2,'2013-1-1 02:00:00.000',1.0,65.0,60.0,50.0,72);
 INSERT INTO  Flight VALUES (3,1,3,'2013-1-1 03:00:00.000',1.0,65.0,60.0,50.0,72);
@@ -31,9 +30,13 @@ INSERT INTO  Flight VALUES (6,1,6,'2013-1-1 06:00:00.000',1.0,65.0,60.0,50.0,72)
 INSERT INTO  Flight VALUES (7,1,7,'2013-1-1 07:00:00.000',1.0,65.0,60.0,50.0,72);
 INSERT INTO  Flight VALUES (8,1,8,'2013-1-1 08:00:00.000',1.0,65.0,60.0,50.0,72);
 
-INSERT INTO  Guest VALUES ('黎明','河北省保定市','130634198901161913','2013-1-1 00:30:00.000','学生','15226506882');
-INSERT INTO  Guest VALUES ('张红','河北省保定市','130634198901161914','2013-1-1 00:30:00.000','学生','15226506883');
-INSERT INTO  Guest VALUES ('张江','河北省保定市','130634198901161915','2013-1-1 00:30:00.000','学生','15226506884');
+
+
+
+
+INSERT INTO  Guest VALUES (1,'黎明','河北省保定市','130634198901161913','2013-1-1 00:30:00.000','学生','15226506882');
+INSERT INTO  Guest VALUES (2,'张红','河北省保定市','130634198901161914','2013-1-1 00:30:00.000','学生','15226506883');
+INSERT INTO  Guest VALUES (3,'张江','河北省保定市','130634198901161915','2013-1-1 00:30:00.000','学生','15226506884');
 
 
 
