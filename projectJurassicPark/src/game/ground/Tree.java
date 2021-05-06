@@ -7,21 +7,33 @@ import game.EcoPoint;
 import game.portableItem.Fruit;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-public class Tree extends Ground {
+public class Tree  extends Ground{
 	private int age = 0;
 
 	// consider adding an arrayList to stores a list of Fruits
-	private ArrayList<Item> fruitGrown = new ArrayList();
+	private List<Fruit> fruitGrown = new ArrayList<Fruit>();
+	private List<Fruit> fruitDrop = new ArrayList<Fruit>();
+
+//	private int fruitDropNum;
 
 	public Tree() {
 		super('+');
 	}
 
-	public ArrayList<Item> getFruitGrown() {
+	public List<Fruit> getFruitGrown() {
 		return fruitGrown;
 	}
+	public List<Fruit> getFruitDrop() {
+		return fruitDrop;
+	}
+
+
+//	public int getFruitDropNum() {
+//		return fruitDropNum;
+//	}
 
 	@Override
 	public void tick(Location location) {
@@ -35,6 +47,15 @@ public class Tree extends Ground {
 
 		int growFruit = new Random().nextInt(100);
 		int dropFruit = new Random().nextInt(100);
+
+		for (int i=0;i<dropFruit;i++){
+			fruitDrop.add(new Fruit());
+
+		}
+
+
+
+//		fruitDropNum=dropFruit;
 
 		// tree has possibility of growing fruit
 		if (growFruit < 50) {

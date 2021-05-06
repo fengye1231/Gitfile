@@ -11,8 +11,6 @@ public class PortableItem extends Item {
 
 	protected Location location;
 
-
-
 	public Location getPortableItemLocation(){
 		return location;
 	}
