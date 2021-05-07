@@ -50,41 +50,41 @@ public abstract class Dinosaur extends Actor {
 
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-        age++;
+//        age++;
+//
+//        if (age > adultAge) {
+//            isBaby = false;
+//        }
+//
+//        if (isConscious()) {
+//            display.println(this + " at (" + map.locationOf(this).x() + "," + map.locationOf(this).y() + ") is unconscious now");
+//            unconsciousTurn -= 1;
+//
+//            if (unconsciousTurn == 0) {
+//                map.locationOf(this).addItem(this.getCorpse());
+//                map.removeActor(this);
+//            }
+//            return new DoNothingAction();
+//        }
 
-        if (age > adultAge) {
-            isBaby = false;
-        }
+//        if (hitPoints < startTrackFood) {
+//            behaviour = new TrackFoodBehaviour();
+//            hitPoints--;
+//        }
+//        if (hitPoints > startTrackSpouse && !isBaby) {
+//            behaviour = new TrackSpouseBehaviour();
+//            hitPoints--;
+//        }
 
-        if (isConscious()) {
-            display.println(this + " at (" + map.locationOf(this).x() + "," + map.locationOf(this).y() + ") is unconscious now");
-            unconsciousTurn -= 1;
-
-            if (unconsciousTurn == 0) {
-                map.locationOf(this).addItem(this.getCorpse());
-                map.removeActor(this);
-            }
+//        Action action = behaviour.getAction(this, map);
+//        Action wander = behaviour.getAction(this, map);
+//        if (action != null) {
+//            return action;
+//        } else if (wander != null) {
+//            return wander;
+//        } else {
             return new DoNothingAction();
-        }
-
-        if (hitPoints < startTrackFood) {
-            behaviour = new TrackFoodBehaviour();
-            hitPoints--;
-        }
-        if (hitPoints > startTrackSpouse && !isBaby) {
-            behaviour = new TrackSpouseBehaviour();
-            hitPoints--;
-        }
-
-        Action action = behaviour.getAction(this, map);
-        Action wander = behaviour.getAction(this, map);
-        if (action != null) {
-            return action;
-        } else if (wander != null) {
-            return wander;
-        } else {
-            return new DoNothingAction();
-        }
+//        }
     }
 
     public void increaseFoodLevel(int addHitPoints) {

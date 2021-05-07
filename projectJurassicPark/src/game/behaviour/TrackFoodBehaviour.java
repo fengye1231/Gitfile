@@ -41,7 +41,6 @@ public class TrackFoodBehaviour implements Behaviour{
         list.addAll(tree1.getFruitDrop());
         list.addAll(bush1.getFruitGrown());
     }
-
     private int distance(Location a, Location b) {
         return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
     }
@@ -76,6 +75,28 @@ public class TrackFoodBehaviour implements Behaviour{
         else {
             return null;
         }
+
+//        int currentDistance = distance(here, there);
+//        for (Exit exit : here.getExits()) {
+//            Location destination = exit.getDestination();
+//            if (destination.canActorEnter(actor)) {
+//                int newDistance = distance(destination, there);
+//                if (newDistance < currentDistance) {
+//                    return new MoveActorAction(destination, exit.getName());
+//                }
+//            }
+//        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

@@ -9,7 +9,7 @@ import edu.monash.fit2099.engine.Location;
 import game.portableItem.Fruit;
 import game.dinosaur.*;
 
-import game.dinosaur.Allosaur
+import game.dinosaur.Allosaur;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,16 +29,20 @@ public class TrackSpouseBehaviour {
 
 
 
+
+
+
+
         // 寻找最近的可以交配的恐龙
-        if(!map.contains(dinosaur) || !map.contains(dinosaur))
+//        if(!map.contains(dinosaur) || !map.contains(dinosaur))
             return null;
 
-        if ((myswlf instanceof Brachiosaur)&&(dinosaur instanceof Brachiosaur)&&(myswlf.getGender()!=dinosaur.getGender())){
+//        if ((myswlf instanceof Brachiosaur)&&(dinosaur instanceof Brachiosaur)&&(myswlf.getGender()!=dinosaur.getGender())){
             //找到 未写完
 
-            }
-
-
+//            }
+//
+//
         }
 
 
