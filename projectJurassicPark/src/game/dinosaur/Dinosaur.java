@@ -42,6 +42,12 @@ public abstract class Dinosaur extends Actor {
         this.foodCapability = foodCapability;
     }
 
+
+    public Gender getGender(){
+        return gender;
+    }
+
+
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         age++;
@@ -94,6 +100,12 @@ public abstract class Dinosaur extends Actor {
             this.hitPoints = hitPoints;
         }
     }
+
+    public int getHitPoints(){
+        return hitPoints;
+    }
+
+
 
     private Corpse getCorpse() {
         return new Corpse(40, increaseFoodLevel);

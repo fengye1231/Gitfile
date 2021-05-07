@@ -9,7 +9,11 @@ import edu.monash.fit2099.engine.ActorLocations;
  */
 public class PortableItem extends Item {
 
-	protected Location location;
+	private Location location;
+
+	public void setPortableItemLocation(Location location){
+		this.location=location;
+	}
 
 	public Location getPortableItemLocation(){
 		return location;
@@ -18,8 +22,4 @@ public class PortableItem extends Item {
 	public PortableItem(String name, char displayChar) {
 		super(name, displayChar, true);
 	}
-
-
-
-
 }

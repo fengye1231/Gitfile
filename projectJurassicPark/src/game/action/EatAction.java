@@ -4,32 +4,34 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
-import game.EcoPoint;
+
 import game.portableItem.Fruit;
 
-import java.util.Random;
+import game.dinosaur.*;
 
-public class EatAction extends Action {
-    Location currentLocation;
-    public EatAction(Location currentLocation) {
+
+public class EatAction  {
+    protected Location currentLocation;
+    protected Fruit fruit;
+    protected Dinosaur dinosaur;
+
+    public EatAction(Location currentLocation,Fruit fruit,Dinosaur dinosaur) {
         this.currentLocation = currentLocation;
+        this.fruit=fruit;
+        this.dinosaur=dinosaur;
     }
 
-    @Override
-    public String execute(Actor actor, GameMap map) {
-        int possibility = new Random().nextInt(100);
-        if (possibility < 60) {
-            actor.addItemToInventory(new Fruit());
-            EcoPoint.setEcoPoint(10);
-            return "You search the tree or bush and found a ripe fruit!";
-        } else {
-            return "You search the tree or bush for fruit, but you can’t find any ripe ones.";
-        }
+    public String execute(Location currentLocation,Fruit fruit,Dinosaur dinosaur) {
+
+        String result = dinosaur + "eat one fruit";
+//        newDinosaur.heal(10);
+        fruit.beEaten(currentLocation, dinosaur);
+        return result;
     }
 
-    @Override
-    public String menuDescription(Actor actor) {
-        return null;
+
+    public String menuDescription(Dinosaur dinosaur) {
+        return dinosaur + "eat one fruit";
     }
 
 

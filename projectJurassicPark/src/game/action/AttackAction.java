@@ -59,7 +59,6 @@ public class AttackAction extends Action {
 			
 			result += System.lineSeparator() + target + " is killed.";
 		}
-
 		return result;
 	}
 

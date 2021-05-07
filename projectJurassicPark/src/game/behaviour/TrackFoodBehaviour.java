@@ -31,7 +31,6 @@ public class TrackFoodBehaviour implements Behaviour{
     public void setHotKey(String hotKey){
         this.hotKey=hotKey;
 
-
     }
     public String getHotKey(){
         return hotKey;
@@ -68,11 +67,8 @@ public class TrackFoodBehaviour implements Behaviour{
     @Override
     public Action getAction(Actor actor, GameMap map) {
         // track closest food location 寻找最近的可以吃的食物。
-
         ArrayList<Action> actions = new ArrayList<Action>();
-
         actions.add(minimum(actor,map).getMoveAction(actor, "around", this.getHotKey()));
-
 
         if (!actions.isEmpty()) {
             return actions.get(random.nextInt(actions.size()));
@@ -80,11 +76,6 @@ public class TrackFoodBehaviour implements Behaviour{
         else {
             return null;
         }
-
-
-
-
-
 
     }
 }
