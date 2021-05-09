@@ -15,7 +15,7 @@ public class Tree  extends Ground{
 
 	// consider adding an arrayList to stores a list of Fruits
 	private List<Fruit> fruitGrown = new ArrayList<Fruit>();
-	private List<Fruit> fruitDrop = new ArrayList<Fruit>();
+	private List<Location> fruitDropLos = new ArrayList<Location>();
 
 //	private int fruitDropNum;
 
@@ -23,17 +23,10 @@ public class Tree  extends Ground{
 		super('+');
 	}
 
-	public List<Fruit> getFruitGrown() {
-		return fruitGrown;
-	}
-	public List<Fruit> getFruitDrop() {
-		return fruitDrop;
+	public List<Location> getfruitDropLos() {
+		return fruitDropLos;
 	}
 
-
-//	public int getFruitDropNum() {
-//		return fruitDropNum;
-//	}
 
 	@Override
 	public void tick(Location location) {
@@ -48,19 +41,14 @@ public class Tree  extends Ground{
 		int growFruit = new Random().nextInt(100);
 		int dropFruit = new Random().nextInt(100);
 
-		for (int i=0;i<dropFruit;i++){
-			fruitDrop.add(new Fruit());
-
-		}
-
-
-
-//		fruitDropNum=dropFruit;
 
 		// tree has possibility of growing fruit
 		if (growFruit < 50) {
 			if (dropFruit < 5) {
 				location.addItem(new Fruit());
+				fruitDropLos.add(location);
+				System.out.println("树底下水果数量："+fruitDropLos.size());
+
 			}
 			else {
 				fruitGrown.add(new Fruit());
@@ -70,6 +58,8 @@ public class Tree  extends Ground{
 		else if (!fruitGrown.isEmpty()) {
 			if (dropFruit < 5) {
 				location.addItem(fruitGrown.get(0));
+				fruitDropLos.add(location);
+				System.out.println("树底下水果数量："+fruitDropLos.size());
 				// remove one fruit from fruitGrown
 				fruitGrown.remove(0);
 			}

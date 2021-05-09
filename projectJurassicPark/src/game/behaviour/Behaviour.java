@@ -29,4 +29,6 @@ public interface Behaviour {
 	 * @see Actor#playTurn(Actions, Action, GameMap, Display)
 	 */
 	Action getAction(Actor actor, GameMap map);
+//	Action getAction(Dinosaur newdinosaur, GameMap map);
+
 }

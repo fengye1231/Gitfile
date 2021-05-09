@@ -11,17 +11,14 @@ import java.util.Random;
 
 public class Bush extends Ground {
 
-    private List<Fruit> fruitGrown = new ArrayList();
+    private List<Location> buFruits = new ArrayList();
 
-     public Bush() {
+    public Bush() {
          super('w');
     }
-    public List<Fruit> getFruitGrown() {
-        return fruitGrown;
+    public List<Location> getBuFruits() {
+        return buFruits;
     }
-
-
-
 
     @Override
     public void tick(Location location) {
@@ -30,13 +27,12 @@ public class Bush extends Ground {
         int growFruit = new Random().nextInt(100);
 
 
-        for (int i=0;i<growFruit;i++){
-            fruitGrown.add(new Fruit());
-
-        }
-
         if (growFruit < 10) {
             location.addItem(new Fruit());
+
+            buFruits.add(location);
+            System.out.println("灌木丛中水果数量："+buFruits.size());
+
         }
 
 

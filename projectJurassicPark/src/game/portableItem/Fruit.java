@@ -40,7 +40,7 @@ public class Fruit extends PortableItem implements Purchasable {
         newDinosaur.increaseFoodLevel(beFedFoodLevel);
         EcoPoint.setEcoPoint(10);
     }
-
+//Dinosaur newDinosaur
     public void beEaten(Location location, Dinosaur newDinosaur) {
         location.removeItem(this);
         if (newDinosaur instanceof Stegosaur) {

@@ -23,8 +23,10 @@ public class Dirt extends Ground {
 				return false;
 			}
 			if (surroundingLoc.getDestination().getGround() instanceof Bush){
+
 				squareBushes += 1;
 			}
+//			System.out.println(surroundingLoc.getDestination().getGround());
 		}
 
 		if (squareBushes >= 2) {

@@ -43,8 +43,8 @@ public abstract class Dinosaur extends Actor {
     }
 
 
-    public Gender getGender(){
-        return gender;
+    public String getGender(){
+        return gender.toString();
     }
 
 
@@ -83,9 +83,25 @@ public abstract class Dinosaur extends Actor {
 //        } else if (wander != null) {
 //            return wander;
 //        } else {
+
+
+
+
+        behaviour = new TrackFoodBehaviour();
+
+        Action action = behaviour.getAction(this, map);
+        Action wander = behaviour.getAction(this, map);
+        if (action != null) {
+            return action;
+        } else if (wander != null) {
+            return wander;
+        } else {
             return new DoNothingAction();
-//        }
+        }
     }
+
+
+
 
     public void increaseFoodLevel(int addHitPoints) {
         this.hitPoints += addHitPoints;
