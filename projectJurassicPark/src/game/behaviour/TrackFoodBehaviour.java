@@ -87,7 +87,7 @@ public class TrackFoodBehaviour implements Behaviour{
                     int newDistance = distance1(destination, there);
                     if (newDistance < currentDistance) {
                         return new MoveActorAction(destination, exit.getName());
-                    }else {
+                    }else if(currentDistance==0) {
                         //在水果的位置上
                         return new EatAction(there);
                     }

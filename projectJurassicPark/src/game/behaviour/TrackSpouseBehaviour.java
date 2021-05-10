@@ -60,7 +60,7 @@ public class TrackSpouseBehaviour  implements Behaviour  {
                     int newDistance = distance(destination, there);
                     if (newDistance < currentDistance) {
                         return new MoveActorAction(destination, exit.getName());
-                    }else {
+                    }else if(newDistance==0){
                         //准备交配
                         return new EatAction(there);
                     }
