@@ -58,7 +58,7 @@ public class TrackFoodBehaviour implements Behaviour{
             for (int j:map.getYRange()){
                 for (Item item1:((map.at(i,j)).getItems())){
                     if (item1 instanceof Fruit){
-                        System.out.println("此位置有水果");
+//                        System.out.println("此位置有水果");
                         int distance=Math.abs(map.locationOf(actor).x()-i)+Math.abs(map.locationOf(actor).y()-j);
                         locDis.put(map.at(i,j),distance);
 
@@ -80,6 +80,10 @@ public class TrackFoodBehaviour implements Behaviour{
             Location here = map.locationOf(actor);
             Location there = list1.get(0).getKey();
 
+            System.out.println("最近的水果距离为："+list1.get(0).getValue());
+
+
+
             int currentDistance = distance1(here, there);
             for (Exit exit : here.getExits()) {
                 Location destination = exit.getDestination();
@@ -89,6 +93,7 @@ public class TrackFoodBehaviour implements Behaviour{
                         return new MoveActorAction(destination, exit.getName());
                     }else if(currentDistance==0) {
                         //在水果的位置上
+                        System.out.println("在水果位置上");
                         return new EatAction(there);
                     }
 

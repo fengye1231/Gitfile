@@ -14,15 +14,16 @@ import java.util.Random;
 public class BreedAction extends Action {
 
 
-    protected Dinosaur target;
-    protected Dinosaur self;
+//    protected Dinosaur target;
+//    protected Dinosaur self;
+    private Actor target;
 
-    public BreedAction(Dinosaur target){this.target=target;}
+    public BreedAction(Actor target){this.target=target;}
 
     @Override
     public String execute(Actor actor, GameMap map)  {
 
-            String result=actor+" 交配";
+            String result=actor+"与"+target+"进行了交配";
 //            if ((target instanceof Stegosaur) && (self instanceof Stegosaur)) {
 ////                String sex=target.getClass().getDeclaredField("gender").toString();
 //

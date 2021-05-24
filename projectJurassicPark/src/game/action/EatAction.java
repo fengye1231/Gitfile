@@ -28,6 +28,7 @@ public class EatAction extends Action{
 //        }
         new Fruit().beEaten(foodLon,(Dinosaur)actor);
         result = actor + " 吃了一个水果";
+        System.out.println(actor+"吃了一个水果");
         return result;
     }
     @Override

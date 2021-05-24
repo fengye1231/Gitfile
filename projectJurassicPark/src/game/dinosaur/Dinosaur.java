@@ -87,7 +87,8 @@ public abstract class Dinosaur extends Actor {
 
 
 
-        behaviour = new TrackFoodBehaviour();
+//        behaviour = new TrackFoodBehaviour();
+        behaviour = new TrackSpouseBehaviour();
 
         Action action = behaviour.getAction(this, map);
         Action wander = behaviour.getAction(this, map);

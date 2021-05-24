@@ -31,7 +31,7 @@ public class Bush extends Ground {
             location.addItem(new Fruit());
 
             buFruits.add(location);
-            System.out.println("灌木丛中水果数量："+buFruits.size());
+//            System.out.println("灌木丛中水果数量："+buFruits.size());
 
         }
 

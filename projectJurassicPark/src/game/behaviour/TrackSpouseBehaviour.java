@@ -1,15 +1,9 @@
 package game.behaviour;
 
 import edu.monash.fit2099.engine.*;
-
-
-import game.action.EatAction;
-import game.portableItem.Fruit;
 import game.dinosaur.*;
-
-import game.dinosaur.Allosaur;
-
 import java.util.*;
+import game.action.BreedAction;
 
 //implements Behaviour
 public class TrackSpouseBehaviour  implements Behaviour  {
@@ -26,17 +20,31 @@ public class TrackSpouseBehaviour  implements Behaviour  {
     @Override
     public Action getAction(Actor actor, GameMap map) {
 
-        String sex=((Dinosaur)actor).getGender();
+
 
         for (int i:map.getXRange()) {
             for (int j : map.getYRange()) {
                 //.getActor()
-                Actor actor1 = (map.at(i, j)).getActor();
-                if (((Dinosaur) actor1).getGender() != ((Dinosaur) actor).getGender()) {
-                    System.out.println("找到了一个异性同类");
-                    int distance1 = Math.abs(map.locationOf(actor).x() - i) + Math.abs(map.locationOf(actor).y() - j);
-                    locDis1.put(map.at(i, j), distance1);
-                    System.out.println("将一个异性的位置和距离存储了起来");
+
+                System.out.println("正在找异性同类");
+                if (map.at(i,j).containsAnActor()){
+                    Actor actor1 = (map.at(i, j)).getActor();
+                    if (actor1 instanceof Dinosaur){
+//                        String sex=((Dinosaur)actor).getGender();
+
+                        if (((Dinosaur) actor1).getGender() != ((Dinosaur) actor).getGender()){
+                            System.out.println("找到了一个异性同类");
+                            int distance1 = Math.abs(map.locationOf(actor).x() - i) + Math.abs(map.locationOf(actor).y() - j);
+                            locDis1.put(map.at(i, j), distance1);
+                            System.out.println("将一个异性的位置和距离存储了起来");
+
+                    }
+
+
+                }
+
+
+
                 }
             }
         }
@@ -58,11 +66,14 @@ public class TrackSpouseBehaviour  implements Behaviour  {
                 Location destination = exit.getDestination();
                 if (destination.canActorEnter(actor)) {
                     int newDistance = distance(destination, there);
-                    if (newDistance < currentDistance) {
+                    if (newDistance <= currentDistance-1) {
+                        System.out.println("向异性同类靠近了一步");
                         return new MoveActorAction(destination, exit.getName());
-                    }else if(newDistance==0){
+                    }else if(currentDistance==1){
                         //准备交配
-                        return new EatAction(there);
+                        System.out.println("与异性同类准备交配");
+//                        return new EatAction(there);
+                        return new BreedAction(there.getActor());
                     }
 
                 }

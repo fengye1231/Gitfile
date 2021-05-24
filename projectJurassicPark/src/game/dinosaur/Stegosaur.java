@@ -22,6 +22,7 @@ public class Stegosaur extends Dinosaur {
     public Stegosaur(String name, Gender gender) {
         super(name, 's', 50, 1, 100, gender, 90, 50, 20, 30, 50, FoodCapability.STEGOSAUREAT);
         behaviour = new WanderBehaviour();
+        System.out.println(name+"执行了一次WanderBehaviour");
     }
 
 

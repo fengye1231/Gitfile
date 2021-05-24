@@ -47,7 +47,7 @@ public class Tree  extends Ground{
 			if (dropFruit < 5) {
 				location.addItem(new Fruit());
 				fruitDropLos.add(location);
-				System.out.println("树底下水果数量："+fruitDropLos.size());
+//				System.out.println("树底下水果数量："+fruitDropLos.size());
 
 			}
 			else {
@@ -59,7 +59,7 @@ public class Tree  extends Ground{
 			if (dropFruit < 5) {
 				location.addItem(fruitGrown.get(0));
 				fruitDropLos.add(location);
-				System.out.println("树底下水果数量："+fruitDropLos.size());
+//				System.out.println("树底下水果数量："+fruitDropLos.size());
 				// remove one fruit from fruitGrown
 				fruitGrown.remove(0);
 			}

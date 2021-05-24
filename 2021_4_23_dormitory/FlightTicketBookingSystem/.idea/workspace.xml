@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74956721-e566-4dba-aeb4-6f7937a7a756" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sqljdbc42.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightTicketBookingSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FlightTicketBookingSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/src/game/behaviour/TrackFoodBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/src/game/behaviour/TrackFoodBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/src/game/ground/Bush.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/src/game/ground/Bush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/src/game/ground/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/src/game/ground/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../projectJurassicPark/src/game/portableItem/PortableItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../projectJurassicPark/src/game/portableItem/PortableItem.java" afterDir="false" />
-    </list>
+    <list default="true" id="74956721-e566-4dba-aeb4-6f7937a7a756" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,15 +22,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,6 +48,9 @@
       <option name="presentableId" value="Default" />
       <updated>1620263302364</updated>
       <workItem from="1620263303544" duration="2704000" />
+      <workItem from="1620653846404" duration="185000" />
+      <workItem from="1620654043237" duration="225000" />
+      <workItem from="1620654877362" duration="26000" />
     </task>
     <servers />
   </component>
@@ -77,5 +67,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
