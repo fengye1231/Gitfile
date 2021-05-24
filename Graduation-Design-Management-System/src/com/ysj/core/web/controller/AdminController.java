@@ -203,17 +203,53 @@ public class AdminController {
 	
 	
 	/**
+	 * 添加分配教师
+	 */
+	@RequestMapping("/admin/distriTeacher.action")
+	@ResponseBody
+	public String distriTeacher(Student student) {
+		
+
+		if (student!=null) {
+			
+			
+			
+		}
+		
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
 	 * 向学生列表跳转
 	 */
 	@RequestMapping(value = "/admin/tostudentlist.action")
-	public ModelAndView studentlist(@ModelAttribute("student") Student student,
+	public ModelAndView studentlist(@ModelAttribute("student") Student student,@ModelAttribute("teacher") Teacher teacher,
                                     @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
 		List<Student> list = studentService.Studentlist(student);
 		List<BaseDept> list1 = baseDeptService.deptlist();
+		List<Teacher> list2 = teacherService.Teacherlist(teacher);
+		
 		PageInfo<Student> pageInfo = new PageInfo<>(list,10);
+		
+		
+		
 	    ModelAndView mv = new ModelAndView();
 	    mv.addObject("pageInfo", pageInfo);
 	    mv.addObject("BaseDept", list1);
+	    mv.addObject("teacher1", list2);
 	    mv.setViewName("views/user/admin/studentlist");
 	    return mv;
 	}

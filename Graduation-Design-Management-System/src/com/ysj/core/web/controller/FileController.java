@@ -247,10 +247,10 @@ public class FileController {
 			}
 		}
 		student = studentService.findStudent(student.getsId(), student.getsPwd());
-		Title title = titleService.findTitleBysId(student.getsId());
-		String tId = title.gettId();
+//		Title title = titleService.findTitleBysId(student.getsId());
+//		String tId = title.gettId();
 	//	String tName = title.gettName();
-		String t = tId;
+//		String t = tId;
 		String s = student.getsId() + student.getsName();
 		s = s + fType;
 
@@ -258,26 +258,37 @@ public class FileController {
 				if (!uploadfile.isEmpty() && uploadfile.size() > 0) {
 					//循环输出上传的文件
 					for (MultipartFile file : uploadfile) {
-						String name1 = t;
+//						String name1 = t;
 						// 获取上传文件的原始名称
 						String originalFilename = file.getOriginalFilename();
 						System.out.println("上传文件原始文件名是: "+ originalFilename);
+						
+						
 						int c = originalFilename.indexOf(".");
 						String s1 = originalFilename.substring(c);
 						String s2 = originalFilename.substring(0, c);
-						s2 = s;
+						
+						
+//						s2 = s;
 						originalFilename = s2 + s1;
 						//获取上传文件后缀名
+//						String dirPath = 
+//		                       request.getServletContext().getRealPath("/upload/"+name1);
 						String dirPath = 
-		                       request.getServletContext().getRealPath("/upload/"+name1);
-						System.out.println(dirPath);
+			                       request.getServletContext().getRealPath("/upload/"+originalFilename);
+						
+						
+						System.out.println("dirPath = "+dirPath);
+						
+						
 						File filePath = new File(dirPath);
 						// 如果保存文件的地址不存在，就先创建目录
 						if (!filePath.exists()) {
 							filePath.mkdirs();
 						}
-						String newFilename = dirPath + "\\" + originalFilename;
+						String newFilename = dirPath + "\\" + originalFilename;						
 						System.out.println("文件保存地址" + newFilename +"\n");
+						System.out.println("文件保存地址" + dirPath +"\n");
 						File filePath2 = new File(newFilename);
 						int i = 0;
 						String s3 = null;
@@ -307,6 +318,8 @@ public class FileController {
 							myfile.setfPath(newFilename);
 							Date date = df.parse(nowtime);
 							myfile.setUploadDatetime(date);
+							
+							System.out.println("fType:"+fType);
 							myfile.setfType(fType);
 							myFileService.createMyfile(myfile);
 							if(fType.equals("任务书")) {
@@ -350,6 +363,7 @@ public class FileController {
 					}
 					// 跳转到成功页面
 					mv.setViewName("views/success");
+					
 					return mv;
 				}else{
 					mv.setViewName("views/error");

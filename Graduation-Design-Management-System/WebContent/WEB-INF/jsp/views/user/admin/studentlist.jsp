@@ -159,7 +159,7 @@
 												<th>班级</th>
 												<th>账号状态</th>
 												<th>操作</th>
-												<th>分配教师</th>
+												<th>分配指导教师</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -173,7 +173,6 @@
 													<td>${student.major }</td>
 													<td>${student.sClass }</td>
 													<td>${student.sState }</td>
-													
 													<td>
 													<input type="button" class="btn btn-success btn-xs" id="edit"
 																	name="edit" value='修改' data-toggle="modal" data-target="#studentInfoModal" onclick="change1('${student.dept}');editStudent('${student.sId}')">
@@ -186,6 +185,27 @@
 																	name="del" value='恢复' onclick="deleteTitle('${student.sId}',1)">
 																	</c:if>
 													</td>
+													
+													<td>
+													<select
+														class="form-control" id="new_tName" name="tId">
+														<option value="-1">--请选择--</option>
+														<c:forEach items="${Teacher}" var="item">
+															<option value="${item.tId}">${item.tName }
+															</option>
+															</c:forEach>
+														</select>
+													</td>
+													
+													<td>
+													
+													<input type="button" class="btn btn-danger btn-xs" id="distri"
+																	name="distri" value='分配' onclick="distriTeacher('${student.sId}',1)">
+														
+											
+													</td>
+
+												
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -271,9 +291,6 @@
 								</div>
 								<div class="form-group">
 									<label for="dept" class="control-label">系部：</label>
-
-
-
 									<select class="form-control" id="dept" name="dept" onchange="change2()">
 									<option value="-1">--请选择--</option>
 									<c:forEach items="${BaseDept}" var="item">
@@ -281,9 +298,6 @@
 								    ${item.deptName }
 								    </option>
 							        </c:forEach>
-							        
-							        
-							        
 									</select>
 								</div>
 								<div class="form-group">
@@ -331,9 +345,6 @@
 							</button>
 							<h4 class="modal-title" id="exampleModalLabel">学生信息详情</h4>
 						</div>
-						
-						
-						
 						<div class="modal-body">
 							<form id="create_student_form">
 								<div class="form-group">
@@ -347,20 +358,13 @@
 								<div class="form-group">
 									<label for="new_dept" class="control-label">系部：</label>
 									<select class="form-control" id="new_dept" name="deptId" onchange="change()">
-									
-									<option value="-1">--请看--</option>
-									
-									
+									<option value="-1">--请选择--</option>
 									<c:forEach items="${BaseDept}" var="item">
 								    <option value="${item.deptId}">
 								    ${item.deptName }
 								    </option>
 							        </c:forEach>
-							        
-							        
-							        
 									</select>
-
 								</div>
 								<div class="form-group">
 									<label for="new_major" class="control-label">专业</label>
@@ -614,6 +618,43 @@
                }
 			  });
 	  }
+	  
+	  
+	  
+	  function  distriTeacher(val){
+		  var distriStudent=var;
+		  
+		  $.ajax({
+			   type : "POST",
+			   url : "<%=basePath%>admin/distriTeacher.action",
+			   data : {"distriStudent":distriStudent},
+			   dataType : "json",
+			   success: function (date) {
+                  var optionstring = "";
+                  for (var j = 0; j < date.length;j++) {
+                      optionstring += "<option value=\"" + date[j].majorId + "\" >" +date[j].majorName+" " + "</option>";
+                      $("#major").html(optionstring);
+                  }
+              },
+
+              error: function (msg) {
+                  layer.msg('数据出错了!!');
+              }
+			  });
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
 	</script>
 </body>
 </html>
