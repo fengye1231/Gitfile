@@ -18,7 +18,7 @@ public class DistriTeacherSertviceImpl implements DistriTeacherSertvice {
 	@Override
 	public Teacher distriTeacher(Student student,Teacher teacher) {
 		
-		return distriTeacherMapper.insert(student);
+		return distriTeacherMapper.insert(Student student,Teacher teacher);
 //			return Teacher;
 
 		
