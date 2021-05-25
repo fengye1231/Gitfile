@@ -16,6 +16,6 @@ public interface DistriTeacherSertvice {
 //	public int editInfo2(BaseMajor baseMajor);
 //	public List<Teacher> findTeacherBydept(String dept);
 	
-	public Teacher distriedTeacher(Student student);
+	public Teacher distriTeacher(Student student,Teacher teacher);
 	
 }

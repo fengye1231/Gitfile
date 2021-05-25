@@ -10,7 +10,7 @@ import com.ysj.core.po.Title;
 import com.ysj.core.po.Title1;
 import com.ysj.core.service.TitleService;
 @Service
-public class DistriTeacherImpl implements TitleService {
+public class TitleServiceImpl implements TitleService {
 	
 	@Autowired
 	private TitleMapper titleMapper;
