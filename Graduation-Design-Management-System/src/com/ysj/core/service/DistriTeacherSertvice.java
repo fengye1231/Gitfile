@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.ysj.core.po.Teacher;
 import com.ysj.core.po.Student;
+import com.ysj.core.po.Distribution;
+
+
+
 
 public interface DistriTeacherSertvice {
 //	public Teacher findTeacher(String tId, String tPwd);
@@ -16,6 +20,6 @@ public interface DistriTeacherSertvice {
 //	public int editInfo2(BaseMajor baseMajor);
 //	public List<Teacher> findTeacherBydept(String dept);
 	
-	public Teacher distriTeacher(Student student,Teacher teacher);
+	public int distriTeacher(Distribution distribution);
 	
 }

@@ -9,6 +9,8 @@ import com.ysj.core.po.Student;
 import com.ysj.core.po.Teacher;
 import com.ysj.core.po.Title;
 import com.ysj.core.service.DistriTeacherSertvice;
+import com.ysj.core.po.Distribution;
+import com.ysj.core.dao.distriTeacherMapper;
 
 @Service
 public class DistriTeacherSertviceImpl implements DistriTeacherSertvice {
@@ -16,10 +18,11 @@ public class DistriTeacherSertviceImpl implements DistriTeacherSertvice {
 
 
 	@Override
-	public Teacher distriTeacher(Student student,Teacher teacher) {
+	public int distriTeacher(Distribution distribution) {
 		
-		return distriTeacherMapper.insert(Student student,Teacher teacher);
-//			return Teacher;
+		
+		return distriTeacherMapper.insert(distribution);
+
 
 		
 		

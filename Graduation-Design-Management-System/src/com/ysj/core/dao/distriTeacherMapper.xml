@@ -12,16 +12,15 @@
         select="com.ysj.core.dao.TeacherMapper.selectByPrimaryKey" ></association>
         
     <association column="s_id"  property="sId" javaType="Student"
-        select="com.ysj.core.dao.TeacherMapper.selectByPrimaryKey" ></association>
+        select="com.ysj.core.dao.StudentMapper.selectByPrimaryKey" ></association>
         
   </resultMap>
   <insert id="insert" parameterType="com.ysj.core.po.Distribution" keyColumn="sId" keyProperty="student" >
-    insert into title (titl_id, titl_name, t_id, 
-      titl_source, titl_type, titl_describe, 
-      titl_state, sel_state, major)
-    values (#{titlId,jdbcType=BIGINT}, #{titlName,jdbcType=VARCHAR}, #{tId,jdbcType=VARCHAR}, 
-      #{titlSource,jdbcType=VARCHAR}, #{titlType,jdbcType=VARCHAR}, #{titlDescribe,jdbcType=VARCHAR}, 
-      #{titlState,jdbcType=VARCHAR}, #{selState,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR})
+    insert into distribution (s_id, s_name, t_id, 
+    t_name
+      )
+    values (#{sId,jdbcType=VARCHAR}, #{sName,jdbcType=VARCHAR}, #{tId,jdbcType=VARCHAR}, #{tName,jdbcType=VARCHAR}
+     )
   </insert>
 
 
