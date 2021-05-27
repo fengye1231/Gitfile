@@ -201,8 +201,7 @@
 													
 													<input type="button" class="btn btn-danger btn-xs" id="distri"
 																	name="distri" value='分配' onclick="distriTeacher('${student.sId}','${student.sName}','${student.tId}','${student.tName}')">
-														
-											
+										
 													</td>
 
 												

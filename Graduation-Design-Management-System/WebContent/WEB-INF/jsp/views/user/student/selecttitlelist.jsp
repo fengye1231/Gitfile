@@ -249,7 +249,7 @@
 							<div class="card-toolbar clearfix">
 								<form id="form_query"
 									action="${pageContext.request.contextPath }/student/selTitleById.action"
-									class="pull-right search-bar" method="post"">
+									class="pull-right search-bar" method="post">
 									<input id="page" name="pageNum" type="hidden" value="1" />
 									<div class="input-group">
 										<div class="input-group-btn">
@@ -446,8 +446,12 @@
 										<label for="major" class="control-label">指导教师：</label> <select
 											class="form-control" id="new_tName" name="tId">
 											<option value="-1">--请选择--</option>
+											
 											<c:forEach items="${Teacher}" var="item">
 												<option value="${item.tId}">${item.tName }
+												
+												
+												
 												</option>
 											</c:forEach>
 										</select>

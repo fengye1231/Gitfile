@@ -233,7 +233,10 @@ public class StudentController {
         List<Title>list = titleService.findTitleList(title, (String)student.getsId());
         PageInfo<Title> pageInfo = new PageInfo<>(list,5);
         ModelAndView mv = new ModelAndView();
+        
         List<Teacher> list1 = teacherService.findTeacherBydept(student.getDept());
+        
+        
         int i = selectTitleService.findSelTitle(student.getsId());
         mv.addObject("title", title);
         mv.addObject("i", i);
@@ -242,6 +245,11 @@ public class StudentController {
         mv.setViewName("views/user/student/selecttitlelist");
         return mv;
 	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * 删除已选课题(学生退选)

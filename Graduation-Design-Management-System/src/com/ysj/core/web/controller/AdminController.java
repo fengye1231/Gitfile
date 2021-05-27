@@ -30,6 +30,7 @@ import com.ysj.core.service.ScoreProportionService;
 import com.ysj.core.service.StudentService;
 import com.ysj.core.service.TeacherService;
 import com.ysj.core.service.TitleService;
+import com.ysj.core.service.DistriTeacherSertvice;
 
 @Controller
 public class AdminController {
@@ -50,6 +51,11 @@ public class AdminController {
 	private MyFileService myFileService;
 	@Autowired
 	private ScoreProportionService scoreProportionService;
+	@Autowired
+	private DistriTeacherSertvice distriTeacherSertvice;
+	
+	
+	
 	
 	/**
 	 * 向管理员主页面跳转
@@ -201,23 +207,19 @@ public class AdminController {
 	}
 	
 	
-	
 	/**
 	 * 添加分配教师
 	 */
 	@RequestMapping("/admin/distriTeacher.action")
 	@ResponseBody
 	public String distriTeacher(String sId,String sName,String tId,String tName) {
-		if (sId!=null) {
-			
-			DistriTeacherSertvice.createDistribution(sId,sName,tId,tName);
-		}
-		
-		
+//		if (sId!=null) {		
+//			DistriTeacherSertvice.createDistribution(sId,sName,tId,tName);
+//		}		
 		
 		int rows = 0;
 		try {
-			rows = teacherService.editInfo(teacher);
+			rows = distriTeacherSertvice.createDistribution(sId,sName,tId,tName);
 		} catch (Exception e){
 			
 		}
@@ -227,21 +229,7 @@ public class AdminController {
 	        return "FAIL";
 	    }
 		
-
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * 向学生列表跳转

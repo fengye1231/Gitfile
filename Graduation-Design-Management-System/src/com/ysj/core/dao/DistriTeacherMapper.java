@@ -10,8 +10,17 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 
-public interface distriTeacherMapper {
-    int insert(Distribution distribution);
+public interface DistriTeacherMapper {
+
+
+
+    int insert(String sId,String sName,String tId,String tName);
+    
+    
+    
+    int selectByPrimaryKey(String sId);
+
+  
 }
 
 
