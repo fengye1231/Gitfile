@@ -18,14 +18,11 @@ public class DistriTeacherSertviceImpl implements DistriTeacherSertvice {
 
 
 	@Override
-	public int distriTeacher(Distribution distribution) {
+	public int createDistribution(String sId,String sName,String tId,String tName) {
 		
 		
-		return distriTeacherMapper.insert(distribution);
+		return distriTeacherMapper.insert(sId,sName,tId,tName);
 
-
-		
-		
 
 	}
 

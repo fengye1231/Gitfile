@@ -178,7 +178,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/admin/updateTeacher.action")
 	@ResponseBody
-	public String updateTeacher(Teacher teacher) {
+	public String updateTeacher(Teacher teacher ) {
 		if(teacher.getPower().equals("否")) {
 			teacher.setMajorId(null);
 			teacher.setMajor("无");
@@ -207,14 +207,25 @@ public class AdminController {
 	 */
 	@RequestMapping("/admin/distriTeacher.action")
 	@ResponseBody
-	public String distriTeacher(Student student) {
+	public String distriTeacher(String sId,String sName,String tId,String tName) {
+		if (sId!=null) {
+			
+			DistriTeacherSertvice.createDistribution(sId,sName,tId,tName);
+		}
 		
-
-		if (student!=null) {
-			
-			
+		
+		
+		int rows = 0;
+		try {
+			rows = teacherService.editInfo(teacher);
+		} catch (Exception e){
 			
 		}
+		if(rows > 0){
+	        return "OK";
+	    }else{
+	        return "FAIL";
+	    }
 		
 
 	}

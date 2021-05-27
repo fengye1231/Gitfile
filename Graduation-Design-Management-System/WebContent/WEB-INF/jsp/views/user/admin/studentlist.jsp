@@ -200,7 +200,7 @@
 													<td>
 													
 													<input type="button" class="btn btn-danger btn-xs" id="distri"
-																	name="distri" value='分配' onclick="distriTeacher('${student.sId}',1)">
+																	name="distri" value='分配' onclick="distriTeacher('${student.sId}','${student.sName}','${student.tId}','${student.tName}')">
 														
 											
 													</td>
@@ -627,15 +627,22 @@
 		  $.ajax({
 			   type : "POST",
 			   url : "<%=basePath%>admin/distriTeacher.action",
-			   data : {"distriStudent":distriStudent},
+			   data : {"sId":sId,
+				   		"sName":sName,
+				   		"tId":tId,
+				   		"tName":tName
+				   
+				   },
 			   dataType : "json",
 			   success: function (date) {
-                  var optionstring = "";
-                  for (var j = 0; j < date.length;j++) {
-                      optionstring += "<option value=\"" + date[j].majorId + "\" >" +date[j].majorName+" " + "</option>";
-                      $("#major").html(optionstring);
-                  }
-              },
+					if(data =="OK"){
+						alert("操作成功！");
+						window.location.reload();
+
+              }else{
+					alert("操作失败！");
+					window.location.reload();
+				}
 
               error: function (msg) {
                   layer.msg('数据出错了!!');

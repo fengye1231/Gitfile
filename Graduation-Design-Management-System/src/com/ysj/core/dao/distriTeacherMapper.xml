@@ -15,7 +15,7 @@
         select="com.ysj.core.dao.StudentMapper.selectByPrimaryKey" ></association>
         
   </resultMap>
-  <insert id="insert" parameterType="com.ysj.core.po.Distribution" keyColumn="sId" keyProperty="student" >
+  <insert id="insert" parameterType="com.ysj.core.po.Distribution" keyColumn="s_id" keyProperty="sId" >
     insert into distribution (s_id, s_name, t_id, 
     t_name
       )
