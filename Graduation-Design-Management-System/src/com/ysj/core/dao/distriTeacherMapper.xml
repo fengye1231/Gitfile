@@ -15,13 +15,28 @@
         select="com.ysj.core.dao.StudentMapper.selectByPrimaryKey" ></association>
         
   </resultMap>
-  <insert id="insert" parameterType="com.ysj.core.po.Distribution" keyColumn="s_id" keyProperty="sId" >
+  <insert id="insert" parameterType="com.ysj.core.po.Distribution">
     insert into distribution (s_id, s_name, t_id, 
     t_name
       )
     values (#{sId,jdbcType=VARCHAR}, #{sName,jdbcType=VARCHAR}, #{tId,jdbcType=VARCHAR}, #{tName,jdbcType=VARCHAR}
      )
   </insert>
+
+
+  <sql id="Base_Column_List" >
+    s_id, s_name, t_id, tname
+  </sql>
+
+
+
+
+  <select id="selectByPrimaryKey" resultMap="Distribution" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where s_id = #{sId,jdbcType=VARCHAR}
+  </select>
 
 
 

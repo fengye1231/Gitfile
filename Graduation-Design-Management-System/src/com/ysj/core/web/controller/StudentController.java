@@ -25,6 +25,7 @@ import com.ysj.core.po.Teacher;
 import com.ysj.core.po.Thesis;
 import com.ysj.core.po.ThesisAttachment;
 import com.ysj.core.po.Title;
+import com.ysj.core.po.Distribution;
 import com.ysj.core.service.MidCheckService;
 import com.ysj.core.service.OpenReportService;
 import com.ysj.core.service.ProjBookService;
@@ -35,6 +36,7 @@ import com.ysj.core.service.TeacherService;
 import com.ysj.core.service.ThesisAttachmentService;
 import com.ysj.core.service.ThesisService;
 import com.ysj.core.service.TitleService;
+import com.ysj.core.service.DistriTeacherSertvice;
 
 @Controller
 public class StudentController {
@@ -69,6 +71,9 @@ public class StudentController {
 	
 	@Autowired
 	private ScoreProportionService scoreProportionService;
+	@Autowired
+	private DistriTeacherSertvice dstriTeacherSertvice;
+	
 	
 	/**
 	 * 向学生主页面跳转
@@ -226,7 +231,7 @@ public class StudentController {
 	@RequestMapping("/student/selTitleById.action")
 	@ResponseBody
 	public ModelAndView selTitleById(HttpSession session, @ModelAttribute("title") Title title,
-                                                          @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
+                                                          @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum, @RequestParam(value="sId",required=false) String sId) {
         // pageNo 页码      pageSize 每页记录数
         PageHelper.startPage(pageNum, PAGE_SIZE);
         Student student = (Student)session.getAttribute("USER_INFO");
@@ -235,12 +240,23 @@ public class StudentController {
         ModelAndView mv = new ModelAndView();
         
         List<Teacher> list1 = teacherService.findTeacherBydept(student.getDept());
+        List<Distribution> list2 = dstriTeacherSertvice.getDistribution(student.getsId());
         
         
         int i = selectTitleService.findSelTitle(student.getsId());
         mv.addObject("title", title);
         mv.addObject("i", i);
-        mv.addObject("Teacher", list1);
+        
+        
+        if(null == list2 || list2.size() ==0 ) {
+        	
+        	mv.addObject("Teacher", list1);     	
+        	
+        }else {
+        	mv.addObject("Teacher", list2);
+        	
+        }    
+        
         mv.addObject("pageInfo", pageInfo);
         mv.setViewName("views/user/student/selecttitlelist");
         return mv;

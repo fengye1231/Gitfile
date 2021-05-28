@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.ysj.core.service.DistriTeacherSertvice;
 import com.ysj.core.po.Distribution;
+import com.ysj.core.po.DistributionExample;
+import com.ysj.core.po.Student;
+import com.ysj.core.po.StudentExample;
 import com.ysj.core.dao.DistriTeacherMapper;
 
 
@@ -21,19 +24,33 @@ public class DistriTeacherSertviceImpl implements DistriTeacherSertvice {
 
 
 	@Override
-	public int createDistribution(String sId,String sName,String tId,String tName) {
-		return distriTeacherMapper.insert(sId,sName,tId,tName);
+	public int createDistribution(Distribution distribution) {
+		return distriTeacherMapper.insert(distribution);
 	}	
 	
 	
 	@Override
-	public  int getDistribution(String sId) {		
-		return distriTeacherMapper.selectByPrimaryKey(sId);
+	public  List<Distribution> getDistribution(String sId) {	
+
+		
+		DistributionExample example = new DistributionExample();
+			//用来封装查询条件的
+		DistributionExample.Criteria criteria=example.createCriteria();
+			
+			criteria.andSIdEqualTo(sId);
+			
+			List<Distribution> list= distriTeacherMapper.selectByPrimaryKey(sId);
+			//select * from Student where sId=? and sPwd=?
+			if (list!=null&& list.size()>0) {
+				 return list;
+			}
+			return null;
+		}
 		
 		
 	}
 	
 	
 	
-}
+
 

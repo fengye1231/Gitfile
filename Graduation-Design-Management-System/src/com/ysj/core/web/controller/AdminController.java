@@ -22,6 +22,7 @@ import com.ysj.core.po.Myfile;
 import com.ysj.core.po.ScoreProportion;
 import com.ysj.core.po.Student;
 import com.ysj.core.po.Teacher;
+import com.ysj.core.po.Distribution;
 import com.ysj.core.service.AdminService;
 import com.ysj.core.service.BaseDeptService;
 import com.ysj.core.service.BaseMajorService;
@@ -212,14 +213,14 @@ public class AdminController {
 	 */
 	@RequestMapping("/admin/distriTeacher.action")
 	@ResponseBody
-	public String distriTeacher(String sId,String sName,String tId,String tName) {
+	public String distriTeacher(Distribution distribution) {
 //		if (sId!=null) {		
 //			DistriTeacherSertvice.createDistribution(sId,sName,tId,tName);
 //		}		
 		
 		int rows = 0;
 		try {
-			rows = distriTeacherSertvice.createDistribution(sId,sName,tId,tName);
+			rows = distriTeacherSertvice.createDistribution(distribution);
 		} catch (Exception e){
 			
 		}
@@ -263,6 +264,8 @@ public class AdminController {
 		   return student;
 		}
 	 
+	
+	
 	/**
 	* 修改学生信息
 	*/

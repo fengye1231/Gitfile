@@ -21,8 +21,12 @@ public interface DistriTeacherSertvice {
 //	public int editInfo1(BaseDept baseDept);
 //	public int editInfo2(BaseMajor baseMajor);
 //	public List<Teacher> findTeacherBydept(String dept);	
-	public  int createDistribution(String sId,String sName,String tId,String tName);
+	public  int createDistribution(Distribution distribution);
 	
-	List<Student> selectByExample(StudentExample example);
+	
+	public List<Distribution> getDistribution(String sId);
+	
+	
+	
 	
 }
