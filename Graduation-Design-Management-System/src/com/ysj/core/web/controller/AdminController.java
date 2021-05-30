@@ -223,6 +223,8 @@ public class AdminController {
 			rows = distriTeacherSertvice.createDistribution(distribution);
 		} catch (Exception e){
 			
+			System.out.println(e);
+			
 		}
 		if(rows > 0){
 	        return "OK";
@@ -249,7 +251,7 @@ public class AdminController {
 	    ModelAndView mv = new ModelAndView();
 	    mv.addObject("pageInfo", pageInfo);
 	    mv.addObject("BaseDept", list1);
-	    mv.addObject("teacher1", list2);
+	    mv.addObject("Teacher1", list2);
 	    mv.setViewName("views/user/admin/studentlist");
 	    return mv;
 	}

@@ -9,12 +9,10 @@ import org.apache.ibatis.annotations.Param;
 public interface DistriTeacherMapper {
 
 
-
     int insert(Distribution record);
     
     List<Distribution> selectByPrimaryKey(String sId);
 
-  
 }
 
 

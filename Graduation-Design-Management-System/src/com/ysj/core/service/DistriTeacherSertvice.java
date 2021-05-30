@@ -25,8 +25,5 @@ public interface DistriTeacherSertvice {
 	
 	
 	public List<Distribution> getDistribution(String sId);
-	
-	
-	
-	
+
 }

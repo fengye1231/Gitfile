@@ -163,6 +163,8 @@
 											</tr>
 										</thead>
 										<tbody>
+											<c:set var="index" value="${10000}"/>  
+   											<c:set var="index1" value="${1000}"/>
 											<c:forEach var="student" items="${pageInfo.list }"
 												varStatus="state">
 												<tr>
@@ -175,7 +177,7 @@
 													<td>${student.sState }</td>
 													<td>
 													<input type="button" class="btn btn-success btn-xs" id="edit"
-																	name="edit" value='修改' data-toggle="modal" data-target="#studentInfoModal" onclick="change1('${student.dept}');editStudent('${student.sId}')">
+																	name="edit" value='修改' data-toggle="modal" data-target="#studentInfoModal" onclick="change1('${student.dept}');editStudent('${student.sId}')"/>
 																	<c:if test="${student.sState==1 }">
 																	<input type="button" class="btn btn-danger btn-xs" id="del"
 																	name="del" value='删除' onclick="deleteTitle('${student.sId}',0)">
@@ -187,21 +189,20 @@
 													</td>
 													
 													<td>
-													<select
-														class="form-control" id="new_tName" name="tId">
+													<select class="form-control" id="new_tName${index=index+1}" name="tId" onchange="selected_teacher('new_tName${index}')">
 														<option value="-1">--请选择--</option>
-														<c:forEach items="${Teacher}" var="item">
+														<c:forEach items="${Teacher1}" var="item">
 															<option value="${item.tId}">${item.tName }
 															</option>
 															</c:forEach>
 														</select>
 													</td>
-													
+																
 													<td>
 													
-													<input type="button" class="btn btn-danger btn-xs" id="distri"
-																	name="distri" value='分配' onclick="distriTeacher('${student.sId}','${student.sName}','${student.tId}','${student.tName}')">
-										
+													<input type="button" class="btn btn-danger btn-xs" id="distri${index1=index1+1}}"
+																	name="distri" value='分配' 																
+																	onclick="distriTeacher('${student.sId}','${student.sName}')">
 													</td>
 
 												
@@ -410,12 +411,13 @@
 		src="${pageContext.request.contextPath }/js/main.min.js"></script>
 	<script type="text/javascript">
 	var c;
+
 	function jumpPage(pageNumber){
 		  // 先修改访问的页码
 		  document.getElementById("page").value = pageNumber;
 		  // 手动提交表单
 		  document.getElementById("form_query").submit();
-	  };
+	  }
 	
 	  function clearStudent() {
 		  $("#new_sId").val("");
@@ -617,49 +619,80 @@
                }
 			  });
 	  }
+	
+	  
+	  function ceshi(){
+		  alert(456);
+	  }
+	
 	  
 	  
+	  var tValue;
+	  var tName;
+	  function selected_teacher(id){
+		//参数就是select这个对象
+// 		 tIndex=selObj.selectedIndex;//获取下拉列表的索引
+// 		 tValue=selObj.options[sIndex].value;//获取所选择的值
+// 		 tValue=$("#new_tName").val();
+		 var id_l=id.toString();
+		 
+		 console.log(123);
+		 console.log(id_l);
+		 tValue=$("#"+ id_l).val();
+		 console.log(tValue);
+		 tName=$("#"+ id_l).find('option:selected').text();
+		 console.log(tName);
+		}	
+
 	  
-	  function  distriTeacher(val){
-		  var distriStudent=var;
+	  
+	  function  distriTeacher(sId,sName){
+		  var sId_l=sId;
+		  var sName_l=sName;
+
 		  
+// 		  var js_Object={
+// 				"sId":sId_l.toString(),
+// 			   	"sName":sName_l.toString(),
+// 			   	"tId":tValue.toString(),
+// 			   	"tName":tName_l.toString()		  
+// 		  };
+	  
 		  $.ajax({
 			   type : "POST",
 			   url : "<%=basePath%>admin/distriTeacher.action",
-			   data : {"sId":sId,
-				   		"sName":sName,
-				   		"tId":tId,
-				   		"tName":tName
-				   
-				   },
-			   dataType : "json",
-			   success: function (date) {
+			   data : {
+					"sId":sId_l.toString(),
+				   	"sName":sName_l.toString(),
+				   	"tId":tValue.toString(),
+				   	"tName":tName.toString()		  
+			  },
+			   dataType : "text",
+			   success: function (data) {
 					if(data =="OK"){
 						alert("操作成功！");
-						window.location.reload();
+// 						window.location.reload();
 
               }else{
 					alert("操作失败！");
 					window.location.reload();
 				}
+			   },
 
               error: function (msg) {
-                  layer.msg('数据出错了!!');
+            	  
+//             	  layui.use('layer', function(){
+//             		  var layer = layui.layer;
+//             		});            	  
+//                   layer.msg('数据出错了!!');
+				 
+            	  alert("数据出错了!!");
+            	  console.log(msg);
+
               }
 			  });
-		  
-		  
-		  
-		  
-		  
-		  
-		  
 	  }
-	  
-	  
-	  
-	  
-	  
+
 	  
 	</script>
 </body>
