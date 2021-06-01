@@ -25,14 +25,18 @@ public class NoticeController {
      */
     @GetMapping("/noticeIndexOfBack")
     public String noticeIndexOfBack(){
-        return "notice/noticeIndexOfBack";
+//        return "notice/noticeIndexOfBack";
+        return "views/user/admin/notice/noticeIndexOfBack";
     }
     /**
      *  后台公告
      */
+
     @GetMapping("/noticeIndexOfReader")
     public String noticeIndexOfReader(){
-        return "notice/noticeIndexOfReader";
+//        return "notice/noticeIndexOfReader";
+    	return "views/user/admin/notice/noticeIndexOfReader";
+    	
     }
 
     /**

@@ -6,11 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageHelper;
@@ -33,6 +28,36 @@ import com.ysj.core.service.TeacherService;
 import com.ysj.core.service.TitleService;
 import com.ysj.core.service.DistriTeacherSertvice;
 
+
+
+import com.github.pagehelper.PageInfo;
+import com.ysj.core.po.Notice;
+import com.ysj.core.service.NoticeService;
+import com.ysj.core.utils.DataInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import javax.xml.crypto.Data;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Controller
 public class AdminController {
 	
@@ -54,6 +79,9 @@ public class AdminController {
 	private ScoreProportionService scoreProportionService;
 	@Autowired
 	private DistriTeacherSertvice distriTeacherSertvice;
+	
+	@Autowired
+    private NoticeService noticeService;
 	
 	
 	
@@ -245,9 +273,7 @@ public class AdminController {
 		List<Teacher> list2 = teacherService.Teacherlist(teacher);
 		
 		PageInfo<Student> pageInfo = new PageInfo<>(list,10);
-		
-		
-		
+	
 	    ModelAndView mv = new ModelAndView();
 	    mv.addObject("pageInfo", pageInfo);
 	    mv.addObject("BaseDept", list1);
@@ -255,6 +281,17 @@ public class AdminController {
 	    mv.setViewName("views/user/admin/studentlist");
 	    return mv;
 	}
+	
+	
+	/**
+	 * 向发布公告页面跳转
+	 */
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * 通过sId获取学生信息
@@ -336,16 +373,16 @@ public class AdminController {
 	/**
 	 * 向系部列表跳转
 	 */
-	@RequestMapping(value = "/admin/todeptlist.action")
-	public ModelAndView deptlist(@ModelAttribute("baseDept") BaseDept baseDept,
-                                 @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
-		List<BaseDept> list1 = baseDeptService.findDeptByName1(baseDept);
-		PageInfo<BaseDept> pageInfo = new PageInfo<>(list1,10);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("pageInfo", pageInfo);
-		mv.setViewName("views/user/admin/deptlist");
-		return mv;
-	}
+//	@RequestMapping(value = "/admin/todeptlist")
+//	public ModelAndView deptlist(@ModelAttribute("baseDept") BaseDept baseDept,
+//                                 @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
+//		List<BaseDept> list1 = baseDeptService.findDeptByName1(baseDept);
+//		PageInfo<BaseDept> pageInfo = new PageInfo<>(list1,10);
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("pageInfo", pageInfo);
+//		mv.setViewName("views/user/admin/deptlist");
+//		return mv;
+//	}
 	
 	/**
 	 * 新建系部
@@ -584,4 +621,93 @@ public class AdminController {
 	        return "FAIL";
 	    }
 	}
+	
+	
+    /**
+     *  后台公告
+     */
+	@RequestMapping(path = "/admin/noticeIndexOfBack.action",method=RequestMethod.GET)
+    public String noticeIndexOfBack(){
+//        return "notice/noticeIndexOfBack";
+        return "forward:views/user/admin/notice/noticeIndexOfBack";
+    }
+    /**
+     *  后台公告
+     */
+    @GetMapping("/noticeIndexOfReader")
+    public String noticeIndexOfReader(){
+//        return "notice/noticeIndexOfReader";
+    	return "forward:views/user/admin/notice/noticeIndexOfReader";
+    	
+    }
+
+    /**
+     * 查询所有公告信息
+     */
+    @RequestMapping("/noticeAll")
+    @ResponseBody
+    public DataInfo noticeAll(Notice notice,@RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "15")Integer limit){
+        PageInfo<Notice> pageInfo = noticeService.queryAllNotice(notice, pageNum, limit);
+        return DataInfo.ok("成功",pageInfo.getTotal(),pageInfo.getList());
+    }
+    /**
+     * 添加
+     */
+    @GetMapping("/noticeAdd")
+    public String noticeAdd(){
+        return "notice/noticeAdd";
+    }
+
+    /**
+     * 添加提交
+     */
+    @RequestMapping("/addNoticeSubmit")
+    @ResponseBody
+    public DataInfo addNoticeSubmit(Notice notice){
+        //主题和内容可以页面获取，作者和时间在后台自动获取
+        notice.setAuthor("admin");//这里先暂且写admin
+        notice.setCreateDate(new Date());
+        noticeService.addNotice(notice);
+        return DataInfo.ok();
+    }
+
+    /**
+     * 查看详情（修改）
+     */
+    @GetMapping("/queryNoticeById")
+    public String queryNoticeById(Integer id, Model model){
+        Notice notice = noticeService.queryNoticeById(id);
+        model.addAttribute("info",notice);
+        return "notice/updateNotice";
+    }
+
+    /**
+     * 删除公告
+     */
+    @RequestMapping("/deleteNoticeByIds")
+    @ResponseBody
+    public DataInfo deleteNoticeByIds(String ids){
+        List<String> list = Arrays.asList(ids.split(","));
+        noticeService.deleteNoticeByIds(list);
+        return DataInfo.ok();
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

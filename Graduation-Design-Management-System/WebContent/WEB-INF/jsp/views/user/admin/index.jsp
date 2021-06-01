@@ -35,7 +35,7 @@
             <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-application"></i> 系部/专业管理</a>
               <ul class="nav nav-subnav">
-                <li> <a href="${pageContext.request.contextPath }/admin/todeptlist.action">系部/专业</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/admin/todeptlist">系部/专业</a> </li>
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
@@ -51,9 +51,9 @@
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
-              <a href="javascript:void(0)"><i class="mdi mdi-gonggao-unfolded"></i>公告管理</a>
+              <a href="javascript:void(0)"><i class="mdi mdi-gonggao"></i>公告管理</a>
               <ul class="nav nav-subnav">
-                <li> <a href="${pageContext.request.contextPath }/admin/scoreproportion.action">发布公告</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/admin/noticeIndexOfBack.action">发布公告</a> </li>
               </ul>
             </li>       
           </ul>
