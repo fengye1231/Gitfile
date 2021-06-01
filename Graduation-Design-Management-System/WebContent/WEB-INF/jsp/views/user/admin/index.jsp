@@ -50,6 +50,12 @@
                 <li> <a href="${pageContext.request.contextPath }/admin/scoreproportion.action">修改成绩比重</a> </li>
               </ul>
             </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="javascript:void(0)"><i class="mdi mdi-gonggao-unfolded"></i>公告管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="${pageContext.request.contextPath }/admin/scoreproportion.action">发布公告</a> </li>
+              </ul>
+            </li>       
           </ul>
         </nav>
         
