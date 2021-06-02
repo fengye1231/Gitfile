@@ -28,8 +28,8 @@
             <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-human"></i> 用户管理</a>
               <ul class="nav nav-subnav">
-                <li> <a href="${pageContext.request.contextPath }/admin/toteacherlist.action">教师信息管理</a> </li>
-                <li> <a href="${pageContext.request.contextPath }/admin/tostudentlist.action">学生信息管理</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/admin/toteacherlist.action">教师信息管理11</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/admin/tostudentlists.action">学生信息管理</a> </li>
               </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
@@ -53,7 +53,7 @@
             <li class="nav-item nav-item-has-subnav">
               <a href="javascript:void(0)"><i class="mdi mdi-gonggao"></i>公告管理</a>
               <ul class="nav nav-subnav">
-                <li> <a href="${pageContext.request.contextPath }/admin/noticeIndexOfReader.action">发布公告</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/admin/noticeIndexOfBack.action">发布公告</a> </li>
               </ul>
             </li>       
           </ul>
