@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <Resource
+    name="jdbc/dms"
+    type="javax.sql.DataSource"
+    driverClassName="com.mysql.jdbc.Driver"
+    maxIdle="5"
+    maxWait="5000"
+    username="root"
+    password=""
+    url="jdbc:mysql://localhost:3306/dms?characterEncoding=utf8"
+    maxActive="20"/>
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+</Context>

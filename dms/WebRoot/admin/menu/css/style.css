@@ -1,0 +1,19 @@
+.left{
+	margin-left:360px;
+    float:left
+}
+.right{
+    margin-right:8px;
+    float:left
+}
+.font{
+	font-size:16px;
+	width:100px;
+	margin-top:5px
+}
+.row_bottom{
+	margin-bottom:10px
+}
+.check_top{
+	margin-top:23px
+}

@@ -1,0 +1,26 @@
+.cell-red {
+	color: #fff;
+	background-color: #f88;
+}
+
+.cell-gray {
+	background-color: #eee;
+}
+
+.cell-green {
+	color: #fff;
+	background-color: #8e8;
+}
+
+
+table th, table td {
+	text-align: center;
+}
+
+table tbody > tr:first-child {
+	font-weight: bold;
+}
+
+table tr > td:nth-child(1), table tr > th:nth-child(1) {
+	min-width: 6em;
+}

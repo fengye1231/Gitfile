@@ -140,12 +140,15 @@
   <select id="selectByExampleandSId3" resultMap="BaseResultMap">
     SELECT * from selTitleInfo where s_id = #{sId} and seltitl_state = '同意'
   </select>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     titl_id, titl_name, teacher.t_id, t_name, titl_source,titl_describe, titl_type, titl_state ,title.major
     from title ,teacher
     where titl_id = #{titlId,jdbcType=BIGINT} and title.t_id = teacher.t_id
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from title
     where titl_id = #{titlId,jdbcType=BIGINT}

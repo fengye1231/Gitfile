@@ -1,0 +1,27 @@
+.cell-red {
+	color: #fff;
+	background-color: #f88;
+}
+
+.cell-gray {
+	background-color: #eee;
+}
+
+.cell-green {
+	color: #fff;
+	background-color: #8e8;
+}
+
+[data-dms-table] tr > td:nth-child(1) {
+	min-width: 6em;
+}
+
+/*
+[data-dms-table] tr > td:not(:first-child) {
+	text-align: center;
+}
+*/
+
+[data-dms-table] th, [data-dms-table] td {
+	text-align: center;
+}

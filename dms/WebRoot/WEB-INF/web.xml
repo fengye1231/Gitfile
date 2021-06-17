@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+		xmlns="http://java.sun.com/xml/ns/javaee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404/</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/error/</location>
+	</error-page>
+	
+
+	
+	<filter>
+		<filter-name>PermissionFilter</filter-name>
+		<filter-class>com.neusoft.dms.permission.controller.PermissionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PermissionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>com.neusoft.dms.util.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+	<resource-ref>
+		<res-ref-name>jdbc/dms</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+  
+	<!-- ****************************************************** -->
+	
+	<servlet>
+	  <servlet-name>DailyServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.daily.entry.controller.DailyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>DailyServlet</servlet-name>
+	  <url-pattern>/daily/entry/manage/servlet.DailyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  <servlet-name>DailyServlet</servlet-name>
+	  <url-pattern>/daily/entry/check/servlet.DailyServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>ProjectLoadServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.proj.controller.ProjectLoadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>ProjectLoadServlet</servlet-name>
+	  <url-pattern>/daily/query/proj/ProjectLoadServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>DeptLoadServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.dept.controller.DeptLoadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>DeptLoadServlet</servlet-name>
+	  <url-pattern>/daily/query/dept/DeptLoadServlet</url-pattern>
+	</servlet-mapping>
+	<!-- 需要修正 -->
+	<servlet-mapping>
+	  <servlet-name>DeptLoadServlet</servlet-name>
+	  <url-pattern>/daily/entry/DeptLoadServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>EmployeeServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.employee.controller.EmployeeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>EmployeeServlet</servlet-name>
+	  <url-pattern>/info/employee/employee.servlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>LoginServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.employee.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>LoginServlet</servlet-name>
+	  <url-pattern>/login/login.servlet</url-pattern>
+	</servlet-mapping>
+	  <servlet>
+    <servlet-name>Check</servlet-name>
+    <servlet-class>com.neusoft.dms.employee.controller.Check</servlet-class>
+  </servlet>
+	  <servlet-mapping>
+    <servlet-name>Check</servlet-name>
+    <url-pattern>/login/check.servlet</url-pattern>
+  </servlet-mapping>
+	
+
+<!-- DeptServlet -->
+	<servlet>
+	  <servlet-name>DeptServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.dept.controller.DeptServlet</servlet-class>
+	  <init-param>
+	  	<param-name>indexPage</param-name>
+	  	<param-value>/daily/setting/dept</param-value>
+	  </init-param>
+	  <init-param>
+	  	<param-name>viewModify</param-name>
+	  	<param-value>/daily/setting/dept/modifyDept/deptModify.jsp</param-value>
+	  </init-param>
+	  <init-param>
+	  	<param-name>displayInfo</param-name>
+	  	<param-value>/daily/setting/dept/showInfo.jsp</param-value>
+	  </init-param>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>DeptServlet</servlet-name>
+	  <url-pattern>/daily/setting/dept/DeptServlet</url-pattern>
+	</servlet-mapping>
+  
+	<servlet>
+	  <servlet-name>ProjectServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.prj.controller.ProjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>ProjectServlet</servlet-name>
+	  <url-pattern>/daily/setting/proj/ProjectServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>PermissionServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.permission.controller.PermissionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>PermissionServlet</servlet-name>
+	  <url-pattern>/admin/permission/servlet/PermissionServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>MenuServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.menu.controller.MenuServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>MenuServlet</servlet-name>
+	  <url-pattern>/admin/menu/servlet/MenuServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>PersonalServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.personal.controller.PersonalServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>PersonalServlet</servlet-name>
+	  <url-pattern>/daily/query/personal/servlet/PersonalServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- **********************PRP**************************** -->
+	<servlet>
+	  <servlet-name>PrpServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.prp.controller.PrpServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>PrpServlet</servlet-name>
+	  <url-pattern>/daily/setting/prp/servlet/PrpServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>RoleServlet</servlet-name>
+	  <servlet-class>com.neusoft.dms.role.controller.RoleServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>com.neusoft.dms.remind.controller.CheckServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckServletImpl</servlet-name>
+    <servlet-class>com.neusoft.dms.remind.controller.CheckServletImpl</servlet-class>
+  </servlet>
+
+
+
+
+	<servlet-mapping>
+	  <servlet-name>RoleServlet</servlet-name>
+	  <url-pattern>/admin/role/servlet/RoleServlet</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/daily/check/servlet/CheckServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckServletImpl</servlet-name>
+    <url-pattern>/daily/check/servlet/CheckServletImpl</url-pattern>
+  </servlet-mapping>
+
+	<!-- ****************************************************** -->
+</web-app>
