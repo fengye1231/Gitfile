@@ -59,31 +59,28 @@ public class AdminController {
 	    return "views/user/admin/index";
 	}
 
-	
-	
+
 	@RequestMapping(value = "/admin/notice/tonoticeIndexOfBack.action", method = RequestMethod.GET)
 	public String noticeIndexOfBack() {
 	    return "views/user/admin/notice/noticeIndexOfBack";
 	}
 	
 	
-	
-	
 	/**
 	 * 向教师列表跳转
 	 */
-//	@RequestMapping(value = "/admin/toteacherlist.action")
-//	public ModelAndView teacherlist(@ModelAttribute("teacher") Teacher teacher,
-//                                    @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
-//		List<Teacher> list = teacherService.Teacherlist(teacher);
-//		List<BaseDept> list1 = baseDeptService.deptlist();
-//		PageInfo<Teacher> pageInfo = new PageInfo<>(list,10);
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("pageInfo", pageInfo);
-//		mv.addObject("BaseDept", list1);
-//		mv.setViewName("views/user/admin/teacherlist");
-//		return mv;
-//	}
+	@RequestMapping(value = "/admin/toteacherlist.action")
+	public ModelAndView teacherlist(@ModelAttribute("teacher") Teacher teacher,
+                                    @RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum) {
+		List<Teacher> list = teacherService.Teacherlist(teacher);
+		List<BaseDept> list1 = baseDeptService.deptlist();
+		PageInfo<Teacher> pageInfo = new PageInfo<>(list,10);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pageInfo", pageInfo);
+		mv.addObject("BaseDept", list1);
+		mv.setViewName("views/user/admin/teacherlist");
+		return mv;
+	}
 	
 	/**
 	 * 系部下拉框选中值改变时获取对应专业

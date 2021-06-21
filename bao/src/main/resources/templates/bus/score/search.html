@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩分析</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/resources/favicon.ico">
+    <link rel="stylesheet" href="resources/layui/css/layui.css" th:href="@{/resources/layui/css/layui.css}"
+          media="all"/>
+    <link rel="stylesheet" href="resources/css/public.css" th:href="@{/resources/css/public.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/resources/layui_ext/dtree/dtree.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/resources/layui_ext/dtree/font/dtreefont.css}" media="all"/>
+</head>
+<style>
+    .uploadcss{
+        text-align: center;
+        margin-top: 15px;
+    }
+    .centerupload{
+        margin: 0 auto;
+    }
+</style>
+<body class="childrenBody">
+<!--查询条件-->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
+    <legend>查询学生成绩</legend>
+</fieldset>
+
+
+
+<div class="layui-card">
+    <div class="layui-card-body">
+        <form action="" method="post" id="searchView" lay-filter="searchView" class="layui-form">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">学号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="userid" id="userid" class="layui-input input-radius" placeholder="请输入学号" lay-verify="iduser">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" id="username" class="layui-input input-radius" placeholder="请输入姓名">
+                    </div>
+                </div>
+
+                <div class="layui-inline">
+                    <button type="button" class="layui-btn layui-btn-sm layui-btn-radius" lay-submit="" lay-filter="doView"><i
+                            class="layui-icon layui-icon-search layui-icon-normal"></i>查询
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div  class="layui-carousel" id="dept_carousel" lay-filter="dept_carousel">
+            <div carousel-item>
+                <div  id="allscore"></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="/resources/layui/layui.js"></script>
+
+<script type="text/javascript">
+    layui.config({base:'/resources/layui_ext/'}).extend({ dtree: 'dtree/dtree',echarts: 'echarts/echarts'}).use(['jquery', 'form', 'layer', 'laydate', 'table','layedit','upload', 'dtree','element', 'echarts', 'carousel'], function () {
+        var $ = layui.jquery;
+        var element = layui.element;
+        echarts = layui.echarts;
+        carousel = layui.carousel;
+        var form = layui.form;
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        var table = layui.table;
+        var layedit = layui.layedit;
+        var upload = layui.upload;
+        var dtree = layui.dtree;
+
+        //建造轮播实例
+        carousel.render({
+            elem: '#dept_carousel'
+            , width: '100%' //设置容器宽度
+            , height: '400px'
+            , arrow: 'none' //不显示箭头
+            , indicator: 'outside'//lay-indicator:outside
+            , autoplay: true//自动切换
+            , trigger: 'hover'//悬浮切换
+            //,anim: 'updown' //切换动画方式默认左右
+        });
+
+
+        Allscore = echarts.init(document.getElementById('allscore'));
+        Allscore.showLoading();
+        window.onresize = function () {//用于使echarts自适应高度和宽度
+            Allscore.resize();
+
+        };
+        //监听轮播切换事件
+        carousel.on('change(dept_carousel)', function (obj) { //dept_carousel 来源于对应HTML容器的 lay-filter="dept_carousel" 属性值
+            Allscore.resize()
+            //console.log(obj.index); //当前条目的索引
+            //console.log(obj.prevIndex); //上一个条目的索引
+            //console.log(obj.item); //当前条目的元素对象
+        });
+
+
+
+
+
+
+
+
+        function freshdata(){
+            datasearch={username:"刘增宝",userid:10001101};
+            $.get("/bus/score/getstuscore",datasearch,function (data,status) {
+                if(status=="success"){
+                    Allscore.hideLoading();
+                    var result=data.scores;
+                    var testnames=[];
+                    for(var i=0;i<data.testnames.length;i++){
+                        testnames[i]=data.testnames[i].testname;
+                    }
+                    var mathscore=[];
+                    var englishscore=[];
+                    var chinesescore=[];
+                    var totlescore=[];
+                    for(var i=0;i<result.length;i++){
+                        mathscore[i]=result[i].mathscore;
+                    }
+                    for(var i=0;i<result.length;i++){
+                        chinesescore[i]=result[i].chinesescore;
+                    }
+                    for(var i=0;i<result.length;i++){
+                        englishscore[i]=result[i].englishscore;
+                    }
+                    for(var i=0;i<result.length;i++){
+                        totlescore[i]=result[i].totlescore;
+                    }
+                    var allscoreoption = {
+                        title: {
+                            text: data.scores[0].username+'学生考试成绩分析',
+                            subtext: data.scores[0].username+'各个阶段考试成绩变化情况'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['数学','语文','英语','总分']
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                dataView: {show: true, readOnly: false},
+                                magicType: {show: true, type: ['line', 'bar']},
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        calculable: true,
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: testnames
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '数学',
+                                type: 'bar',
+                                data: mathscore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            },
+                            {
+                                name: '语文',
+                                type: 'bar',
+                                data: chinesescore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                            ,
+                            {
+                                name: '英语',
+                                type: 'bar',
+                                data: englishscore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                            ,
+                            {
+                                name: '总分',
+                                type: 'bar',
+                                data: totlescore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+
+
+                    Allscore.setOption(allscoreoption);
+                    window.onresize = function () {//用于使echarts自适应高度和宽度
+                        Allscore.resize();
+
+                    };
+
+                }
+
+            });
+        }
+            freshdata();
+        //自定义验证规则
+        form.verify({
+            iduser: [
+                /^(\s*|\d+)$/
+                ,'学号只能是数字或者不填'
+            ]
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //监控view查询按钮事件
+        form.on("submit(doView)", function (data) {
+            $.get("/bus/score/getstuscore",data.field,function (data,status) {
+                if(status=="success"){
+                    Allscore.hideLoading();
+                    var result=data.scores;
+                    var testnames=[];
+                    var mathscore=[];
+                    var englishscore=[];
+                    var chinesescore=[];
+                    var totlescore=[];
+                    if(result.length===0){
+                        layer.msg('查无此人，请确认你要查询的学号和姓名！', {icon: 3});
+                    }
+                    else {
+                        for(var i=0;i<data.testnames.length;i++){
+                            testnames[i]=data.testnames[i].testname;
+                        }
+                        for(var i=0;i<result.length;i++){
+                            mathscore[i]=result[i].mathscore;
+                        }
+                        for(var i=0;i<result.length;i++){
+                            chinesescore[i]=result[i].chinesescore;
+                        }
+                        for(var i=0;i<result.length;i++){
+                            englishscore[i]=result[i].englishscore;
+                        }
+                        for(var i=0;i<result.length;i++){
+                            totlescore[i]=result[i].totlescore;
+                        }
+                    }
+
+                    var allscoreoption = {
+                        title: {
+                            text: data.scores[0].username+'学生考试成绩分析',
+                            subtext:data.scores[0].username+'各个阶段考试成绩变化情况'
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: ['数学','语文','英语','总分']
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                dataView: {show: true, readOnly: false},
+                                magicType: {show: true, type: ['line', 'bar']},
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        calculable: true,
+                        xAxis: [
+                            {
+                                type: 'category',
+                                data: testnames
+                            }
+                        ],
+                        yAxis: [
+                            {
+                                type: 'value'
+                            }
+                        ],
+                        series: [
+                            {
+                                name: '数学',
+                                type: 'bar',
+                                data: mathscore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            },
+                            {
+                                name: '语文',
+                                type: 'bar',
+                                data: chinesescore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                            ,
+                            {
+                                name: '英语',
+                                type: 'bar',
+                                data: englishscore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                            ,
+                            {
+                                name: '总分',
+                                type: 'bar',
+                                data: totlescore,
+                                markPoint: {
+                                    data: [
+                                        {type: 'max', name: '最大值'},
+                                        {type: 'min', name: '最小值'}
+                                    ]
+                                },
+                                markLine: {
+                                    data: [
+                                        {type: 'average', name: '平均值'}
+                                    ]
+                                }
+                            }
+                        ]
+                    };
+
+
+                    Allscore.setOption(allscoreoption);
+                    window.onresize = function () {//用于使echarts自适应高度和宽度
+                        Allscore.resize();
+
+                    };
+
+                }
+
+            });
+
+
+
+            return false;
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>我要留言</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/resources/favicon.ico">
+    <link rel="stylesheet" href="resources/css/public.css" th:href="@{/resources/css/semantic.css}" media="all"/>
+    <script type="text/javascript" src="/resources/js/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="/resources/js/semantic.js"></script>
+</head>
+<body>
+<input type="hidden" id="myimgpath" th:value="${session.user.getImgpath()}" >
+<input type="hidden" id="myname" th:value="${session.user.getName()}" >
+<!--选择朋友-->
+<h4 class="ui horizontal divider header" style="margin-top: 5px">
+    家校交流区
+</h4>
+<div class="center aligned">
+    <div class="m-padded-tb-large" style="margin-top: 20px">
+        <div class="ui container">
+            <div class="ui stackable grid">
+
+
+
+                <div class="column wide layui-edge-top">
+
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" name="user">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">选择对象</div>
+                        <div class="menu" id="selectusers">
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!--评论-->
+                    <div class="ui threaded comments" style="max-width: 100%;width: 100%">
+                        <h3 class="ui dividing header" id="showtoname">留言消息</h3>
+                        <div id="messages">
+
+                        </div>
+                        <form class="ui reply form">
+                            <div class="field">
+                                <textarea id="saywords"></textarea>
+                            </div>
+                            <div class="ui blue submit icon button" id="submitMessage">
+                                我要留言
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 class="ui horizontal divider header">
+    有人给你留言了
+</h4>
+<div class="ui threaded comments" style="max-width: 100%;width: 100%">
+    <div id="persons">
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var selectedid=0;
+        var selecttxt;
+        $.get("/user/getattchedpersons",function (data,status) {
+            for(var i=0;i<data.length;i++){
+                var el=$(" <div class=\"item\" data-value=\""+data[i].id +"\">\n" +
+                    "                <img class=\"ui mini avatar image\" src=\"/file/showImageByPath?path=/"+data[i].imgpath +"\">\n" +
+                    data[i].name +
+                    "            </div>");
+                $('#selectusers').append(el);
+            }
+        });
+        $('.ui.dropdown')
+            .dropdown({
+                onChange: function(value, text, $selectedItem) {
+                    selectedid=value;
+                    selecttxt=text;
+                    $("#messages").empty();
+                    var myname=$('#myname').val();
+                    var myimgpath=$('#myimgpath').val();
+                    var fromimgpath=text.split("src=")[1].split(">")[0].split("=/")[1];
+                    var fromname=text.split("src")[1].split(">")[1].trim();
+                    $("#showtoname").html(myname+"和"+fromname+"的留言消息");
+                    //value是id，text是item值,用>分割
+                    var datat={fromid:value};
+                    $.get("/bus/message/getmessages",datat,function (data,status) {
+                        console.log("my"+myimgpath);
+                        console.log("from"+fromimgpath);
+                        console.log(text.split("src=")[1].split(">")[0]);
+                        var arr=[];
+                        for(var i=0;i<data.from.length;i++){
+                            arr.push(data.from[i]);
+
+                        }
+                        for (var i=0;i<data.to.length;i++){
+                            arr.push(data.to[i]);
+                        }
+                        for(var i=0;i<arr.length-1;i++){
+                            for(var j=0;j<arr.length-i-1;j++){
+                                if(new Date(arr[j].time.replace(/\-/g, "\/"))>new Date(arr[j+1].time.replace(/\-/g, "\/"))){
+                                    var temp=arr[j];
+                                    arr[j]=arr[j+1];
+                                    arr[j+1]=temp;
+                                }
+                            }
+                        }
+                        for(var i=0;i<arr.length;i++){
+                            if(arr[i].fromid==value){
+                                var el=$(" <div class=\"comment\">\n" +
+                                    "                                <a class=\"avatar\">\n" +
+                                    "                                    <img src=\"/file/showImageByPath?path=/"+fromimgpath+"\">\n" +
+                                    "                                </a>\n" +
+                                    "                                <div class=\"content\">\n" +
+                                    "                                    <a class=\"author\">"+ fromname+"</a>\n" +
+                                    "                                    <div class=\"metadata\">\n" +
+                                    "                                        <span class=\"date\">"+ arr[i].time+"</span>\n" +
+                                    "                                    </div>\n" +
+                                    "                                    <div class=\"text\">\n" +
+                                    arr[i].message +"\n" +
+                                    "                                    </div>\n" +
+                                    "                                </div>\n" +
+                                    "                            </div>");
+                                $('#messages').append(el);
+
+
+                            }else {
+                                var el=$(" <div class=\"comment\">\n" +
+                                    "                                <a class=\"avatar\">\n" +
+                                    "                                    <img src=\"/file/showImageByPath?path=/"+myimgpath+"\">\n" +
+                                    "                                </a>\n" +
+                                    "                                <div class=\"content\">\n" +
+                                    "                                    <a class=\"author\">"+ myname+"</a>\n" +
+                                    "                                    <div class=\"metadata\">\n" +
+                                    "                                        <span class=\"date\">"+ arr[i].time+"</span>\n" +
+                                    "                                    </div>\n" +
+                                    "                                    <div class=\"text\">\n" +
+                                    arr[i].message +"\n" +
+                                    "                                    </div>\n" +
+                                    "                                </div>\n" +
+                                    "                            </div>");
+                                $('#messages').append(el);
+                            }
+                        }
+                    });
+                }
+            })
+        ;
+
+        function updata(){
+            $("#messages").empty();
+            var myname=$('#myname').val();
+            var myimgpath=$('#myimgpath').val();
+            var fromimgpath=selecttxt.split("src=")[1].split(">")[0].split("=/")[1];
+            var fromname=selecttxt.split("src")[1].split(">")[1].trim();
+            var datat={fromid:selectedid};
+            $.get("/bus/message/getmessages",datat,function (data,status) {
+                var arr=[];
+                for(var i=0;i<data.from.length;i++){
+                    arr.push(data.from[i]);
+
+                }
+                for (var i=0;i<data.to.length;i++){
+                    arr.push(data.to[i]);
+                }
+                for(var i=0;i<arr.length-1;i++){
+                    for(var j=0;j<arr.length-i-1;j++){
+                        if(new Date(arr[j].time.replace(/\-/g, "\/"))>new Date(arr[j+1].time.replace(/\-/g, "\/"))){
+                            var temp=arr[j];
+                            arr[j]=arr[j+1];
+                            arr[j+1]=temp;
+                        }
+                    }
+                }
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i].fromid==selectedid){
+                        var el=$(" <div class=\"comment\">\n" +
+                            "                                <a class=\"avatar\">\n" +
+                            "                                    <img src=\"/file/showImageByPath?path=/"+fromimgpath+"\">\n" +
+                            "                                </a>\n" +
+                            "                                <div class=\"content\">\n" +
+                            "                                    <a class=\"author\">"+ fromname+"</a>\n" +
+                            "                                    <div class=\"metadata\">\n" +
+                            "                                        <span class=\"date\">"+ arr[i].time+"</span>\n" +
+                            "                                    </div>\n" +
+                            "                                    <div class=\"text\">\n" +
+                            arr[i].message +"\n" +
+                            "                                    </div>\n" +
+                            "                                </div>\n" +
+                            "                            </div>");
+                        $('#messages').append(el);
+
+
+                    }else {
+                        var el=$(" <div class=\"comment\">\n" +
+                            "                                <a class=\"avatar\">\n" +
+                            "                                    <img src=\"/file/showImageByPath?path=/"+myimgpath+"\">\n" +
+                            "                                </a>\n" +
+                            "                                <div class=\"content\">\n" +
+                            "                                    <a class=\"author\">"+ myname+"</a>\n" +
+                            "                                    <div class=\"metadata\">\n" +
+                            "                                        <span class=\"date\">"+ arr[i].time+"</span>\n" +
+                            "                                    </div>\n" +
+                            "                                    <div class=\"text\">\n" +
+                            arr[i].message +"\n" +
+                            "                                    </div>\n" +
+                            "                                </div>\n" +
+                            "                            </div>");
+                        $('#messages').append(el);
+                    }
+                }
+            });
+        };
+
+
+        $("#submitMessage").click(function(){
+            if($('#saywords').val().length<6||$('#saywords').val().length>255){
+                alert("留言不能小于6字符不能大于255字符！");
+            }
+            else {
+                $.post("/bus/message/savemessage",{
+                        message:$('#saywords').val(),
+                        toid:selectedid
+                    },
+                    function(data,status){
+                        updata();
+                        $('#saywords').val("");
+                        alert(data.msg);
+                    });
+            }
+        });
+
+        $.get("/bus/message/loadallinfo",function (res) {
+
+            var listinfo=res.frominfo;
+            console.log(listinfo);
+
+            for(var i=0;i<listinfo.length;i++){
+                var el=$(" <div class=\"comment\">\n" +
+
+                    "                                <div class=\"content\" style='text-align: center'>\n" +
+                    "                                <a text-align: center'>\n" +
+                    "                                    <img src=\"/file/showImageByPath?path=/"+listinfo[i].imgpath+"\" style='width: 18px'>\n" +
+                    "                                </a>\n" +
+                    "                                    <a class=\"author\" style='font-size: 1.2em'>"+ listinfo[i].fname+"</a>\n" +
+                    "                                </div>\n" +
+                    "                            </div>");
+                $('#persons').append(el);
+
+            }
+
+        })
+
+
+
+
+    });
+
+
+</script>
+
+</body>
+</html>
