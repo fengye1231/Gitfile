@@ -19,7 +19,7 @@ public class MessageVo extends Message {
 
     private String fromname;
     
-    private Message message;
+    private String message;
     
     
     public Integer getPage() {
@@ -38,11 +38,11 @@ public class MessageVo extends Message {
 		this.limit = limit;
 	}
 	
-    public Message getMessage() {
+    public String getMessage() {
 		return message;
 	}
 
-	public void settMessage(Message message) {
+	public void settMessage(String message) {
 		this.message = message;
 	}
 	
@@ -54,6 +54,24 @@ public class MessageVo extends Message {
 		this.ids = ids;
 	}
 	
+	
+	
+    public String getFromname() {
+		return fromname;
+	}
+
+	public void setFromname(String fromname) {
+		this.fromname = fromname;
+	}
+	
+	
+    public String getToname() {
+		return toname;
+	}
+
+	public void setToname(String toname) {
+		this.toname = toname;
+	}
 	
 	
 	

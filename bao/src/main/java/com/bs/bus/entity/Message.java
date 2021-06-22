@@ -55,12 +55,43 @@ public class Message implements Serializable {
 		this.fromid = fromid;
 	}
 	
+    public Integer getToid() {
+		return toid;
+	}
+    
+    
+	public void setToid(Integer toid) {
+		this.toid = toid;
+	}
+    
+
+	
+	
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	
+    public String getFname() {
+		return fname;
+	}
+
+	
+	
     public Date getTime() {
 		return time;
 	}
 
 	public void setTime(Date time) {
 		this.time = time;
+	}
+	
+	
+    public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 
 }

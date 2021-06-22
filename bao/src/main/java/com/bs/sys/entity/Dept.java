@@ -56,5 +56,48 @@ public class Dept implements Serializable {
 
     private Date createtime;
 
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+    public Integer getOpen() {
+		return open;
+	}
+
+	public void setOpen(Integer open) {
+		this.open = open;
+	}
+	
+
+	
+    public Integer getPid() {
+		return pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+	
+    public Integer getOrdernum() {
+		return ordernum;
+	}
+
+	public void setOrdernum(Integer ordernum) {
+		this.ordernum = ordernum;
+	}
+	
+	
 
 }

@@ -97,6 +97,32 @@ public class User implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+
+    
+    public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
+	}
+	
+    public String getLoginname() {
+		return loginname;
+	}
+
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
+	}
 
 
 }

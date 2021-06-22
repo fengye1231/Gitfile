@@ -84,4 +84,31 @@ public class TreeNode {
         this.spread = spread;
         this.checkArr = checkArr;
     }
+    
+    
+    public Integer getPid() {
+		return pid;
+	}
+
+	public void pid(Integer pid) {
+		this.pid = pid;
+	}
+	
+	
+    public Integer getId() {
+		return id;
+	}
+
+	public void id(Integer id) {
+		this.id = id;
+	}
+
+	
+    public List<TreeNode> getChildren() {
+		return children;
+	}
+
+	public void children(List<TreeNode> children) {
+		this.children = children;
+	}
 }

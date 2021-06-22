@@ -36,6 +36,14 @@ public class Role implements Serializable {
     private Integer available;
 
     private Date createtime;
+    
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 }

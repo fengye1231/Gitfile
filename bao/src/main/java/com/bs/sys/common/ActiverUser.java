@@ -19,4 +19,14 @@ public class ActiverUser {
 
     private List<String> permission;
 
+    public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
+    
+    
 }
