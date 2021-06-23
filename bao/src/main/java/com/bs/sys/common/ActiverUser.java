@@ -26,6 +26,16 @@ public class ActiverUser {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public List<String> getPermission(){
+		return permission;
+	}
+	
+	public void setPermission(List<String> permission) {
+		this.permission=permission;
+	}
+	
+	
     
     
     

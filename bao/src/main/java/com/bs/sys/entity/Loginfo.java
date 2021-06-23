@@ -34,5 +34,29 @@ public class Loginfo implements Serializable {
 
     private Date logintime;
 
+    
+    public String getLoginname() {
+		return loginname;
+	}
+
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
+	}
+	
+    public String getLoginip() {
+		return loginip;
+	}
+
+	public void setLoginip(String loginip) {
+		this.loginip = loginip;
+	}
+	
+    public Date getLogintime() {
+		return logintime;
+	}
+
+	public void setLogintime(Date logintime) {
+		this.logintime = logintime;
+	}
 
 }

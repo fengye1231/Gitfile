@@ -50,6 +50,89 @@ public class Permission implements Serializable {
      * 是否可用[0不可用，1可用]
      */
     private Integer available;
+    
+    
+    
 
+    public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	
+    public Integer getPid() {
+		return pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+	
+    public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+    public String getPercode() {
+		return percode;
+	}
+
+	public void setPercode(String percode) {
+		this.percode = percode;
+	}
+	
+	
+	
+    public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+	
+	
+    public String getHref() {
+		return href;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
+	}
+	
+	
+    public Integer getOpen() {
+		return open;
+	}
+
+	public void setOpen(Integer open) {
+		this.open = open;
+	}
+	
+	
+    public Integer getOrdernum() {
+		return ordernum;
+	}
+
+	public void setOrdernum(Integer ordernum) {
+		this.ordernum = ordernum;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

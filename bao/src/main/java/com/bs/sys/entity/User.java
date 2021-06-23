@@ -123,6 +123,107 @@ public class User implements Serializable {
 	public void setLoginname(String loginname) {
 		this.loginname = loginname;
 	}
+	
+	
+    public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
 
 
+	
+    public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+
+    public Integer getDeptid() {
+		return deptid;
+	}
+
+	public void setDeptid(Integer deptid) {
+		this.deptid = deptid;
+	}
+	
+	
+    public String getDeptname() {
+		return deptname;
+	}
+
+	public void setDeptname(String deptname) {
+		this.deptname = deptname;
+	}
+
+	
+
+    public Integer getMgr() {
+		return mgr;
+	}
+
+	public void setMgr(Integer mgr) {
+		this.mgr = mgr;
+	}
+	
+	
+
+    public String getLeadername() {
+		return leadername;
+	}
+
+	public void setLeadername(String leadername) {
+		this.leadername = leadername;
+	}
+
+    public Integer getOrdernum() {
+		return ordernum;
+	}
+
+	public void setOrdernum(Integer ordernum) {
+		this.ordernum = ordernum;
+	}
+	
+    public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	
+	
+    public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	
+    public Integer getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(Integer available) {
+		this.available = available;
+	}
+	
+    public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	
+
+	
 }
