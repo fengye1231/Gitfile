@@ -21,6 +21,25 @@ public class ResultObj {
     }
     
     
+    public Integer getCode() {
+		return code;
+	}
+
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+    
+
+    
+    public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+    
+    
 
     public static final ResultObj LOGIN_SUCCESS=new ResultObj(Constast.OK,"登陆成功");
     public static final ResultObj LOGIN_ERROR_PASS=new ResultObj(Constast.ERROR,"用户名或密码错误");
