@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>添加出库信息</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/bootstrap-paginator.min.js"></script>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #addOutBound{
+        padding-right: 0px;
+        width: 782px;
+        height: 530px;
+        border:1px solid black;
+        overflow-x: hidden;
+    }
+    #addOutBound_head{
+        font-size: 36px;
+        font-weight: 700;
+        font-family: STKaiti;
+        text-shadow: black;
+    }
+    #addOutBound_head1{
+        font-weight: 400;
+        font-family: STKaiti;
+        text-shadow: black;
+    }
+    .outBound_tableHead{
+        background-color: rgba(43, 41, 60, 0.27);
+    }
+    #addOutBound_head1_left_label{
+        padding: 0px;
+    }
+    #addOutBound_body_container{
+        margin: 0;
+        padding: 0;
+    }
+    #addOutBound_body{
+        margin-top: 40px;
+    }
+    #addOutBound_body_table{
+
+        border-top: 1px;
+        border-bottom: 2px;
+        height:200px;
+        width: 780px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    #addOutBound_foot{
+        margin-top: 80px;
+        text-align: center;
+    }
+    .addOutBound_foot_button{
+        display: inline-block;
+    }
+    #addOutBound_foot_button1{
+
+      margin-left: 2px;
+    }
+    #addOutBound_foot_button2{
+        margin-left: 94px;
+    }
+    #addOutBound_foot_button3{
+        margin-left: 148px;
+    }
+    /*固定表头*/
+
+    #addOutBound_body_table thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+        text-align: left;
+    }
+    #addOutBound_body_table tbody{
+        display: block;
+        height:127px;
+        overflow:auto;
+    }
+    #addOutBound_body_table{
+        border:2px solid gray;
+    }
+    #addOutBound_body_table thead {
+        width: 98%;
+    }
+    .addOutBound_body_table_p1{
+        width: 15%;
+    }
+    .addOutBound_body_table_p2{
+        width: 30%;
+    }
+    .addOutBound_body_table_p3{
+        width: 20%;
+    }
+    .addOutBound_body_table_p4{
+        width: 22%;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+
+                <div class="row" id="addOutBound">
+                        <div class="row" id="addOutBound_head">
+                            <p class="col-sm-4 col-sm-offset-4">添加出库信息</p>
+                        </div>
+                        <div class="row" id="addOutBound_head1">
+                                <div class="col-sm-offset-1">
+                                    <form action="#">
+                                        <label for="addOutBound_head1_left" class="col-sm-2" id="addOutBound_head1_left_label">领用小班</label>
+                                        <select name="sel" id="addOutBound_head1_left" class="col-sm-3  btn btn-default btn-sm btn-primary" >
+                                            <option value="wolongyiban">卧龙一班</option>
+                                            <option value="wolongerban">卧龙二班</option>
+                                            <option value="yalinyiban">雅林一班</option>
+                                            <option value="yalinyiban">雅林二班</option>
+                                        </select>
+                                    </form>
+                                </div>
+
+                                <div class="row" >
+                                    <div class="col-sm-2 col-sm-offset-2">
+                                        <span>出库人</span>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span>赵晓红</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                        <div class="row" id="addOutBound_body">
+                            <div class="col-sm-12">
+                                <form action="#" method="get">
+                                <div class="container" id="addOutBound_body_container" >
+
+                                    <table class="table table-bordered table-striped table-hover table-condensed" id="addOutBound_body_table">
+                                        <thead>
+                                        <tr class="outBound_tableHead"><th class="addOutBound_body_table_p1">物品名称</th><th class="addOutBound_body_table_p2">类型</th><th class="addOutBound_body_table_p3">防治类型</th><th class="addOutBound_body_table_p4">领用数量</th></tr>
+                                        </thead>
+                                            <tbody>
+                                            <tr><td class="addOutBound_body_table_p1">捕鼠笼</td><td class="addOutBound_body_table_p2">器械</td><td class="addOutBound_body_table_p3">鼠害</td><td class="addOutBound_body_table_p4"><input type="text" name="shuhai"/></td></tr>
+                                            <tr><td class="addOutBound_body_table_p1">波尔多液</td><td class="addOutBound_body_table_p2">药剂</td><td class="addOutBound_body_table_p3">病害</td><td class="addOutBound_body_table_p4"><input type="text" name="binghai"/></td></tr>
+                                            <tr><td class="addOutBound_body_table_p1">波尔多液</td><td class="addOutBound_body_table_p2">药剂</td><td class="addOutBound_body_table_p3">病害</td><td class="addOutBound_body_table_p4"><input type="text" name="binghai"/></td></tr>
+                                            <tr><td class="addOutBound_body_table_p1">波尔多液</td><td class="addOutBound_body_table_p2">药剂</td><td class="addOutBound_body_table_p3">病害</td><td class="addOutBound_body_table_p4"><input type="text" name="binghai"/></td></tr>
+                                            <tr><td class="addOutBound_body_table_p1">波尔多液</td><td class="addOutBound_body_table_p2">药剂</td><td class="addOutBound_body_table_p3">病害</td><td class="addOutBound_body_table_p4"><input type="text" name="binghai"/></td></tr>
+                                            <tr><td class="addOutBound_body_table_p1">波尔多液</td><td class="addOutBound_body_table_p2">药剂</td><td class="addOutBound_body_table_p3">病害</td><td class="addOutBound_body_table_p4"><input type="text" name="binghai"/></td></tr>
+
+                                         </tbody>
+                                    </table>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row" id="addOutBound_foot">
+                            <div class="addOutBound_foot_button">
+                                <button id="addOutBound_foot_button1"  class="btn btn-info btn btn-primary btn-lg">添加物品</button>
+                            </div>
+                            <div class="addOutBound_foot_button">
+                                <button id="addOutBound_foot_button2" class="btn btn-info btn btn-primary btn-lg">移除物品</button>
+                            </div>
+                            <div class="addOutBound_foot_button">
+                                <button id="addOutBound_foot_button3" class="btn btn-info btn btn-primary btn-lg"> 出库 </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+</body>
+<script>
+    var ops = {
+        bootstrapMajorVersion:3,//bootstrap版本
+        currentPage:1,//当前页码
+        totalPages:8,//总页数
+        numberOfPages:5,//页面最多显示的页码数
+        pageSize:5,
+        pageList: [10, 25, 50, 100],
+        onPageClicked:function(e,ev,type,page){//page为点中的页码
+            alert(page);
+        }
+    };
+    //初始化分页组件
+    $("#cutPageUL").bootstrapPaginator(ops);
+    $("#addOutBound_foot_button1").click(function(){
+        window.location = 'addOutBound_addItems.html';
+    });
+    $("#addOutBound_foot_button3").click(function(){
+        window.location = 'outBound_main.html';
+    });
+</script>
+</html>

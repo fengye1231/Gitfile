@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>添加物品</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/bootstrap-paginator.min.js"></script>
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: STKaiti;
+        font-size: 16px;
+    }
+    #addOutBoundadd_Items {
+        padding-right: 0;
+        width: 782px;
+        height: 530px;
+        border:1px solid black;
+        overflow-x: hidden;
+    }
+    /*#addOutBound_addItems_one {*/
+        /*margin-top: 50px;*/
+        /*width: 782px;*/
+        /*height: 172px;*/
+        /*overflow-y: scroll;*/
+    /*}*/
+
+    .addOutBound_addItems_tableHead{
+        background-color: rgba(43, 41, 60, 0.27);
+    }
+    #addOutBound_addItems_three_text1{
+        margin-left: 8px;
+    }
+    #addOutBound_addItems_three_row1{
+    margin-top: 20px;
+
+    }
+    #addOutBound_addItems_three_row2{
+        margin-top: 20px;
+
+    }
+    #addOutBound_addItems_three_row3{
+        margin-top: 36px;
+
+    }
+    #addOutBound_addItems_three_sel1{
+        margin-left: 6%;
+        height: 39px;
+        width: 175px;
+        font-size: 22px;
+
+    }
+    #addOutBound_addItems_three_sel2{
+        margin-left: 6%;
+        height: 39px;
+        width: 175px;
+        font-size: 22px;
+    }
+    #addOutBound_addItems_three_button1{
+        width: 100px;
+        height: 41px;
+        margin-left: 30px;
+        font-size: 29px;
+    }
+    #addOutBound_addItems_three_button2{
+        width: 100px;
+        height: 41px;
+        margin-left: 30px;
+        font-size: 29px;
+    }
+    /*固定表头*/
+    #addOutBound_addItems_one_table thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+        text-align: left;
+    }
+    #addOutBound_addItems_one_table tbody{
+        display: block;
+        height:127px;
+        overflow:auto;
+    }
+    #addOutBound_addItems_one_table{
+        border:2px solid gray;
+        width: 782px;
+    }
+    #addOutBound_addItems_one_table thead {
+        width: 98%;
+    }
+    .addOutBound_addItems_one_p0{
+        width: 20%;
+    }
+    .addOutBound_addItems_one_table_p1{
+        width: 15%;
+    }
+    .addOutBound_addItems_one_table_p2{
+        width: 30%;
+    }
+    .addOutBound_addItems_one_table_p3{
+        width: 20%;
+    }
+    .addOutBound_addItems_one_table_p4{
+        width: 22%;
+    }
+
+    #addOutBound_addItems_one_container{
+          margin: 0;
+            padding-right: 0px;
+
+    }
+
+</style>
+
+<body>
+<div class="container-fluid">
+            <div class="row">
+                <div id="addOutBoundadd_Items">
+                    <div class="row" id="addOutBound_addItems_one">
+                        <div class="container" id="addOutBound_addItems_one_container">
+                            <table class="table table-bordered table-striped table-hover table-condensed"  id="addOutBound_addItems_one_table">
+                                <thead>
+                                    <tr class="addOutBound_addItems_tableHead"><th class="addOutBound_addItems_one_p0"></th><th class="addOutBound_addItems_one_p1">物品名称</th><th class="addOutBound_addItems_one_p2">类型</th><th class="addOutBound_addItems_one_p3">防治类型</th><th class="addOutBound_addItems_one_p4">主要用途</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><input type="checkbox" name="hobby" value="bushu" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">捕鼠笼</td><td class="addOutBound_addItems_one_p2">器械</td><td class="addOutBound_addItems_one_p3">鼠害</td><td class="addOutBound_addItems_one_p4">将老鼠关进笼中</td></tr>
+                                    <tr><td><input type="checkbox" name="hobby" value="boerduoye" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">波尔朵液</td><td class="addOutBound_addItems_one_p2">药剂</td><td class="addOutBound_addItems_one_p3">病害</td><td class="addOutBound_addItems_one_p4">治疗枯萎病</td></tr>
+                                    <tr><td><input type="checkbox" name="hobby" value="boerduoye" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">波尔朵液</td><td class="addOutBound_addItems_one_p2">药剂</td><td class="addOutBound_addItems_one_p3">病害</td><td class="addOutBound_addItems_one_p4">治疗枯萎病</td></tr>
+                                    <tr><td><input type="checkbox" name="hobby"  value="boerduoye" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">波尔朵液</td><td class="addOutBound_addItems_one_p2">药剂</td><td class="addOutBound_addItems_one_p3">病害</td><td class="addOutBound_addItems_one_p4">治疗枯萎病</td></tr>
+                                    <tr><td><input type="checkbox" name="hobby" value="boerduoye" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">波尔朵液</td><td class="addOutBound_addItems_one_p2">药剂</td><td class="addOutBound_addItems_one_p3">病害</td><td class="addOutBound_addItems_one_p4">治疗枯萎病</td></tr>
+                                    <tr><td><input type="checkbox" name="hobby" value="boerduoye" class="addOutBound_addItems_one_p0"/></td><td class="addOutBound_addItems_one_p1">波尔朵液</td><td class="addOutBound_addItems_one_p2">药剂</td><td class="addOutBound_addItems_one_p3">病害</td><td class="addOutBound_addItems_one_p4">治疗枯萎病</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-2" id="addOutBound_body_foot">
+                            <ul id="cutPageUL" class="pagination"></ul>
+                        </div>
+                    </div>
+
+                        <div id="addOutBound_addItems_three">
+                            <form action="#">
+                                <div class="row" id="addOutBound_addItems_three_row1">
+                                    <div class="col-sm-2 col-sm-offset-1">
+                                        <label for="addOutBound_addItems_three_text1">物品名称</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" id="addOutBound_addItems_three_text1"/>
+                                    </div>
+                                    <div class="col-sm-1 col-sm-offset-1">
+                                         <label for="addOutBound_addItems_three_sel1">类型</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select name="sel" id="addOutBound_addItems_three_sel1"  class="col-sm-4  btn btn-default btn-sm btn-primary">
+                                            <option value="yaopin">药品</option>
+                                            <option value="qixie">器械</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row"id="addOutBound_addItems_three_row2">
+                                    <div class="col-sm-2 col-sm-offset-1">
+                                        <label for="addOutBound_addItems_three_sel2">防治类型</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="sel" id="addOutBound_addItems_three_sel2" class="col-sm-4  btn btn-default btn-sm btn-primary">
+                                            <option value="shuhai">鼠害</option>
+                                            <option value="chonghai">虫害</option>
+                                            <option value="binghai">病害</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+
+                                <div class="row" id="addOutBound_addItems_three_row3">
+                                    <div class="col-sm-2 col-sm-offset-2">
+                                        <button id="addOutBound_addItems_three_button1" class="btn btn-info">查询</button>
+                                    </div>
+
+                                    <div class="col-sm-2 col-sm-offset-3">
+                                        <button id="addOutBound_addItems_three_button2" class="btn btn-info">领取</button>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+    var ops = {
+        bootstrapMajorVersion:3,//bootstrap版本
+        currentPage:1,//当前页码
+        totalPages:8,//总页数
+        numberOfPages:5,//页面最多显示的页码数
+        pageSize:5,
+        pageList: [10, 25, 50, 100],
+        onPageClicked:function(e,ev,type,page){//page为点中的页码
+            alert(page);
+        }
+    };
+    $("#cutPageUL").bootstrapPaginator(ops);
+
+    $("#addOutBound_addItems_three_button2").click(function(){
+        window.location = 'outBound_main.html';
+    });
+</script>
+</html>

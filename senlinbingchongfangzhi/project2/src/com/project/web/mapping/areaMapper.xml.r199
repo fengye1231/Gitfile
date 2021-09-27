@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.areaMapper">
+
+<resultMap type="AreaBean" id="AreaBeanMap">
+	<id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="species" column="f_species"/>
+	<result property="great" column="f_great"/>
+	<result property="gentle" column="f_gentle"/>
+	
+	<!-- 
+	<result property="classBean" column="fk_class_id" select="com.project.web.mapping.areaMapper.showAll"/>
+	 -->
+</resultMap>
+<!-- 添加区域 -->
+<insert id="addArea" parameterType = "AreaBean">
+	insert into t_area(f_name,f_species,f_great,f_gentle) 
+	value(#{name},#{species},#{great},#{gentle})
+</insert>
+
+<!-- 动态查询 -->
+
+    <select id="findArea" resultMap="AreaBeanMap">
+		select a.*,c.f_name from t_area a ,t_class c 
+		<where>
+			<if test="1==1"> c.fk_area_id=a.pk_id</if>
+			<if test="name!=null"> and a.f_name like #{name}</if>
+			<if test="species!=null"> and a.f_species like #{species}</if>
+			<if test="className!=null"> and c.f_name like #{className}</if>
+		</where>
+	</select>
+	<!-- 总页数 -->
+	<select id="pageNo" resultType="int">
+		select count(*) from t_area a,t_class c
+		<where>
+		    <if test="1==1">c.fk_area_id=a.pk_id</if>
+			<if test="name!=null">and a. f_name like #{name}</if>
+			<if test="species!=null">and a.f_species like #{species}</if>
+			<if test="className!=null">and c.f_name like #{className}</if>
+		</where>
+	</select>
+   <!-- 查询对象 -->
+   <select id="findId" resultMap="AreaBeanMap">
+      select *from t_area where  pk_id=#{id}
+   </select>
+   
+   <!-- 查询ID -->
+   <select id="findName" resultMap="AreaBeanMap">
+     select pk_id from t_area  where f_name=#{name}
+   </select>
+
+
+
+
+
+</mapper>

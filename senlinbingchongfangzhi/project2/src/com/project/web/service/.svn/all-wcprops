@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/service
+END
+IPestslService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/xiangmuer/!svn/ver/78/project2/src/com/project/web/service/IPestslService.java
+END
+ILoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/28/project2/src/com/project/web/service/ILoginService.java
+END
+IEventService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/xiangmuer/!svn/ver/275/project2/src/com/project/web/service/IEventService.java
+END
+IClassService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/xiangmuer/!svn/ver/289/project2/src/com/project/web/service/IClassService.java
+END
+IConsultationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/xiangmuer/!svn/ver/272/project2/src/com/project/web/service/IConsultationService.java
+END
+IAreaService.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/139/project2/src/com/project/web/service/IAreaService.java
+END
+IOutService.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/xiangmuer/!svn/ver/165/project2/src/com/project/web/service/IOutService.java
+END
+ILogServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/xiangmuer/!svn/ver/28/project2/src/com/project/web/service/ILogServlet.java
+END
+IDiseaseService.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/xiangmuer/!svn/ver/177/project2/src/com/project/web/service/IDiseaseService.java
+END
+IExpertService.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/xiangmuer/!svn/ver/122/project2/src/com/project/web/service/IExpertService.java
+END
+IOutMachineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/xiangmuer/!svn/ver/103/project2/src/com/project/web/service/IOutMachineService.java
+END
+IUserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/237/project2/src/com/project/web/service/IUserService.java
+END
+IRatDamageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/xiangmuer/!svn/ver/78/project2/src/com/project/web/service/IRatDamageService.java
+END
+IMachineService.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/xiangmuer/!svn/ver/216/project2/src/com/project/web/service/IMachineService.java
+END

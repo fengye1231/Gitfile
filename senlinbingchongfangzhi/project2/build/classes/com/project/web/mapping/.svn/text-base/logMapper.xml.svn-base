@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.web.mapping.logMapper">
+	<resultMap type="LogBean" id="LogBeanMap">
+		<id property="id" column="pk_id"/>
+		<result property="log" column="f_log"/>
+		<result property="date" column="f_date"/>
+	</resultMap>
+	<select id="findByCondition" resultMap="LogBeanMap">
+		select f_log,f_date from t_log 
+		<where>
+			<if test="startDate!=null">f_date>=#{startDate}</if> 
+			<if test="endDate!=null"> and f_date&lt;=#{endDate}</if>
+		</where>
+		limit #{pageNo},#{eachNum} 
+	</select>
+	<select id="logPageNo" resultType="int">
+		select count(*) from t_log 
+		<where>
+			<if test="startDate!=null">f_date>=#{startDate}</if> 
+			<if test="endDate!=null"> and f_date&lt;=#{endDate}</if>
+		</where>
+	</select>
+	<insert id="addLogMapper">
+		INSERT INTO `t_log` (`f_log`, `f_date`) VALUES (#{log}, #{date})
+	</insert>
+</mapper>

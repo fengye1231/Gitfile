@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.eventMapper">
+      <resultMap  type="EventBean"  id="EventBeanMap">
+                 <id property="id" column="pk_id"/>
+                 <result property="name" column="f_name"/>
+                  <result property="imgPath" column="f_imgPath"/>
+                  <result property="date" column="f_date"/>
+                   <result property="type" column="f_type"/>
+                   <result property="phase" column="f_phase"/>
+                   <result property="describe" column="f_describe"/>
+                   <result property="findPath" column="f_findPath"/>
+                   <result property="area" column="f_areaName"/>
+                   <result property="lose" column="f_lose"/>
+                   <result property="affectArea" column="f_affectArea"/>
+                   <result property="plan"  column="f_plan"/>
+                   <result property="opinon" column="f_opinon"/>
+                  <!-- <collection property="list"  column="pk_id" select="com.project.web.mapping.consultationMapper.findAllConsultation"/>-->
+      </resultMap>
+       <select id="selectOne" parameterType="int" resultMap="EventBeanMap2">
+               select*from t_event where pk_id=#{id}
+       </select>
+       <insert id="addOne">
+                insert into  t_event(f_name,f_imgPath,f_date,f_type,f_phase,f_describe,f_findPath,f_areaName,f_lose,f_affectArea,f_plan) 
+                values(#{name},#{imgPath},#{date},#{type},#{phase},#{describe},#{findPath},#{area},#{lose},#{affectArea},#{plan}) 
+       </insert>
+       <update id="updateOne" >
+                update t_event set f_phase=#{phase},f_describe=#{describe} where pk_id=#{id}
+       </update>
+       <update id="updateP">
+               call Updateway1(#{id})
+       </update>
+       <select id="selectList"  resultMap="EventBeanMap">
+              select*from t_event 
+              <where>
+              <if test="name!=null ||name!='' ">f_name like #{name}</if>
+              <if test="phase!=null ||phase!='' "> and f_phase like #{phase}</if>
+              <if test="area!=null ||area!=''  ">and f_areaName like #{area}</if>
+              <if test="start!=null ">and f_date>#{start}</if>
+              <if test="end!=null">and f_date&lt;#{end}</if> 
+              </where>
+            limit #{index_num},#{each_num}
+         </select>
+         <select id="selectCount" resultType="int">
+              select count(*) from t_event 
+              <where>
+              <if test="name!=null ||name!='' ">f_name like #{name}</if>
+              <if test="phase!=null ||phase!='' ">and f_phase like #{phase}</if>
+              <if test="area!=null || area!=''  ">and f_areaName like #{area}</if>
+              <if test="start!=null ">and f_date>#{start}</if>
+              <if test="end!=null">and f_date&lt;#{end}</if> 
+              </where>
+         </select>
+          <select id="selectMap" resultMap="EventBeanMap2">
+               select * from t_event where f_phase like "%"'无法解决，申请商家会商'"%"
+           </select>
+           <resultMap  type="EventBean"  id="EventBeanMap2">
+                 <id property="id" column="pk_id"/>
+                 <result property="name" column="f_name"/>
+                  <result property="imgPath" column="f_imgPath"/>
+                  <result property="date" column="f_date"/>
+                   <result property="type" column="f_type"/>
+                   <result property="phase" column="f_phase"/>
+                   <result property="describe" column="f_describe"/>
+                   <result property="findPath" column="f_findPath"/>
+                   <result property="area" column="f_areaName"/>
+                   <result property="lose" column="f_lose"/>
+                   <result property="affectArea" column="f_affectArea"/>
+                   <result property="plan"  column="f_plan"/>
+                   <result property="opinon" column="f_opinon"/>
+                <collection property="list"  column="pk_id" select="com.project.web.mapper.consultationMapper.findAllConsultation"/>
+      </resultMap >
+               
+  
+</mapper>

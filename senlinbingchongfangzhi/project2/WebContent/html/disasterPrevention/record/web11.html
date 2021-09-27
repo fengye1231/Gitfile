@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css">
+
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script type="javascript" src="../../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../js/bootstrap-paginator.min.js"></script>
+</head>
+<style>
+
+
+      label{
+          line-height: 25px;
+          float: right;
+      }
+
+      form select{
+          height: 35px;
+      }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="col-sm-12">
+            <span class="col-sm-12" style="text-align: center;line-height: 60px;font-size: 30px">
+                添加事件信息
+            </span>
+        </div>
+        <br>
+        <form class="form-horizontal">
+        <div class="col-sm-6">
+            <div class="col-sm-4">
+            <label for="input1" class="control-label" >事件名称:</label>
+            </div>
+            <div class="col-sm-8">
+            <input type="text" class="form-control" id="input1" placeholder="">
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >时间</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="date" class="form-control" id="input2" placeholder="">
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >灾情阶段:</label>
+            </div>
+            <div class="col-sm-8">
+                <select name="cars" id="input3">
+                <option value="bk" >已经得到控制</option>
+                <option value="xfl" selected>防治中</option>
+                <option value="dz" >无法解决，申请专家会商</option>
+            </select>
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >灾情描述:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="input4" placeholder="">
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >发生位置:</label>
+            </div>
+            <div class="col-sm-8">
+                <select name="cars" id="input5">
+                    <option value="bk" >雅安地区</option>
+                    <option value="xfl" selected>宜宾地区</option>
+                    <option value="dz" >攀枝花三号地区</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >初步损失:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="input6" placeholder="">
+            </div>
+            <div class="col-sm-4">
+                <label for="input1" class="control-label" >防治方案:</label>
+            </div>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="input7" placeholder="">
+            </div>
+        </div>
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+                    <label for="input1" class="control-label" >灾区图片:</label>
+                </div>
+                <div class="col-sm-8" style="height: auto">
+                    <input type="text" class="form-control" id="input11" style="width: 40%;display: inline-block">
+                    <input  value="浏览" type="button" class="btn btn-primary" style="display: inline-block">
+                </div>
+                <div class="col-sm-4">
+                    <label for="input1" class="control-label" >灾害类型:</label>
+                </div>
+                <div class="col-sm-8">
+
+                    <select name="cars" id="input22">
+                        <option value="bk" >虫害</option>
+                        <option value="xfl" selected>鼠害         </option>
+                        <option value="dz" >病害</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="input1" class="control-label" >发现途径:</label>
+                </div>
+                <div class="col-sm-8">
+                    <select name="cars" id="input32">
+                        <option value="bk" >小班巡查发现</option>
+                        <option value="xfl" selected>公众发现</option>
+                        <option value="dz" >上级部门通报</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="input1" class="control-label" >所在小班:</label>
+                </div>
+                <div class="col-sm-8">
+                    <span class="col-sm-8" style="height:35px"></span>
+                </div>
+                <div class="col-sm-4">
+                    <label for="input1" class="control-label" >影响面积:</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="input41" placeholder="">
+                </div>
+            </div>
+        <div class="col-sm-12">
+            <br>
+            <br>
+            <span style="text-align: center" class="col-sm-12"  > <input  class="btn btn-default" type="submit" value="添加"></span>
+        </div>
+        </form>
+
+    </div>
+    </div>
+</body>
+</html>

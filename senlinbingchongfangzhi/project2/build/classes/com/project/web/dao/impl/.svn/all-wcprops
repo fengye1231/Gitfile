@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/dao/impl
+END
+ConsultationDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/xiangmuer/!svn/ver/263/project2/src/com/project/web/dao/impl/ConsultationDaoImpl.java
+END
+ExpertDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/xiangmuer/!svn/ver/264/project2/src/com/project/web/dao/impl/ExpertDaoImpl.java
+END
+UserDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/dao/impl/UserDaoImpl.java
+END
+IEventDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/xiangmuer/!svn/ver/265/project2/src/com/project/web/dao/impl/IEventDaoImpl.java
+END
+PestslDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/xiangmuer/!svn/ver/176/project2/src/com/project/web/dao/impl/PestslDaoImpl.java
+END
+ClassDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/xiangmuer/!svn/ver/292/project2/src/com/project/web/dao/impl/ClassDaoImpl.java
+END
+DiseaseDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/xiangmuer/!svn/ver/209/project2/src/com/project/web/dao/impl/DiseaseDaoImpl.java
+END
+IClassDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/xiangmuer/!svn/ver/168/project2/src/com/project/web/dao/impl/IClassDaoImpl.java
+END
+OutDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/xiangmuer/!svn/ver/214/project2/src/com/project/web/dao/impl/OutDaoImpl.java
+END
+EventDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/xiangmuer/!svn/ver/316/project2/src/com/project/web/dao/impl/EventDaoImpl.java
+END
+MachineDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/xiangmuer/!svn/ver/214/project2/src/com/project/web/dao/impl/MachineDaoImpl.java
+END
+RatDamageDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/xiangmuer/!svn/ver/176/project2/src/com/project/web/dao/impl/RatDamageDaoImpl.java
+END
+LogDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/dao/impl/LogDaoImpl.java
+END
+AreaDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/302/project2/src/com/project/web/dao/impl/AreaDaoImpl.java
+END
+OutMachineDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/xiangmuer/!svn/ver/95/project2/src/com/project/web/dao/impl/OutMachineDaoImpl.java
+END

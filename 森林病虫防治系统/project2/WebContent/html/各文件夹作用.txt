@@ -1,0 +1,25 @@
+landing登录
+
+homepage主页
+
+drugDeliveryManagement药剂器械出库
+	drugDevice药剂器械
+	outBound出库
+
+systemMessage系统信息
+	user用户
+	logs日志
+
+dataManagement资料管理
+	pests虫害
+	disease病害
+	ratDamage鼠害
+
+expertConsultation专家会商
+	expert专家
+	consultation会商
+
+disasterPrevention灾情防治
+	area区域
+	class小班
+	record事件记录

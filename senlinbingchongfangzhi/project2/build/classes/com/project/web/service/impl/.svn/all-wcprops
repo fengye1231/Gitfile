@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/service/impl
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/service/impl/LoginServiceImpl.java
+END
+ConsultationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/xiangmuer/!svn/ver/273/project2/src/com/project/web/service/impl/ConsultationServiceImpl.java
+END
+OutServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/xiangmuer/!svn/ver/216/project2/src/com/project/web/service/impl/OutServiceImpl.java
+END
+LogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/xiangmuer/!svn/ver/83/project2/src/com/project/web/service/impl/LogServiceImpl.java
+END
+MachineServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/xiangmuer/!svn/ver/216/project2/src/com/project/web/service/impl/MachineServiceImpl.java
+END
+ExpertServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/xiangmuer/!svn/ver/124/project2/src/com/project/web/service/impl/ExpertServiceImpl.java
+END
+PestslServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/xiangmuer/!svn/ver/78/project2/src/com/project/web/service/impl/PestslServiceImpl.java
+END
+UserServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/xiangmuer/!svn/ver/237/project2/src/com/project/web/service/impl/UserServiceImpl.java
+END
+OutMachineServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/xiangmuer/!svn/ver/108/project2/src/com/project/web/service/impl/OutMachineServiceImpl.java
+END
+RatDamageServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/xiangmuer/!svn/ver/78/project2/src/com/project/web/service/impl/RatDamageServiceImpl.java
+END
+DiseaseServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/xiangmuer/!svn/ver/233/project2/src/com/project/web/service/impl/DiseaseServiceImpl.java
+END
+ClassServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/xiangmuer/!svn/ver/294/project2/src/com/project/web/service/impl/ClassServiceImpl.java
+END
+EventServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/xiangmuer/!svn/ver/274/project2/src/com/project/web/service/impl/EventServiceImpl.java
+END
+AreaServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/xiangmuer/!svn/ver/207/project2/src/com/project/web/service/impl/AreaServiceImpl.java
+END

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>药剂/器械一览</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/bootstrap-paginator.min.js"></script>
+
+</head>
+<style>
+  *{
+      padding: 0;
+      margin: 0;
+  }
+  #drugDevice_main{
+      /*background-image: url("../../../img/drugDevice.jpg");*/
+      /*background-size:782px 530px;*/
+     padding-right: 0;
+      width: 782px;
+      height: 530px;
+      border:1px solid black;
+
+      overflow-x: hidden;
+  }
+    #drugDevice_one{
+        margin-top: 2%;
+        text-align: center;
+    }
+    #drugDevice_one_p1{
+        font-size: 36px;
+        font-weight: 700;
+        font-family: STKaiti;
+        text-shadow: black;
+    }
+
+  #drugDevice-two{
+      width: 782px;
+      height: 172px;
+      /*overflow-y: scroll;*/
+      margin: 0;
+
+  }
+  #drugDevice-two-1{
+      margin: 0;
+      padding: 0;
+  }
+  .tableHead{
+      background-color: rgba(43, 41, 60, 0.27);
+  }
+    #drugDevice-two-table{
+      border: 1px solid black;
+        margin: 0;
+        padding-right: 0;
+    }
+    #drugDevice-two-1{
+        margin: 0;
+    }
+  #drugDevice-two-table body{
+      overflow: auto;
+  }
+  #drugDevice-three{
+      margin-top: 7px;
+  }
+    #drugDevice-three_left{
+        margin-top: 20px;
+    }
+    #drugDevice-three_right1{
+        margin-top: 29px;
+        border: 1px solid rgba(0, 0, 0, 0.65);
+        outline:rgba(43, 41, 60, 0.27) dotted thick;
+        border-radius:2em;
+        width: 375px;
+        height: 219px;
+    }
+    #drugDevice-three_right{
+        margin-top: 3%;
+    }
+    #drugDevice-three_right1_p2{
+        font-weight: 700;
+        font-family: STKaiti;
+        font-size: 16px;
+
+    }
+    #drugDevice-three_right1{
+        text-align: center;
+    }
+    #drugDevice-three_right1_body_row1{
+         margin-top: 10px;
+
+    }
+    #drugDevice-three_right1_body_text2{
+        margin-left: 6%;
+        height: 36px;
+        width: 174px;
+        font-size: 17px;
+        text-align: center;
+    }
+  #drugDevice-three_right1_body_text2 option{
+
+  }
+    #drugDevice-three_right1_body_text3{
+        margin-left: 6%;
+        height: 36px;
+        width: 174px;
+        font-size: 17px;
+
+    }
+
+    #drugDevice-three_right1_body_label2{
+        margin-top: 2%;
+    }
+    #drugDevice-three_foot_button{
+        margin-top: 2%;
+    }
+    #drugDevice-three_left_button{
+        margin-top: 46px;
+        width: 135px;
+
+    }
+    #drugDevice-three_foot_button{
+        margin-top: 12px;
+        width: 144px;
+
+    }
+    /*固定表头*/
+
+  #drugDevice-two-table thead, #drugDevice-two-table tr {
+      display:table;
+      width:100%;
+      table-layout:fixed;
+      text-align: left;
+  }
+ #drugDevice-two-table tbody{
+      display: block;
+      height:127px;
+      overflow:auto;
+  }
+  #drugDevice-two-table{
+      border:2px solid gray;
+  }
+  #drugDevice-two-table thead {
+      width: 98%;
+  }
+  .drugDevice-two-table_p1{
+      width: 15%;
+  }
+  .drugDevice-two-table_p2{
+      width: 30%;
+  }
+  .drugDevice-two-table_p3{
+      width: 20%;
+  }
+  .drugDevice-two-table_p4{
+      width: 15%;
+  }
+</style>
+
+<body>
+<div class="container-fluid" id="drugDevice_main">
+    <div class="row">
+                <div class="row" id="drugDevice">
+                        <div class="col-sm-6 col-sm-offset-2" id="drugDevice_one">
+                                    <p id="drugDevice_one_p1">药剂/器械一览</p>
+                        </div>
+                </div>
+                    <div class="row" id="drugDevice-two">
+                        <div class="container col-sm-12" id="drugDevice-two-1">
+                            <table class="table table-bordered table-striped table-hover table-condensed" id="drugDevice-two-table">
+                                <thead>
+                                    <tr class="tableHead"><th class="drugDevice-two-table_p1">名称</th><th class="drugDevice-two-table_p2">防治类型</th><th class="drugDevice-two-table_p3">类别</th><th class="drugDevice-two-table_p4">主要用途</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="drugDevice-two-table_p1">杀鼠迷</td><td class="drugDevice-two-table_p2">鼠害</td><td class="drugDevice-two-table_p3">药剂</td><td class="drugDevice-two-table_p4">用于捕杀各种鼠类</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">灭扫利乳油</td><td class="drugDevice-two-table_p2">虫害</td><td class="drugDevice-two-table_p3">药剂</td><td class="drugDevice-two-table_p4">杀灭松毛虫、刺蛾等</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">敌杀死乳油</td><td class="drugDevice-two-table_p2">虫害</td><td class="drugDevice-two-table_p3">药剂</td><td class="drugDevice-two-table_p4">灭杀樱花介壳虫</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">捕鼠笼</td><td class="drugDevice-two-table_p2">鼠害</td><td class="drugDevice-two-table_p3">器械</td><td class="drugDevice-two-table_p4">捕捉各种鼠类</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">捕鼠笼</td><td class="drugDevice-two-table_p2">鼠害</td><td class="drugDevice-two-table_p3">器械</td><td class="drugDevice-two-table_p4">捕捉各种鼠类</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">捕鼠笼</td><td class="drugDevice-two-table_p2">鼠害</td><td class="drugDevice-two-table_p3">器械</td><td class="drugDevice-two-table_p4">捕捉各种鼠类</td></tr>
+                                    <tr><td class="drugDevice-two-table_p1">捕鼠笼</td><td class="drugDevice-two-table_p2">鼠害</td><td class="drugDevice-two-table_p3">器械</td><td class="drugDevice-two-table_p4">捕捉各种鼠类</td></tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                        <div class="row" id="drugDevice-three">
+
+                            <div class="col-sm-5 col-sm-offset-1" id="drugDevice-three_left">
+                                <ul id="cutPageUL" class="pagination"></ul>
+
+                            <div class="row" id="drugDevice-three_right">
+                                    <button class="col-sm-4 col-sm-offset-3 btn btn-success btn btn-primary btn-lg" id="drugDevice-three_left_button">添加药剂</button>
+                            </div>
+
+                            </div>
+                            <div class="col-sm-6" >
+                                <div class="row">
+                                 <div class="col-sm-10 " id="drugDevice-three_right1">
+                                     <div class="row" id="drugDevice-three_right1_body_row1">
+                                         <p id="drugDevice-three_right1_p2">查询药剂信息</p>
+                                     </div>
+
+                                    <div id="drugDevice-three_right1_body">
+                                        <form action="#">
+                                            <div class="row"  >
+                                                <label class="col-sm-4" for="drugDevice-three_right1_body_text1">药品名称</label>
+                                                <input type="text" class="col-md-6" id="drugDevice-three_right1_body_text1"/>
+                                            </div>
+                                            <br/>
+                                            <div class="row">
+
+                                                <label class="col-sm-4" for="drugDevice-three_right1_body_text2">防治类型</label>
+
+                                                <select name="sel" class="col-sm-4  btn btn-default btn-sm btn-primary" id="drugDevice-three_right1_body_text2">
+                                                    <option value="shuhai">鼠害</option>
+                                                    <option value="chonghai">虫害</option>
+                                                    <option value="binghai">病害</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="row"  id="drugDevice-three_right1_body_label2">
+                                                <label class="col-sm-4" for="drugDevice-three_right1_body_text3">类别</label>
+                                                <select name="sel" class="col-sm-4 btn btn-default btn-sm btn-primary" id="drugDevice-three_right1_body_text3">
+                                                    <option value="yaoji">药剂</option>
+                                                    <option value="qixie">器械</option>
+                                                </select>
+                                            </div>
+                                            <div class="row">
+                                                <button class="btn btn-info" id="drugDevice-three_foot_button" >查询</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    var ops = {
+        bootstrapMajorVersion:3,//bootstrap版本
+        currentPage:1,//当前页码
+        totalPages:8,//总页数
+        numberOfPages:5,//页面最多显示的页码数
+        pageSize:5,
+        pageList: [10, 25, 50, 100],
+        onPageClicked:function(e,ev,type,page){//page为点中的页码
+            alert(page);
+        }
+    };
+    //初始化分页组件
+    $("#cutPageUL").bootstrapPaginator(ops);
+    $("#drugDevice-three_left_button").click(function(){
+        window.location = 'addDrugDevice.html';
+    })
+
+</script >
+</html>

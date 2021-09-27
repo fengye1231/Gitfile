@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查看出库信息</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/bootstrap-paginator.min.js"></script>
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    #findByOutBound{
+
+        padding-right: 0;
+        width: 782px;
+        height: 530px;
+        /*border:1px solid black;*/
+        overflow-x: hidden;
+    }
+    #findByOutBound_one{
+        font-family: STKaiti;
+    }
+    #findByOutBound_one_p1{
+        font-size: 36px;
+        font-weight: 700;
+        text-shadow: black;
+       text-align: center;
+    }
+    #findByOutBound_one_foot{
+        margin-top: 40px;
+    }
+    #findByOutBound_two{
+        margin: 0;
+        padding-right: 0;
+        margin-top: 40px;
+        width: 782px;
+        height: 172px;
+        /*overflow-y: scroll;*/
+
+    }
+    .findByOutBound_tableHead{
+        background-color: rgba(43, 41, 60, 0.27);
+    }
+    #findByOutBound_button{
+    margin-top: 60px;
+        width: 130px;
+        height: 75px;
+    }
+    /*固定表头*/
+    #findByOutBound_two_table thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+        text-align: left;
+    }
+    #findByOutBound_two_table tbody{
+        display: block;
+        height:127px;
+        overflow:auto;
+    }
+    #findByOutBound_two_table{
+        border:2px solid gray;
+        width: 748px;
+    }
+    #findByOutBound_two_table thead {
+        width: 98%;
+    }
+
+    .findByOutBound_two_table_p1{
+        width: 15%;
+    }
+    .findByOutBound_two_table_p2{
+        width: 30%;
+    }
+    .findByOutBound_two_table_p3{
+        width: 20%;
+    }
+    .findByOutBound_two_table_p4{
+        width: 22%;
+    }
+
+    #findByOutBound_two{
+        margin: 0;
+        padding-right: 0px;
+
+    }
+
+</style>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+                <div id="findByOutBound">
+                    <div class="outBound-one" id="findByOutBound_one">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3" id="findByOutBound_one_p1">
+                                <p>查看出库信息</p>
+                            </div>
+                        </div>
+                        <div class="row" id="findByOutBound_one_foot">
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <span>领用小班</span>
+                                <span class="col-sm-offset-1">雅林二班</span>
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <span>出库人</span>
+                                <span class="col-sm-offset-1">赵晓红</span>
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <span>领用日期</span>
+                                <span class="col-sm-offset-1">2008-09-12</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row" >
+                        <div class="container" id="findByOutBound_two">
+                            <table class="table table-bordered table-striped table-hover table-condensed" id="findByOutBound_two_table">
+                                <thead>
+                                <tr class="findByOutBound_tableHead"><th class="findByOutBound_two_table_p1">物品名称</th><th class="findByOutBound_two_table_p2">类型</th><th class="findByOutBound_two_table_p3">防治类型</th><th class="findByOutBound_two_table_p4">领用</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr><th class="findByOutBound_two_table_p1">捕鼠笼</th><th class="findByOutBound_two_table_p2">器械</th><th class="findByOutBound_two_table_p3">鼠害</th><th class="findByOutBound_two_table_p4">1000</th></tr>
+                                <tr><th class="findByOutBound_two_table_p1">波尔朵液</th><th class="findByOutBound_two_table_p2">药剂</th><th class="findByOutBound_two_table_p3">病害</th><th class="findByOutBound_two_table_p4">540</th></tr>
+                                <tr><th class="findByOutBound_two_table_p1">黑龙灯</th><th class="findByOutBound_two_table_p2">器械</th><th class="findByOutBound_two_table_p3">虫害</th><th class="findByOutBound_two_table_p4">300</th></tr>
+                                <tr><th class="findByOutBound_two_table_p1">毒鼠强</th><th class="findByOutBound_two_table_p2">药剂</th><th class="findByOutBound_two_table_p3">鼠害</th><th class="findByOutBound_two_table_p4">400</th></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="col-sm-offset-5 btn btn-info"  id="findByOutBound_button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    var ops = {
+        bootstrapMajorVersion:3,//bootstrap版本
+        currentPage:1,//当前页码
+        totalPages:8,//总页数
+        numberOfPages:5,//页面最多显示的页码数
+        pageSize:5,
+        pageList: [10, 25, 50, 100],
+        onPageClicked:function(e,ev,type,page){//page为点中的页码
+            alert(page);
+        }
+    };
+    //初始化分页组件
+    $("#cutPageUL").bootstrapPaginator(ops);
+    $("#findByOutBound_button").click(function(){
+        window.location = "outBound_main.html"
+    });
+
+</script >
+</html>

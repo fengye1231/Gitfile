@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.outMachineMapper">
+<!-- 根据出库的id查看所有的出库信息 -->
+<select id="fingByOutId" parameterType="int" resultMap="OutMachineBeanMap" >
+	select * from t_outmachine where f_out_id=#{pk_id}
+</select>
+<!-- 添加出库信息 -->
+<insert id="addoutMachine" parameterType="OutMachineBean">
+	insert into t_outmachine(f_name,f_num,f_type,f_prevent,f_out_id)
+	values(#{name},#{num},#{type},#{prevent},#{f_outId})
+</insert>
+<!-- 
+	<select id="fingName" parameterType="String" resultMap="OutMachineBeanMap">
+		select * from t_outmachine where f_name=#{name}
+	</select>
+
+	<update id="updateNum" >
+		update t_outmachine set f_num=#{num} where f_name=#{name}
+	</update>
+-->
+<!-- 根据出库Id动态找出对应的出库信息集合 -->
+<select id="findProject" resultMap="OutMachineBeanMap">
+	select * from t_outmachine where  f_out_id=#{f_outId} limit #{num},#{each_num}
+</select>
+
+<!-- 统计每个出库id对应的出库信息条数 -->
+<select id="findProjectNum" parameterType="int" resultType="int" >
+
+	select count(pk_id) from t_outmachine where f_out_id=#{f_outId}
+</select>
+
+
+<resultMap type="OutMachineBean" id="OutMachineBeanMap">
+<id property="id" column="pk_id"  />
+<result property="num" column="f_num" />
+<result property="name" column="f_name" />
+<result property="type"  column="f_type" />
+<result property="prevent" column="f_prevent" />
+<result property="f_outId" column="f_out_id" />
+</resultMap>
+
+
+</mapper>

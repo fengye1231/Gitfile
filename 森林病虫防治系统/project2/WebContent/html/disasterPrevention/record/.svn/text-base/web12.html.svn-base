@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css">
+
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script type="javascript" src="../../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../js/bootstrap-paginator.min.js"></script>
+    <style>
+        div{
+            /*border: 1px solid;*/
+        }
+        .mytable{
+            /*border: black 1px solid;*/
+
+        }
+        tr{
+            /*border: 1px solid;*/
+        }
+        td{
+            width: 60px;
+            line-height: 30px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="container-fluid">
+
+        <div class="col-sm-12">
+            <span style="text-align: center;font-size: 30px" class="col-sm-12">修改事件信息</span>
+            <table class="mytable" width="">
+                <tr>
+                    <th class="col-sm-2"></th>
+                    <th class="col-sm-4"></th>
+                    <th class="col-sm-2"></th>
+                    <th  class="col-sm-4"></th>
+                </tr>
+                <tr>
+                    <td class="label1">事件名称</td>
+                    <td> </td>
+                    <td >灾区图片 </td>
+                    <td rowspan="3"><img width="300px" height="200px" src="../../img/fact.jpg"></td>
+                </tr>
+                <tr>
+                    <td>时间</td>
+                    <td> </td>
+                    <td > </td>
+                    <td> </td>
+
+                </tr>
+                <tr>
+                    <td>灾情阶段</td>
+                    <td>
+                        <select name="cars" id="input22">
+                            <option value="bk" >虫害</option>
+                            <option value="xfl" selected>鼠害  </option>
+                            <option value="dz" >病害</option>
+                        </select>
+                    </td>
+                    <td> </td>
+                    <td > </td>
+
+                </tr>
+                <tr>
+                    <td  rowspan="2">灾情描述</td>
+                    <td rowspan="2"> </td>
+                    <td>发现途径</td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td>发生位置</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>灾害类型 </td>
+                    <td></td>
+                    <td>所在小班 </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>初步损失</td>
+                    <td> </td>
+                    <td>影响面积</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>专家建议 </td>
+                    <td> </td>
+                    <td>防治方案</td>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="co-lsm-12" style="text-align: center">
+                <input type="submit" class="btn btn-default">
+
+            </div>
+        </div>
+</div>
+</body>
+</html>

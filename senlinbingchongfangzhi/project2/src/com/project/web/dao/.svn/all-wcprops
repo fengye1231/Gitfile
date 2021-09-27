@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/dao
+END
+IOutMachineDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/xiangmuer/!svn/ver/90/project2/src/com/project/web/dao/IOutMachineDao.java
+END
+IEventDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/xiangmuer/!svn/ver/174/project2/src/com/project/web/dao/IEventDao.java
+END
+IClassDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/xiangmuer/!svn/ver/293/project2/src/com/project/web/dao/IClassDao.java
+END
+IConsultationDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/xiangmuer/!svn/ver/261/project2/src/com/project/web/dao/IConsultationDao.java
+END
+IRatDamageDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/xiangmuer/!svn/ver/75/project2/src/com/project/web/dao/IRatDamageDao.java
+END
+ILogDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/xiangmuer/!svn/ver/306/project2/src/com/project/web/dao/ILogDao.java
+END
+IUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/xiangmuer/!svn/ver/155/project2/src/com/project/web/dao/IUserDao.java
+END
+IExpertDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/xiangmuer/!svn/ver/262/project2/src/com/project/web/dao/IExpertDao.java
+END
+IDiseaseDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/xiangmuer/!svn/ver/101/project2/src/com/project/web/dao/IDiseaseDao.java
+END
+IAreaDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/xiangmuer/!svn/ver/204/project2/src/com/project/web/dao/IAreaDao.java
+END
+IPestslDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/xiangmuer/!svn/ver/75/project2/src/com/project/web/dao/IPestslDao.java
+END
+IOutDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/xiangmuer/!svn/ver/42/project2/src/com/project/web/dao/IOutDao.java
+END
+IMachineDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/xiangmuer/!svn/ver/213/project2/src/com/project/web/dao/IMachineDao.java
+END

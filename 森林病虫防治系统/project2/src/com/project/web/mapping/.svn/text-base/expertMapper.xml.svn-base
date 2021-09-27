@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.expertMapper">
+
+<resultMap type="ExpertBean" id="expertBeanMap">
+	<id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="gender" column="f_gender"/>
+	<result property="birthday" column="f_birthday"/>
+	<result property="imgPath" column="f_imgPath"/>
+	<result property="workPlace" column="f_workPlace"/>
+	<result property="phoneNum" column="f_phoneNum"/> 
+	<result property="special" column="f_special"/> 
+	<result property="position" column="f_position"/> 
+	<result property="address" column="f_address"/>
+	<result property="email" column="f_email"/>
+</resultMap>
+
+<select id="findAllName" resultType="java.lang.String">
+	select f_name from t_expert
+</select>
+
+
+<select id="countAll" resultType="java.lang.Integer">
+	call countAll(#{name},#{special},#{workPlace})
+</select>
+
+<select id="findByPage" resultMap="expertBeanMap">
+	select * from t_expert
+	<where>
+		<if test="name != null and name !='' and name != 'und'">
+		 and f_name like "%"#{name}"%"
+		</if>
+		<if test="special != null and sepcial !=''">
+		 and f_special like "%"#{special}"%"
+		</if>
+		<if test="workPlace !=null and workPlace != ''">
+		 and f_workPlace like "%"#{workPlace}"%"
+		</if>		 	 
+	</where>
+		limit #{indexNum},#{eachPageNum}
+</select>
+
+<select id="addExpert">
+	INSERT INTO t_expert(f_name,f_gender,f_imgPath,f_birthday,f_workPlace,f_phoneNum,f_special,f_position,f_address,f_email) 
+	VALUE(#{name},#{gender},#{imgPath},#{birthday},#{workPlace},#{phoneNum},#{special},#{position},#{address},#{email})
+</select>
+
+<select id="findExpertById" resultMap="expertBeanMap">
+	select * from t_expert where pk_id = #{id}
+</select>
+
+<update id="updateExpert">
+	update t_expert set f_position = #{position},f_phoneNum = #{phoneNum},f_workPlace=#{workPlace},f_email=#{email} 
+	where pk_id = #{id}
+</update>
+
+<delete id="delExpert">
+	call delExpert(#{id})
+</delete>
+
+</mapper>

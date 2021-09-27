@@ -1,0 +1,61 @@
+8
+
+dir
+311
+https://172.20.10.2/svn/xiangmuer/project2
+https://172.20.10.2/svn/xiangmuer
+
+
+
+2018-07-02T11:58:18.732337Z
+311
+yh
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+15e3b911-9b3d-9947-a089-c41c0d28d8d9
+
+.classpath
+file
+
+
+
+
+2018-06-29T09:17:52.060000Z
+69ee5a489ad14c061d6c6ebb34ee25d5
+2018-06-28T01:36:01.953978Z
+3
+yqj
+
+.project
+file
+
+
+
+
+2018-06-29T09:17:52.065000Z
+122cf51088c749d9cd89c7e07567f2d0
+2018-06-28T01:36:01.953978Z
+3
+yqj
+
+.settings
+dir
+
+WebContent
+dir
+
+src
+dir
+

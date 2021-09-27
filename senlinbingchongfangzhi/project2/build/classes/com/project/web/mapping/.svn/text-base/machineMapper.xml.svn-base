@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.machineMapper">
+<!-- 根据条件查询药剂器械的集合 -->
+<select id="findProject" resultMap="MachineBeanMap">
+	select * from t_machine 
+	<where>
+		<if test="defeat != '' ">  f_defeat=#{defeat} </if>
+		<if test="kind != '' "> and f_kind=#{kind} </if>
+		<if test="name != '' "> and f_name like "%"#{name}"%" </if>
+	</where>	
+	limit #{num},#{each_num}
+</select>
+<!-- 根据条件查询药剂器械的数量 -->
+<select id="findNum" resultType="int">
+	select count(pk_id) from t_machine 
+	<where>
+		<if test="defeat != '' ">  f_defeat=#{defeat} </if>
+		<if test="kind != '' "> and f_kind=#{kind} </if>
+		<if test="name != '' "> and f_name like #{name} </if>
+	</where>	
+</select>
+
+<!-- 添加一个药剂器械 -->
+<!-- 用的存储过程 -->
+<insert id="addMachine" parameterType="MachineBean">
+	<!-- insert into t_machine(f_name,f_defeat,f_kind,f_use) value(#{name},#{defeat},#{kind},#{use}) -->
+	call addMachine(#{name},#{defeat},#{kind},#{use});
+</insert>
+
+<!-- 通过Id查询药剂器械 -->
+<select id="findByid" parameterType="int" resultMap="MachineBeanMap">
+select * from t_machine where pk_id=#{id}
+</select>
+
+
+
+<resultMap type="MachineBean" id="MachineBeanMap">
+	<id property="id" column="pk_id" />
+	<result property="name" column="f_name" />
+	<result property="defeat" column="f_defeat" />
+	<result property="kind" column="f_kind" />
+	<result property="use" column="f_use" />
+
+</resultMap>
+
+
+</mapper>
+

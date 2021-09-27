@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.ratDamageMapper">
+
+<resultMap type="RatDamageBean" id="RatDamageMapperMap">
+   <id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="food" column="f_food"/>
+	<result property="duction" column="f_duction"/>
+	<result property="enemy" column="f_enemy"/>
+	<result property="imgPath" column="f_imgPath"/>
+	<result property="prevention" column="f_prevention"/> 
+	<result property="harm" column="f_harm"/> 
+</resultMap>
+
+   <insert id="addRatDamage">
+    
+    insert into t_ratdamage(f_name,f_food,f_duction,f_enemy,f_imgPath,f_prevention,f_harm)
+    value(#{name},#{food},#{duction},#{enemy},#{imgPath},#{prevention},#{harm})
+   
+   </insert>
+   <select id="findById" resultMap="RatDamageMapperMap">
+     
+    select * from t_ratdamage where pk_id=#{id}
+  
+   </select>
+   
+   <select id="countAll" resultType="java.lang.Integer">
+	select count(*) totalNum from t_ratdamage 
+	<where>
+		<if test="ratDamageName != null and ratDamageName !=''">
+		 and f_name like "%"#{ratDamageName}"%"
+		</if>	
+	</where>		
+</select>
+   <select id="showAllRatDamage" resultMap="RatDamageMapperMap">
+     select * from t_ratdamage
+     <where>
+		<if test="ratDamageName != null and ratDamageName !=''">
+		 and f_name like "%"#{ratDamageName}"%"
+		</if>	 	 
+	</where>
+		limit #{indexNum},#{each_page}
+   </select>
+
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.outMapper">
+<!-- 动态查询出库信息 -->
+<select id="findProject" resultMap="OutBeanMap">
+	select * from t_out
+	<where>
+		<if test="1==1"> 1=1 </if>
+		<if test="starDate != null "> and f_date>=#{starDate} </if>
+		<if test="endDate != null ">  and f_date&lt;=#{endDate} </if>
+		<if test="className !='' "> and f_className like "%"#{className}"%" </if>
+	</where>
+	limit #{num},#{each_num}
+</select>
+<!-- 根据条件查看药剂器械的条数 -->
+<select id="findProjectNum" resultType="int">
+	select count(pk_id) from t_out
+	<where>
+		<if test="1==1"> 1=1 </if>
+		<if test="className !='' "> and f_className like "%"#{className}"%" </if>
+		<if test="starDate != null "> and f_date>=#{starDate} </if>
+		<if test="endDate != null ">  and f_date&lt;=#{endDate} </if>
+	</where>
+</select>
+
+<!-- 通过id查询出库信息 -->
+<select id="findByid" parameterType="int" resultMap="OutBeanMap">
+	select * from t_out where pk_id=#{id}
+
+</select>
+
+<!-- 添加新的出库记录 -->
+<insert id="addOut"  parameterType="OutBean"  useGeneratedKeys="true" keyProperty="id" >
+
+	insert into t_out(fk_class,fk_user,f_date,f_userName,f_className)
+	values(#{classId},#{userId},#{date},#{userName},#{className})
+</insert>
+
+
+<resultMap type="OutBean" id="OutBeanMap">
+<id property="id" column="pk_id" />
+	<result property="date" column="f_date" />
+	<result property="classId" column="fk_class" />
+	<result property="userId" column="fk_user" />
+	<result property="className" column="f_className" />
+	<result property="userName" column="f_userName" />
+</resultMap>
+</mapper>

@@ -1,0 +1,47 @@
+package com.project.web.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.project.web.bean.DiseaseBean;
+import com.project.web.service.IDiseaseService;
+import com.project.web.service.impl.DiseaseServiceImpl;
+
+/**
+ * Servlet implementation class DiseaseCheckServlet
+ */
+@WebServlet("/DiseaseCheck")
+public class DiseaseCheckServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private IDiseaseService ids = new DiseaseServiceImpl();   
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public DiseaseCheckServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int pestslId = Integer.parseInt(request.getParameter("id").substring(2));
+		DiseaseBean bean = ids.findById(pestslId);
+		request.getSession().setAttribute("Disease", bean);
+		response.sendRedirect("/project2/jsp/dataManagement/disease/findDisease.jsp");
+}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

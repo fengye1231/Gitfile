@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>check</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+    <style>
+        #main{
+            width: 782px;
+            height: 530px;
+            border:1px solid black;
+        }
+        .page-header{
+            text-align: center;
+            margin: 0px;
+        }
+        h1{
+            font-weight: 700;
+            font-family: STKaiti;
+        }
+
+        .control-group{
+            margin-top: 2%;
+            margin-left: 11%;
+            width: 220px;
+            display: inline-block;
+        }
+        .control-label{
+            width: 70px;
+        }
+        .form-horizontal .control-label {
+            text-align: left;
+            margin-bottom:17px;
+        }
+        button{
+            width: 200px;
+        }
+        .button-return{
+            text-align: center;
+        }
+        img{
+            margin-top: 2%;
+            width: 150px;
+            height: 150px;
+            float: right;
+            margin-right: 19%;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="page-header">
+            <h1>查看专家信息</h1>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <form class="form-horizontal" role="form" action="html-main.html" method="post" id="form1">
+                <div class="control-group">
+                    <label class="control-label" for="input01">姓名</label>
+                    <span>李鹏</span>
+                </div>
+                    <img src="../img/1.gif" alt="...">
+                <div class="control-group">
+                    <label class="control-label" for="input02">出生年月</label>
+                    <span>1979-01-01</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input03">性别</label>
+                    <span>男</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input04">专长</label>
+                    <span>虫害防治</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input05">职务</label>
+                    <span>研究员</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input06">电话</label>
+                    <span>啊啊啊啊</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input07">工作单位</label>
+                    <span>啊啊啊啊</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input08">通讯地址</label>
+                    <span>啊啊啊啊</span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input09">邮箱</label>
+                    <span>啊啊啊啊</span>
+                </div>
+                <hr/>
+                <div class="button-return">
+                    <button type="submit" class="btn btn-primary">返回</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

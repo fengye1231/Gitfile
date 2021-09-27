@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+    <style>
+        #main{
+            width: 782px;
+            height: 530px;
+            border:1px solid black
+        }
+        .page-header{
+            text-align: center;
+            margin: 0px;
+        }
+        h1{
+            font-weight: 700;
+            font-family: STKaiti;
+        }
+        .control-group{
+            margin-top: 5%;
+            margin-left: 8%;
+            display: inline-block;
+        }
+        .control-label{
+            width: 80px;
+        }
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+        .button-add{
+            text-align: center;
+        }
+        button{
+            width: 200px;
+        }
+        input[type=file] {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="page-header">
+            <h1>添加专家信息</h1>
+        </div>
+        <form class="form-horizontal" role="form" action="html-main.html" method="post" id="form1">
+            <div class="control-group">
+                <label class="control-label" for="input01">姓名</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input01">
+            </div>
+            <div class="control-group">
+                <label class="control-label">性别</label>
+                <input type="radio" name="gender" value="man"/>男&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="gender" value="woman"/>女
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input02">出生年月</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input02">
+            </div>
+            <div class="control-group">
+                <label class="control-label">照片</label>
+                <input class="input-file" id="fileInput" type="file">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input03">专长</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input03">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input04">职务</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input04">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input05">电话</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input05">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input06">工作单位</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input06">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input07">通讯地址</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input07">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input08">邮箱</label>
+                <input type="text" placeholder="placeholder" class="input-xlarge" id="input08">
+            </div>
+            <hr/>
+            <div class="button-add">
+                <button type="submit" class="btn btn-success">添加</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script>
+</script>
+</html>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/xiangmuer/!svn/ver/14/project2/WebContent/WEB-INF/lib
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/standard.jar
+END
+mysql-connector-java-5.1.19-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/mysql-connector-java-5.1.19-bin.jar
+END
+jackson-all-1.9.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/jackson-all-1.9.9.jar
+END
+log4j-1.2.17.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/log4j-1.2.17.jar
+END
+jstl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/jstl.jar
+END
+mybatis-3.4.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/xiangmuer/!svn/ver/3/project2/WebContent/WEB-INF/lib/mybatis-3.4.1.jar
+END

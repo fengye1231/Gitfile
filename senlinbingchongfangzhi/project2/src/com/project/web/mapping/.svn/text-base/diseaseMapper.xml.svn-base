@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.diseaseMapper">
+
+   <resultMap type="DiseaseBean" id="diseaseBeanMap">
+	<id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="pathogen" column="f_pathogen"/>
+	<result property="sysmptom" column="f_sysmptom"/> 
+	<result property="law" column="f_law"/>
+	<result property="imgPath" column="f_imgPath"/>
+	<result property="prevention" column="f_prevention"/>
+	<result property="harm" column="f_harm"/> 
+</resultMap>
+    <insert id="addDisease">
+    
+    insert into t_disease(f_name,f_pathogen,f_sysmptom,f_law,f_imgPath,f_prevention,f_harm)
+    value(#{name},#{pathogen},#{sysmptom},#{law},#{imgPath},#{prevention},#{harm})
+   
+   </insert>
+   <select id="findById" resultMap="diseaseBeanMap">
+     
+   call findDiseaseId(#{id});
+  
+   </select>
+   
+   
+   <select id="countAll" resultType="java.lang.Integer">
+	select count(*) totalNum from t_disease 
+	<where>
+		<if test="diseaseName != null and diseaseName !=''">
+		 and f_name like "%"#{diseaseName}"%"
+		</if>
+		<if test="sysmptom !=null and sysmptom !=''">
+		 and f_sysmptom like "%"#{sysmptom}"%"
+		</if>	
+	</where>		
+</select>
+   <select id="showAllDisease" resultMap="diseaseBeanMap">
+     select * from t_disease
+     <where>
+		<if test="diseaseName != null and diseaseName !=''">
+		 and f_name like "%"#{diseaseName}"%"
+		</if>
+		<if test="sysmptom !=null and sysmptom !=''">
+		 and f_sysmptom like "%"#{sysmptom}"%"
+		</if>		 	 
+	</where>
+		limit #{indexNum},#{each_page}
+   </select>
+
+</mapper>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/xiangmuer/!svn/ver/311/project2/src
+END
+db.properties
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/xiangmuer/!svn/ver/296/project2/src/db.properties
+END
+conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/xiangmuer/!svn/ver/297/project2/src/conf.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/xiangmuer/!svn/ver/3/project2/src/log4j.properties
+END

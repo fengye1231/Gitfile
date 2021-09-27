@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../../css/bootstrap-theme.min.css"/>
+    <script src="../../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+
+    <style>
+        #main{
+            width: 782px;
+            height: 530px;
+            border:1px solid black;
+            background-image:url(" ../../../img/timg.jpg");
+        }
+        .page-header{
+            text-align: center;
+            margin: 0px;
+        }
+        h1{
+            font-weight: 700;
+            font-family: STKaiti;
+        }
+        .control-group{
+            margin-top: 5%;
+            margin-left: 8%;
+            display: inline-block;
+        }
+        .control-label{
+            width: 80px;
+        }
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+        .button-add{
+            text-align: center;
+        }
+        button{
+            width: 200px;
+        }
+        input[type=file] {
+            display: inline-block;
+        }
+        .input-file{
+            width: 171px;
+        }
+        .textarea{
+          vertical-align:top;height: 116px;width: 234px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="page-header">
+        <h1>添加新虫害</h1>
+    </div>
+    <form class="form-horizontal" role="form" action="disease.html" method="post" id="form1">
+        <div class="control-group">
+            <label class="control-label" for="input01">名称</label>
+            <input type="text" placeholder="名字" class="input-xlarge" id="input01">
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">寄主</label>
+            <input type="text" placeholder="寄主名" class="input-xlarge" id="input02">
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input02">繁殖</label>
+            <input type="text" placeholder="aaaaaa" class="input-xlarge" id="input03">
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input01">天敌</label>
+            <input type="text" placeholder="aaaaaaar" class="input-xlarge" id="input04">
+        </div>
+        <div class="control-group">
+            <label class="control-label">幼虫照片</label>
+            <input class="input-file"  id="fileInput1" type="file">
+        </div>
+        <div class="control-group">
+            <label class="control-label">成虫照片</label>
+            <input class="input-file" id="fileInput2" type="file">
+        </div>
+        <div class="control-group">
+            <label class="itemTitle">防范措施</label>
+            <textarea rows="9" cols="20" style="vertical-align:top" class="textarea"></textarea>
+        </div>
+        <div class="control-group">
+            <label class="itemTitle">主要危害</label>
+            <textarea rows="9" cols="20" style="vertical-align:top" class="textarea"></textarea>
+        </div>
+        <hr/>
+        <div class="button-add">
+            <button type="submit" class="btn btn-success">添加</button>
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+</script>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.web.mapping.userMapper">
+	<resultMap type="UserBean" id="UserBeanMap">
+		<id property="id" column="pk_id"/>
+		<result property="userName" column="f_userName"/>
+		<result property="pwd" column="f_pwd"/>
+		<result property="name" column="f_name"/>
+		<result property="level" column="f_level"/>
+	</resultMap>
+	<select id="findByCondition" resultMap="UserBeanMap">
+		select * from t_user
+		<where>
+			<if test="level !=null and level!='' "> f_level=#{level} </if>
+		</where>
+		 limit #{pageNo},#{eachNum} 
+	</select>
+	<select id="findCountPageNo" resultType="int" >
+		select count(*) from t_user
+		<where>
+			<if test="level !=null and level!='' "> f_level=#{level} </if>
+		</where>
+	</select>
+	<select id="findByUserName" resultMap="UserBeanMap">
+		select * from t_user where f_userName=#{userName} and f_pwd=#{pwd}
+	</select>
+	<select id="findById" parameterType="int" resultMap="UserBeanMap">
+		select * from t_user where pk_id=#{id}
+	</select>
+	<select id="findUserNameById" parameterType="int" resultType="string">
+		select f_name from t_user where pk_id=#{id}
+	</select>
+	<insert id="addMapper">
+		insert into t_user(f_userName,f_pwd,f_name,f_level) values(#{userName},#{pwd},#{name},#{level});
+	</insert>
+	<update id="upadteMapper">
+		UPDATE `t_user` SET `f_pwd`=#{pwd},`f_level`=#{level} WHERE (`pk_id`=#{id})
+	</update>
+	<delete id="delMapper" parameterType="int">
+		call delUser(#{id})
+	</delete>
+</mapper>

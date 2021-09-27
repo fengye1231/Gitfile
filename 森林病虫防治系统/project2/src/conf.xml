@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 引用db.properties中的配置文件 -->
+	<properties resource="db.properties" />
+	
+	
+	<settings>
+		<!-- 设置二级缓存,默认为false,同时在mapper中配置 -->
+		<!--  
+		<setting name="cacheEnabled" value="true"/>
+		-->
+
+		<!-- 设置添加日志 -->
+		<setting name="logImpl" value="LOG4J"/>
+		
+		<!-- 设置加载时机 -->
+		<!-- 延迟加载/懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 积极加载/预加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+	
+	
+	<!-- 定义类型的别名 -->
+	<typeAliases>		
+		<!-- 使用自动扫包的功能，得到所有内容 -->
+		<package name="com.project.web.bean"/>
+	
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<!-- 配置数据库连接信息 -->
+			<dataSource type="POOLED">
+				<!-- sql驱动 -->
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	
+	<mappers>
+	
+		<mapper resource="com/project/web/mapping/classMapper.xml"/>
+		<mapper resource="com/project/web/mapping/areaMapper.xml"/>
+		<mapper resource="com/project/web/mapping/machineMapper.xml"/>	
+		<mapper resource="com/project/web/mapping/outMachineMapper.xml"/>
+		<mapper resource="com/project/web/mapping/outMapper.xml"/>
+        <mapper resource="com/project/web/mapping/pestslMapper.xml"/>
+		<mapper resource="com/project/web/mapping/ratDamageMapper.xml"/>
+		<mapper resource="com/project/web/mapping/userMapper.xml"/>
+		<mapper resource="com/project/web/mapping/eventMapper.xml"/>
+        <mapper resource="com/project/web/mapping/logMapper.xml"/>
+		<mapper resource="com/project/web/mapping/diseaseMapper.xml"/>
+		<mapper resource="com/project/web/mapping/consultationMapper.xml"/>
+	</mappers>
+</configuration>

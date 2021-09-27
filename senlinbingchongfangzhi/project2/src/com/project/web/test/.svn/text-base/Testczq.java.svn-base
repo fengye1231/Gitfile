@@ -1,0 +1,37 @@
+package com.project.web.test;
+
+import org.junit.Test;
+
+import com.project.web.bean.AreaBean;
+import com.project.web.bean.ClassBean;
+import com.project.web.dao.IAreaDao;
+import com.project.web.dao.impl.AreaDaoImpl;
+
+/**
+ * 陈张强单点测试
+ * @author hp
+ *
+ */
+public class Testczq {
+   
+//    @Test
+//	public void aa() {
+//    	ClassBean b =  new ClassBean();
+//    	b.setId(1);
+////		jh.addArea(new AreaBean("混","黄树","命树","林地",b ));
+//    	
+//    	
+//    	System.out.println(jh.showAllArea(1,1, null,null, null));
+//		
+//	}
+    public static void main(String[] args) {
+    	 IAreaDao jh=new AreaDaoImpl();
+    	// System.out.println(jh.showAllArea(1,1, null,null, null));
+//    	 jh.addArea(new AreaBean("成","林","林","树"));
+    	 
+    	 System.out.println(jh.showAllArea(1, 5, null, null, null));
+    	 
+	}
+    
+    
+}

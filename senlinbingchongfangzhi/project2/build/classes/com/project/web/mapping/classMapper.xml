@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.classMapper">
+
+<resultMap type="ClassBean"  id="ClassBeanMap1" >
+            <id property="id"  column="pk_id"/>
+            <result property="name" column="f_name" />
+             <result property="principal" column="f_principal"/>
+             <result property="phoneNum" column="f_phoneNum"/>
+             <result property="num" column="f_num"/>
+             <result property="date" column="f_date"/>
+             <!--<association property="AreaBean" column="fk_area_id" select="com.project.web.mapper.areaMapper.findId"/>  -->
+</resultMap>
+<resultMap type="ClassBean"  id="ClassBeanMap2" >
+            <id property="id"  column="pk_id"/>
+            <result property="name" column="f_name" />
+             <result property="principal" column="f_principal"/>
+             <result property="phoneNum" column="f_phoneNum"/>
+             <result property="num" column="f_num"/>
+             <result property="date" column="f_date"/>
+             <association property="areaBean" column="fk_area_id" select="com.project.web.mapper.areaMapper.findId"/>
+</resultMap>
+   <select id="selectOne"  parameterType="int"   resultMap="ClassBeanMap2">
+                select * from t_class where pk_id =#{id}
+   </select>
+   <select id="selectName"  parameterType="int"   resultType="string">
+                select f_name  from t_class where pk_id =#{id}
+   </select>
+   <update id="updateOne" >
+               update t_class set f_principal=#{name} ,f_phoneNum=#{phoneNum} where pk_id = #{id}
+   </update>
+    <insert id="add" >
+               insert into t_class(f_name,f_principal,f_phoneNum,f_num,f_date,fk_area_id) 
+               values(#{name},#{principal},#{phoneNum},#{num},#{date},#{areaBean})
+   </insert>
+    <select id="selectCount"  resultType="java.lang.Integer">
+               select  count(class.f_name)  from t_class as class,t_area as area
+              <where>
+	                    fk_area_id=area.pk_id
+                      <if test="name!=null||name!='' "> and class.f_name like #{name}</if>
+                      <if test="area!=null||area!='' " > and area.f_name like #{area}</if>
+               </where>
+            
+     </select>
+	    <select id="selectAll"   resultMap="ClassBeanMap2">
+	             select * from  t_class as class,t_area as area
+	             <where>
+	                    fk_area_id=area.pk_id
+                      <if test="name!=null || name!='' ">and class.f_name like #{name}</if>
+                      <if test="area!=null || area!='' " >and area.f_name like #{area}</if>
+               </where>
+                         limit #{index_num},#{each_num}
+	    </select>
+	            <select id="findArea"   resultType="String" parameterType="int">
+	                          select f_name from t_class where fk_area_id=#{id} group by fk_area_id 
+	            </select>
+	            <select id="findAll" resultMap="ClassBeanMap1">
+	                       select *from t_class
+	            </select>
+	            
+</mapper>

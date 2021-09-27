@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.areaMapper">
+
+<resultMap type="AreaBean" id="AreaBeanMap">
+	<id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="species" column="f_species"/>
+	<result property="gentle" column="f_gentle"/>
+	<result property="great" column="f_great"/>
+	<result property="className" column="f_className"/>
+  
+</resultMap>
+<!-- 添加区域 -->
+<insert id="addArea" parameterType = "AreaBean">
+	call addArea(#{name},#{species},#{great},#{gentle});
+</insert>
+
+<!-- 动态查询 -->
+
+    <select id="findArea" resultMap="AreaBeanMap">
+	select a.*,c.f_className from t_area a left JOIN t_class c ON c.fk_area_id=a.pk_id 
+		<where>
+			 a.f_name like #{name}
+			<if test="species!=null"> and a.f_species like #{species}</if>
+			<if test="className!=null"> and c.f_className like #{className}</if>
+		</where>
+		 
+		limit #{index_num},#{indexNum}
+	</select>
+	<!-- 总页数 -->
+	<select id="pageNo" resultType="int">
+		select count(*) from t_area a left JOIN t_class c ON c.fk_area_id=a.pk_id 
+		<where>
+		    <if test="1==1"></if>
+			<if test="name!=null">and a.f_name like #{name}</if>
+			<if test="species!=null">and a.f_species like #{species}</if>
+			<if test="className!=null">and c.f_className like #{className}</if>
+		</where>
+	</select>
+   <!-- 查询对象 -->
+   <select id="findId" resultMap="AreaBeanMap">
+      select * from t_area where  pk_id=#{id}
+   </select>
+   
+   <!-- 查询ID -->
+   <select id="findName" resultMap="AreaBeanMap">
+     select pk_id from t_area  where f_name=#{name}
+   </select>
+   
+   <select id="findAllName" resultType="String">
+     select f_name from t_area
+   </select>
+   
+   <!-- 连表查询小班名称 -->
+    <select id="className" resultMap="AreaBeanMap">
+    SELECT a.*  c.f_name FROM t_area a, t_class  c WHERE a.pk_id=c.fk_area_id  AND a.pk_id=#{id}
+    </select>
+    
+
+
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.pestslMapper">
+<resultMap type="PestslBean" id="PestslBeanMap">
+   <id property="id" column="pk_id"/>
+	<result property="name" column="f_name"/>
+	<result property="host" column="f_host"/>
+	<result property="duction" column="f_duction"/>
+	<result property="enemy" column="f_enemy"/>
+	<result property="larvaImg" column="f_larvaImg"/>
+	<result property="adultImg" column="f_adultImg"/> 
+	<result property="prevention" column="f_prevention"/> 
+	<result property="harm" column="f_harm"/> 
+</resultMap>
+   <insert id="addPestsl">
+    
+    insert into t_pestsl(f_name,f_host,f_duction,f_enemy,f_larvaImg,f_adultImg,f_prevention,f_harm)
+    value(#{name},#{host},#{duction},#{enemy},#{larvaImg},#{adultImg},#{prevention},#{harm})
+   
+   </insert>
+   <select id="findById" resultMap="PestslBeanMap">
+     
+    select * from t_pestsl where pk_id=#{id}
+  
+   </select>
+   
+   
+   <select id="countAll" resultType="java.lang.Integer">
+	select count(*) totalNum from t_pestsl 
+	<where>
+		<if test="pestslName != null and pestslName !=''">
+		 and f_name like "%"#{pestslName}"%"
+		</if>
+		<if test="hostName !=null and hostName !=''">
+		 and f_host like "%"#{hostName}"%"
+		</if>	
+	</where>		
+</select>
+   <select id="showAllPestsl" resultMap="PestslBeanMap">
+     select * from t_pestsl
+     <where>
+		<if test="pestslName != null and pestslName !=''">
+		 and f_name like "%"#{pestslName}"%"
+		</if>
+		<if test="hostName !=null and hostName !=''">
+		 and f_host like "%"#{hostName}"%"
+		</if>		 	 
+	</where>
+		limit #{indexNum},#{each_page}
+   </select>
+</mapper>

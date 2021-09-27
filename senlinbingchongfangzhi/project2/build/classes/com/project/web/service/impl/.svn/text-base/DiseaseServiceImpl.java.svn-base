@@ -1,0 +1,31 @@
+package com.project.web.service.impl;
+
+import java.util.List;
+
+import com.project.web.bean.CutPageBean;
+import com.project.web.bean.DiseaseBean;
+import com.project.web.dao.IDiseaseDao;
+import com.project.web.dao.impl.DiseaseDaoImpl;
+import com.project.web.service.IDiseaseService;
+
+public class DiseaseServiceImpl implements IDiseaseService{
+    private IDiseaseDao idd = new DiseaseDaoImpl();
+	@Override
+	public void addDisease(DiseaseBean bean) {
+		idd.addDisease(bean);
+		
+	}
+
+	@Override
+	public DiseaseBean findById(int id) {
+		// TODO Auto-generated method stub
+		return idd.findById(id);
+	}
+
+	@Override
+	public CutPageBean<DiseaseBean> showAllDisease(int num, String diseaseName, String sysmptom) {
+		// TODO Auto-generated method stub
+		return idd.showAllDisease(num, diseaseName, sysmptom);
+	}
+
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
+    <script src="../../js/jQuery-2.2.2-min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <style>
+        #div1{
+            background:url("../../img/8.gif") no-repeat center;
+            background-size:100%;
+            height:589px;
+        }
+        #div2{
+            /*background-color: #0099CC;*/
+            height: 200px;
+        }
+        .input-group .input-group-addon{
+            top: 0;
+        }
+        .input-group{
+            margin:  0 auto;
+            width: 80%;
+        }
+        .input-group .form-control{
+            width: 70%;
+        }
+        #div3{
+            margin-top: 100px;
+        }
+        #nameRemove,#pwdRemove, #nameOk ,#pwdOk{
+            display: none;
+            font-size: 200%;
+        }
+        #nameOk ,#pwdOk{
+            color: #38b774;
+
+        }
+        #nameRemove,#pwdRemove{
+            color: red;
+
+        }
+        #div5{
+            font-family: 华文琥珀;
+            font-size: 40px;
+            margin-top: 70px;
+            color:whitesmoke;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+ <div class="container-fluid">
+     <div class="row"  id="div1">
+         <div class="col-md-4 col-md-offset-4"id="div5">
+             <span>森林病虫害防止系统</span>
+         </div>
+
+         <div class="col-md-4 col-md-offset-4" id="div2">
+
+             <form action="#" method="post" class="form-horizontal" role="form" id="form1">
+                 <div id="div3">
+                 <div class="input-group">
+                     <span class="input-group-addon glyphicon glyphicon-user " ></span>
+                     <input type="text" class="form-control" id="name1" placeholder="请输入用户名">
+                     <span class="glyphicon glyphicon-ok" id="nameOk"></span>
+                     <span class="glyphicon glyphicon-remove" id="nameRemove"></span>
+                 </div>
+                 <br/>
+                 <div class="input-group">
+                     <span class="input-group-addon  glyphicon glyphicon-cog"></span>
+                     <input type="password" class="form-control" id="pwd1" placeholder="请输入密码">
+                     <span class="glyphicon glyphicon-ok" id="pwdOk"></span>
+                     <span class="glyphicon glyphicon-remove" id="pwdRemove"></span>
+                 </div>
+                     <br/>
+                     <div class="col-md-3 col-md-offset-6" >
+                         <input type="submit" value="登陆"/>
+                     </div>
+                 </div>
+             </form>
+
+         </div>
+
+
+     </div>
+
+ </div>
+
+
+</body>
+<script>
+    var boo= false
+    $("#name1").blur(function(){
+        var  a = /^[a-zA-Z0-9]{6,18}$/;
+        var b= a.test($(this).val());
+        if(b){
+            $("#nameRemove").css({display:"none"});
+            $("#nameOk").css({display:"inline"});
+        }else{
+            $("#nameRemove").css({display:"inline"});
+            $("#nameOk").css({display:"none"});
+        }
+        boo=b;
+    });
+    var  boo1=false;
+    $("#pwd1").blur(function() {
+        var regex = /^[0-9]{6}$/;
+        var a = regex.test(this.value);
+        if (!a) {
+            $("#pwdRemove").css({display: "inline"});
+            $("#pwdOk").css({"display": "none"});
+        } else {
+            $("#pwdRemove").css({display: "none"});
+            $("#pwdOk").css({"display": "inline"});
+        }
+        boo1=a;
+    })
+    $("#form1").submit(function(){
+        $("#name1").blur();
+        $("#pwd1").blur();
+        return boo&&boo1;
+    });
+
+
+</script>
+
+</html>

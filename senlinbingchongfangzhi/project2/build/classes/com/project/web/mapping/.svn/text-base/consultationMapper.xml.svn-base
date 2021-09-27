@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DYD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.web.mapper.consultationMapper">
+
+<resultMap type="ConsultationBean" id="consultationBeanMap">
+	<id property="id" column="pk_id"/>
+	<result property="content" column="f_content"/>
+	<result property="result" column="f_result"/>
+	<result property="date" column="f_date"/>
+</resultMap>
+
+
+<insert id="addConsultation">
+	insert into t_consultation(f_content,f_result,f_date,fk_event_id) value(#{content},#{result},#{date},#{id})
+</insert>
+
+<select id="findAllConsultation" resultMap="consultationBeanMap">
+	select * from t_consultation where fk_event_id = #{id}
+</select>
+
+
+
+</mapper>
